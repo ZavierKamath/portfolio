@@ -38,8 +38,10 @@ export function StarfieldCanvas({
     return window.innerWidth < 768;
   }, []);
 
-  // Get particle count based on device
-  const targetParticleCount = isMobile ? particleCount.mobile : particleCount.desktop;
+  // Get particle count based on device - memoize to prevent rerenders
+  const targetParticleCount = useMemo(() => {
+    return isMobile ? particleCount.mobile : particleCount.desktop;
+  }, [isMobile, particleCount.mobile, particleCount.desktop]);
 
   // Initialize stars
   const initializeStars = useCallback(

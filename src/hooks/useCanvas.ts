@@ -24,6 +24,10 @@ export function useCanvas(
   const frameRef = useRef<number | undefined>(undefined);
   const lastTimeRef = useRef<number>(0);
   const isActiveRef = useRef(true);
+  const drawRef = useRef(draw);
+  
+  // Update draw function ref without causing re-renders
+  drawRef.current = draw;
 
   // Initialize canvas context
   useEffect(() => {
@@ -41,11 +45,9 @@ export function useCanvas(
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const {
-      width = window.innerWidth,
-      height = window.innerHeight,
-      dpr = window.devicePixelRatio || 1,
-    } = options;
+    const width = options.width || window.innerWidth;
+    const height = options.height || window.innerHeight;
+    const dpr = options.dpr || window.devicePixelRatio || 1;
 
     // Set display size
     canvas.style.width = `${width}px`;
@@ -62,7 +64,7 @@ export function useCanvas(
     }
 
     setSize({ width, height });
-  }, [options]);
+  }, [options.width, options.height, options.dpr]);
 
   // Handle window resize with debouncing
   useEffect(() => {
@@ -93,11 +95,11 @@ export function useCanvas(
       // Cap delta time to prevent large jumps
       const cappedDeltaTime = Math.min(deltaTime, 33.33); // Max 30 FPS minimum
 
-      draw(context, cappedDeltaTime);
+      drawRef.current(context, cappedDeltaTime);
 
       frameRef.current = requestAnimationFrame(animate);
     },
-    [context, draw]
+    [context]
   );
 
   // Start/stop animation loop
