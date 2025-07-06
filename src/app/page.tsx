@@ -1,45 +1,10 @@
+import { Hero } from "@/components/home/Hero";
+
 export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="container mx-auto min-h-screen flex flex-col items-center justify-center py-12">
-        <h1 className="text-gradient mb-8 text-center">From Dark Matter to Neural Networks</h1>
-        <p className="text-body-lg text-center max-w-2xl mb-12">
-          Astrophysicist turned AI researcher, bridging the cosmos with cutting-edge machine
-          learning. Exploring the universe through data, algorithms, and scientific discovery.
-        </p>
-        <div className="flex gap-4 mb-16">
-          <a href="/resume.pdf" download className="btn-primary">
-            Download Resume
-          </a>
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary"
-          >
-            View GitHub
-          </a>
-        </div>
-        <div className="text-center">
-          <p className="text-moonlight-gray/60 mb-4">Scroll down to explore</p>
-          <div className="animate-bounce">
-            <svg
-              className="w-6 h-6 mx-auto text-nebula-blue"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* About Section */}
       <section className="container mx-auto py-20">
