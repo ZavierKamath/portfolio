@@ -1,26 +1,171 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Inter Variable Font */
+@font-face {
+  font-family: "Inter Variable";
+  src: url("/fonts/inter-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors */
+  --cosmic-black: 10 14 26;
+  --nebula-blue: 96 165 250;
+
+  /* Secondary Colors */
+  --stellar-blue: 59 130 246;
+  --deep-space-navy: 30 41 59;
+  --moonlight-gray: 226 232 240;
+
+  /* Accent Colors */
+  --supernova-orange: 249 115 22;
+  --aurora-green: 16 185 129;
+  --pulsar-purple: 139 92 246;
+
+  /* Functional Colors */
+  --success-green: 34 197 94;
+  --error-red: 239 68 68;
+  --info-blue: 59 130 246;
+  --warning-amber: 245 158 11;
+
+  /* Background Colors */
+  --space-black: 0 8 20;
+  --dark-matter: 15 23 42;
+  --starfield: 248 250 252;
+  --cosmic-dust: 241 245 249;
+
+  /* Default theme (dark) */
+  --background: var(--space-black);
+  --foreground: var(--moonlight-gray);
+  --card-background: var(--dark-matter);
+
+  /* Spacing */
+  --spacing-atomic: 4px;
+  --spacing-micro: 8px;
+  --spacing-small: 16px;
+  --spacing-default: 24px;
+  --spacing-medium: 32px;
+  --spacing-large: 48px;
+  --spacing-xl: 64px;
+  --spacing-xxl: 96px;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --shadow-button: 0 4px 12px rgba(30, 58, 138, 0.2);
+  --shadow-card-hover: 0 8px 32px rgba(59, 130, 246, 0.3);
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.5);
+
+  /* Animation durations */
+  --duration-quick: 150ms;
+  --duration-standard: 250ms;
+  --duration-smooth: 350ms;
+  --duration-slow: 500ms;
+
+  /* Easing functions */
+  --ease-out: ease-out;
+  --ease-in-out: ease-in-out;
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--starfield);
+    --foreground: var(--cosmic-black);
+    --card-background: var(--cosmic-dust);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+
+  body {
+    @apply bg-space-black text-moonlight-gray;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  h1 {
+    @apply text-h1 font-bold;
+  }
+
+  h2 {
+    @apply text-h2 font-semibold;
+  }
+
+  h3 {
+    @apply text-h3 font-semibold;
+  }
+
+  h4 {
+    @apply text-h4 font-medium;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto px-6;
+    max-width: 1200px;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-deep-space-navy to-stellar-blue text-white;
+    @apply h-12 px-6 rounded-lg;
+    @apply shadow-lg hover:brightness-110 hover:shadow-xl;
+    @apply transition-all duration-300 ease-out;
+    @apply font-medium;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border-2 border-nebula-blue text-nebula-blue;
+    @apply h-12 px-6 rounded-lg;
+    @apply hover:bg-nebula-blue/10;
+    @apply transition-all duration-300 ease-out;
+    @apply font-medium;
+  }
+
+  .card {
+    @apply bg-dark-matter border border-stellar-blue/10;
+    @apply rounded-2xl p-6;
+    @apply shadow-xl hover:border-stellar-blue/30;
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .link {
+    @apply text-stellar-blue font-medium;
+    @apply hover:text-nebula-blue hover:underline;
+    @apply transition-colors duration-150;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-nebula-blue to-stellar-blue;
+    @apply bg-clip-text text-transparent;
+  }
+
+  .animate-starfield {
+    animation: starfield 50s linear infinite;
+  }
+
+  @keyframes starfield {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-100px);
+    }
+  }
+
+  .glow {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  }
+
+  .blur-backdrop {
+    backdrop-filter: blur(12px);
+  }
 }

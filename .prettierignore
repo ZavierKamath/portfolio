@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+.next/
+out/
+dist/
+
+# Testing
+coverage/
+
+# Production
+build/
+
+# Generated files
+*.generated.*
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
