@@ -246,4 +246,202 @@
       scroll-behavior: auto !important;
     }
   }
+
+  /* Markdown content styles */
+  .markdown-content {
+    /* Headings */
+    h1, h2, h3, h4, h5, h6 {
+      @apply text-moonlight-gray font-semibold mt-6 mb-4 first:mt-0;
+    }
+    
+    h1 { @apply text-2xl; }
+    h2 { @apply text-xl; }
+    h3 { @apply text-lg; }
+    h4 { @apply text-base; }
+    
+    /* Paragraphs */
+    p {
+      @apply mb-4 last:mb-0;
+    }
+    
+    /* Inline code */
+    code {
+      @apply px-1.5 py-0.5 bg-dark-matter/60 text-stellar-blue rounded text-sm font-mono;
+    }
+    
+    /* Code blocks */
+    pre {
+      @apply bg-dark-matter/80 rounded-lg p-4 mb-4 overflow-x-auto;
+      @apply border border-stellar-blue/20;
+    }
+    
+    pre code {
+      @apply p-0 bg-transparent text-moonlight-gray;
+    }
+    
+    /* Links */
+    a {
+      @apply text-stellar-blue hover:text-nebula-blue transition-colors underline;
+    }
+    
+    /* Lists */
+    ul, ol {
+      @apply mb-4 pl-6;
+    }
+    
+    ul {
+      @apply list-disc;
+    }
+    
+    ol {
+      @apply list-decimal;
+    }
+    
+    li {
+      @apply mb-1;
+    }
+    
+    /* Nested lists */
+    li > ul,
+    li > ol {
+      @apply mb-2 mt-1;
+    }
+    
+    /* Blockquotes */
+    blockquote {
+      @apply border-l-4 border-stellar-blue/50 pl-4 py-2 mb-4;
+      @apply bg-stellar-blue/5 rounded-r;
+    }
+    
+    blockquote p {
+      @apply mb-0 text-moonlight-gray/90 italic;
+    }
+    
+    /* Tables (GFM) */
+    table {
+      @apply w-full mb-4 border-collapse;
+    }
+    
+    th, td {
+      @apply border border-stellar-blue/20 px-3 py-2 text-left;
+    }
+    
+    th {
+      @apply bg-stellar-blue/10 font-semibold text-moonlight-gray;
+    }
+    
+    td {
+      @apply bg-dark-matter/20;
+    }
+    
+    /* Horizontal rules */
+    hr {
+      @apply border-0 border-t border-stellar-blue/30 my-6;
+    }
+    
+    /* Strikethrough (GFM) */
+    del {
+      @apply text-moonlight-gray/60;
+    }
+    
+    /* Strong and emphasis */
+    strong {
+      @apply font-semibold text-moonlight-gray;
+    }
+    
+    em {
+      @apply italic;
+    }
+    
+    /* Task lists (GFM) */
+    input[type="checkbox"] {
+      @apply mr-2;
+    }
+    
+    /* Image handling */
+    img {
+      @apply max-w-full h-auto rounded;
+    }
+  }
+
+  /* Syntax highlighting theme for highlight.js */
+  .hljs {
+    @apply bg-transparent text-moonlight-gray;
+  }
+  
+  .hljs-comment,
+  .hljs-quote {
+    @apply text-moonlight-gray/60 italic;
+  }
+  
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-subst {
+    @apply text-nebula-blue;
+  }
+  
+  .hljs-number,
+  .hljs-literal,
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-tag .hljs-attr {
+    @apply text-supernova-orange;
+  }
+  
+  .hljs-string,
+  .hljs-doctag {
+    @apply text-aurora-green;
+  }
+  
+  .hljs-title,
+  .hljs-section,
+  .hljs-selector-id {
+    @apply text-pulsar-purple;
+  }
+  
+  .hljs-type,
+  .hljs-class .hljs-title {
+    @apply text-stellar-blue;
+  }
+  
+  .hljs-tag,
+  .hljs-name,
+  .hljs-attribute {
+    @apply text-nebula-blue;
+  }
+  
+  .hljs-regexp,
+  .hljs-link {
+    @apply text-aurora-green;
+  }
+  
+  .hljs-symbol,
+  .hljs-bullet {
+    @apply text-supernova-orange;
+  }
+  
+  .hljs-built_in,
+  .hljs-builtin-name {
+    @apply text-stellar-blue;
+  }
+  
+  .hljs-meta {
+    @apply text-moonlight-gray/70;
+  }
+  
+  .hljs-deletion {
+    @apply bg-error-red/20;
+  }
+  
+  .hljs-addition {
+    @apply bg-aurora-green/20;
+  }
+  
+  .hljs-emphasis {
+    @apply italic;
+  }
+  
+  .hljs-strong {
+    @apply font-bold;
+  }
 }

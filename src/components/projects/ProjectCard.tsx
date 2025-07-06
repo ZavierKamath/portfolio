@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Project } from "@/lib/types";
 import { TechBadge } from "./TechBadge";
 import { cardHoverVariants } from "@/lib/animations";
+import { processMarkdown, isMarkdownContent } from "@/lib/markdown";
 
 interface ProjectCardProps {
   project: Project;
@@ -43,9 +44,55 @@ const getLinkIcon = (type: string) => {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [processedDescription, setProcessedDescription] = useState<string>('');
+  const [processedExtendedDescription, setProcessedExtendedDescription] = useState<string>('');
+  const [isProcessing, setIsProcessing] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
   const hasExtendedDescription = project.extendedDescription && project.extendedDescription !== project.description;
+
+  // Process markdown on component mount
+  useEffect(() => {
+    let isMounted = true;
+
+    const processDescriptions = async () => {
+      if (!isMounted) return;
+      
+      setIsProcessing(true);
+
+      try {
+        // Process main description
+        const descriptionHtml = isMarkdownContent(project.description)
+          ? await processMarkdown(project.description)
+          : project.description;
+
+        // Process extended description if it exists
+        const extendedDescriptionHtml = project.extendedDescription && isMarkdownContent(project.extendedDescription)
+          ? await processMarkdown(project.extendedDescription)
+          : project.extendedDescription || '';
+
+        if (isMounted) {
+          setProcessedDescription(descriptionHtml);
+          setProcessedExtendedDescription(extendedDescriptionHtml);
+          setIsProcessing(false);
+        }
+      } catch (error) {
+        console.error('Error processing markdown for project:', project.id, error);
+        if (isMounted) {
+          // Fallback to original text
+          setProcessedDescription(project.description);
+          setProcessedExtendedDescription(project.extendedDescription || '');
+          setIsProcessing(false);
+        }
+      }
+    };
+
+    processDescriptions();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [project.description, project.extendedDescription, project.id]);
 
   return (
     <motion.article
@@ -76,12 +123,22 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Description */}
       <div className="mb-6">
-        <p 
-          className="text-moonlight-gray/80 leading-relaxed"
-          id={`description-${project.id}`}
-        >
-          {isExpanded && hasExtendedDescription ? project.extendedDescription : project.description}
-        </p>
+        {isProcessing ? (
+          <div className="animate-pulse">
+            <div className="h-4 bg-moonlight-gray/20 rounded w-full mb-2"></div>
+            <div className="h-4 bg-moonlight-gray/20 rounded w-5/6"></div>
+          </div>
+        ) : (
+          <div 
+            className="text-moonlight-gray/80 leading-relaxed markdown-content"
+            id={`description-${project.id}`}
+            dangerouslySetInnerHTML={{
+              __html: isExpanded && hasExtendedDescription 
+                ? (processedExtendedDescription || project.extendedDescription || '') 
+                : (processedDescription || project.description)
+            }}
+          />
+        )}
         
         {hasExtendedDescription && (
           <button
