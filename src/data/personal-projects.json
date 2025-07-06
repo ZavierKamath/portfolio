@@ -1,0 +1,44 @@
+{
+  "projects": [
+    {
+      "id": "physics-grad-match",
+      "title": "Physics Grad Match",
+      "subtitle": "AI-Powered PhD Program Matching Platform",
+      "date": "June 2025",
+      "description": "Leveraged AI tools to build web application matching future PhD program applicants to professors using vector similarity search, LLM integration, and full-stack architecture.",
+      "extendedDescription": "Engineered end-to-end solution combining advanced AI techniques with modern web development. Implemented vector similarity search for intelligent professor-student matching, integrated LLM capabilities for natural language processing, and built responsive full-stack architecture. Features include comprehensive API design, robust database management, sophisticated recommendation algorithms, and polished UI/UX design. Demonstrates proficiency in both AI/ML techniques and software engineering best practices with robust version control and debugging workflows.",
+      "skills": [
+        { "name": "Python", "category": "Language" },
+        { "name": "Vector Similarity", "category": "Concept" },
+        { "name": "LLM Integration", "category": "Concept" },
+        { "name": "API Development", "category": "Tool" },
+        { "name": "Database Management", "category": "Tool" },
+        { "name": "Web Development", "category": "Tool" },
+        { "name": "Full-Stack Architecture", "category": "Concept" },
+        { "name": "UI/UX Design", "category": "Tool" },
+        { "name": "Recommendation Systems", "category": "Concept" },
+        { "name": "Web Scraping", "category": "Tool" },
+        { "name": "Git", "category": "Tool" }
+      ],
+      "links": [
+        {
+          "type": "github",
+          "url": "https://github.com/ZavierKamath/physics-grad-match",
+          "label": "Project Repository"
+        },
+        {
+          "type": "demo",
+          "url": "#",
+          "label": "Live Application"
+        },
+        {
+          "type": "website",
+          "url": "#",
+          "label": "Project Documentation"
+        }
+      ],
+      "impact": "AI-powered matching platform connecting PhD applicants with professors using advanced vector similarity and LLM technology",
+      "featured": true
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "projects": [
+    {
+      "id": "agentic-ai-loan-solution",
+      "title": "Agentic AI Loan Application Solution",
+      "subtitle": "Enterprise AI Automation for Financial Services",
+      "date": "May 2025 - Present",
+      "description": "Developed fully automatic agentic AI loan application solution demo using AWS and LangChain that chats with customers, processes documents and natural language input, and stores data with enterprise-grade architecture.",
+      "extendedDescription": "Built comprehensive AI-powered loan processing system featuring natural language customer interactions, automated document processing, advanced memory and context engineering, and robust data storage using AWS services. Created LLM automation workflows and architecture designs for data science team, authored wiki articles and Python libraries to enable workflow facilitation, and integrated enterprise-grade prompt engineering techniques for production-ready solutions.",
+      "skills": [
+        { "name": "AWS Bedrock", "category": "Cloud" },
+        { "name": "AWS S3", "category": "Cloud" },
+        { "name": "AWS Athena", "category": "Cloud" },
+        { "name": "AWS Lambda", "category": "Cloud" },
+        { "name": "AWS SageMaker", "category": "Cloud" },
+        { "name": "LangChain", "category": "Framework" },
+        { "name": "LangGraph", "category": "Framework" },
+        { "name": "Python", "category": "Language" },
+        { "name": "LLMs", "category": "Concept" },
+        { "name": "Prompt Engineering", "category": "Concept" },
+        { "name": "Agentic AI Systems", "category": "Concept" },
+        { "name": "API Development", "category": "Tool" }
+      ],
+      "links": [
+        {
+          "type": "demo",
+          "url": "#",
+          "label": "Internal Demo"
+        },
+        {
+          "type": "website",
+          "url": "#",
+          "label": "Architecture Documentation"
+        }
+      ],
+      "impact": "Fully automated loan application processing with intelligent customer chat, document analysis, and enterprise data integration",
+      "featured": true
+    }
+  ]
+}

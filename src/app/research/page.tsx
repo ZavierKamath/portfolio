@@ -1,30 +1,35 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ProjectGrid } from "@/components/projects/ProjectGrid";
+import { useProjectData } from "@/hooks/useProjectData";
+import { ErrorBoundary } from "@/components/shared/ErrorBoundary";
+import { pageVariants, headerVariants } from "@/lib/animations";
+
 export default function Research() {
+  const { projects, loading, error } = useProjectData("research");
+  
   return (
-    <main className="container mx-auto min-h-screen py-12">
-      <h1 className="text-gradient mb-8">Research Projects</h1>
-      <div className="space-y-8">
-        {Array.from({ length: 10 }, (_, i) => (
-          <div key={i} className="card">
-            <h3 className="mb-4">Research Project {i + 1}</h3>
-            <p className="text-body-lg mb-4">
-              This is a research project that demonstrates scroll behavior. Lorem ipsum dolor sit
-              amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 bg-pulsar-purple/20 text-pulsar-purple rounded-full text-sm">
-                Machine Learning
-              </span>
-              <span className="px-3 py-1 bg-stellar-blue/20 text-stellar-blue rounded-full text-sm">
-                Python
-              </span>
-              <span className="px-3 py-1 bg-aurora-green/20 text-aurora-green rounded-full text-sm">
-                Research
-              </span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </main>
+    <ErrorBoundary>
+      <motion.main
+        className="container mx-auto min-h-screen py-12"
+        variants={pageVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
+        <motion.div 
+          className="text-center mb-12"
+          variants={headerVariants}
+        >
+          <h1 className="text-gradient mb-4">Research Projects</h1>
+          <p className="text-moonlight-gray/70 max-w-2xl mx-auto">
+            Exploring the frontiers of astrophysics through computational methods, statistical analysis, and cutting-edge research techniques.
+          </p>
+        </motion.div>
+        
+        <ProjectGrid projects={projects} loading={loading} error={error} />
+      </motion.main>
+    </ErrorBoundary>
   );
 }

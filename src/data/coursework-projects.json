@@ -1,0 +1,78 @@
+{
+  "projects": [
+    {
+      "id": "quasar-pca-analysis",
+      "title": "PCA Analysis of Quasar UV Spectra",
+      "subtitle": "Astronomical Data Science & Spectroscopy",
+      "date": "April 2025",
+      "description": "Applied Principal Component Analysis to reconstruct full quasar continuum spectra from red-side spectral weights and reproduced mean transmitted flux vs. redshift relation.",
+      "extendedDescription": "Implemented advanced spectroscopic analysis techniques using Python with astronomical data processing libraries. Performed dimensionality reduction on high-resolution UV data to extract meaningful patterns from complex quasar spectra. Successfully reconstructed complete continuum spectra demonstrating mastery of both statistical methods and astrophysical data analysis.",
+      "skills": [
+        { "name": "Python", "category": "Language" },
+        { "name": "Principal Component Analysis", "category": "Concept" },
+        { "name": "Scikit-Learn", "category": "Library" },
+        { "name": "Spectroscopy", "category": "Concept" },
+        { "name": "Astronomical Data Processing", "category": "Tool" },
+        { "name": "Dimensionality Reduction", "category": "Concept" }
+      ],
+      "links": [
+        {
+          "type": "github",
+          "url": "https://github.com/ZavierKamath/quasar-pca-analysis",
+          "label": "Analysis Repository"
+        }
+      ],
+      "impact": "Successfully reconstructed full quasar continuum spectra from partial spectral data using advanced PCA techniques",
+      "featured": true
+    },
+    {
+      "id": "tully-fisher-regression",
+      "title": "Deming Regression Analysis of Tully-Fisher Relation",
+      "subtitle": "Bayesian Analysis of Galaxy Velocity-Luminosity Data",
+      "date": "March 2025",
+      "description": "Performed novel Bayesian linear regression analysis accounting for X and Y uncertainties in galaxy velocity-luminosity data, generating probability distributions for Tully-Fisher parameters.",
+      "extendedDescription": "Implemented sophisticated Bayesian regression techniques that properly account for measurement uncertainties in both dependent and independent variables. Successfully reproduced results from literature while extending analysis to early-type and late-type galaxy populations, demonstrating deep understanding of both statistical methods and galaxy physics.",
+      "skills": [
+        { "name": "Python", "category": "Language" },
+        { "name": "Bayesian Statistics", "category": "Concept" },
+        { "name": "Linear Regression", "category": "Concept" },
+        { "name": "Statistical Analysis", "category": "Concept" },
+        { "name": "Galaxy Physics", "category": "Concept" },
+        { "name": "Data Science", "category": "Tool" }
+      ],
+      "links": [
+        {
+          "type": "github",
+          "url": "https://github.com/ZavierKamath/tully-fisher-analysis",
+          "label": "Regression Analysis"
+        }
+      ],
+      "impact": "Novel Bayesian approach accounting for bidirectional uncertainties, extending analysis to multiple galaxy populations"
+    },
+    {
+      "id": "nfl-data-analysis",
+      "title": "NFL Data Analysis & Prediction",
+      "subtitle": "Machine Learning for Sports Analytics",
+      "date": "November 2024",
+      "description": "Developed neural network and random forest models to analyze and predict pivotal NFL plays with 75%+ accuracy, processing 50,000+ plays using advanced ML techniques.",
+      "extendedDescription": "Engineered comprehensive feature extraction pipeline for large-scale NFL dataset analysis. Implemented and compared multiple machine learning algorithms including neural networks and random forests. Successfully predicted fumble probability and identified key correlational features while classifying shotgun vs. non-shotgun formations, demonstrating proficiency in both supervised learning and feature engineering.",
+      "skills": [
+        { "name": "Python", "category": "Language" },
+        { "name": "Scikit-Learn", "category": "Library" },
+        { "name": "Neural Networks", "category": "Concept" },
+        { "name": "Random Forest", "category": "Concept" },
+        { "name": "Feature Engineering", "category": "Concept" },
+        { "name": "Machine Learning", "category": "Concept" },
+        { "name": "Data Processing", "category": "Tool" }
+      ],
+      "links": [
+        {
+          "type": "github",
+          "url": "https://github.com/ZavierKamath/nfl-ml-analysis",
+          "label": "ML Analysis Repository"
+        }
+      ],
+      "impact": "Achieved 75%+ accuracy in NFL play prediction with feature extraction pipeline processing 50,000+ plays"
+    }
+  ]
+}
