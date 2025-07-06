@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
+import { StarfieldCanvas } from "@/components/shared/StarfieldCanvas";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -69,6 +70,7 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable} ${spaceGrotesk.variable}`}
     >
       <body className="min-h-screen bg-space-black text-moonlight-gray antialiased">
+        <StarfieldCanvas />
         <Navbar />
         <div className="relative pt-16">{children}</div>
       </body>
