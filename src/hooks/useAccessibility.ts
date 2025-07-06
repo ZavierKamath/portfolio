@@ -65,7 +65,7 @@ export function getAnimationConfig(reducedMotion: boolean) {
 export function useAnnouncer() {
   const [announcement, setAnnouncement] = useState("");
 
-  const announce = (message: string, _priority: "polite" | "assertive" = "polite") => {
+  const announce = (message: string) => {
     setAnnouncement("");
     // Small delay to ensure screen reader picks up the change
     setTimeout(() => {

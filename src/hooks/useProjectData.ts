@@ -58,7 +58,7 @@ export function useProjectData(type: ProjectType): UseProjectDataReturn {
             throw new Error(`Unknown project type: ${type}`);
         }
 
-        const typedData = (data as any)?.default || data;
+        const typedData = (data as { default?: ProjectCategory })?.default || data as ProjectCategory;
         
         // Cache the data
         projectDataCache.set(type, typedData);
