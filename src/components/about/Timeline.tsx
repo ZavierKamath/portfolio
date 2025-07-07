@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 interface TimelineItem {
@@ -27,7 +26,7 @@ const timelineData: TimelineItem[] = [
       "Integrated enterprise-grade prompt engineering techniques"
     ],
     type: "experience",
-    icon: "💼"
+    icon: "■"
   },
   {
     id: "senior-award",
@@ -40,7 +39,7 @@ const timelineData: TimelineItem[] = [
       "Awarded $400 prize for exceptional performance"
     ],
     type: "award",
-    icon: "🏆"
+    icon: "▲"
   },
   {
     id: "graduation",
@@ -54,7 +53,7 @@ const timelineData: TimelineItem[] = [
       "Dean's List recognition for all 8 semesters"
     ],
     type: "education",
-    icon: "🎓"
+    icon: "●"
   },
   {
     id: "research-assistant",
@@ -68,7 +67,7 @@ const timelineData: TimelineItem[] = [
       "Authored research methods summary for upcoming publication"
     ],
     type: "experience",
-    icon: "🔬"
+    icon: "♦"
   },
   {
     id: "valorant-captain",
@@ -82,7 +81,7 @@ const timelineData: TimelineItem[] = [
       "Mentored teammates while representing organization"
     ],
     type: "experience",
-    icon: "🎮"
+    icon: "★"
   },
   {
     id: "research-scholarship",
@@ -95,7 +94,7 @@ const timelineData: TimelineItem[] = [
       "Recognized for academic excellence and research potential"
     ],
     type: "award",
-    icon: "🎖️"
+    icon: "✦"
   },
   {
     id: "trustees-scholarship",
@@ -108,37 +107,11 @@ const timelineData: TimelineItem[] = [
       "Sustained high academic performance throughout undergraduate studies"
     ],
     type: "award",
-    icon: "📚"
+    icon: "♠"
   }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { 
-    opacity: 0, 
-    x: -50 
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.5
-    }
-  }
-};
-
 export default function Timeline() {
-  const [visibleItems, setVisibleItems] = useState<Set<string>>(new Set());
   const [filter, setFilter] = useState<'all' | 'education' | 'experience' | 'award'>('all');
 
   useEffect(() => {
@@ -146,7 +119,7 @@ export default function Timeline() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setVisibleItems(prev => new Set([...prev, entry.target.id]));
+            entry.target.classList.add('in-view');
           }
         });
       },
@@ -165,98 +138,166 @@ export default function Timeline() {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'education': return 'border-nebula-purple';
-      case 'experience': return 'border-cosmic-blue';
-      case 'award': return 'border-starlight-yellow';
-      default: return 'border-moonlight-gray';
+      case 'education': return 'var(--nebula-purple)';
+      case 'experience': return 'var(--stellar-cyan)';
+      case 'award': return 'var(--quasar-yellow)';
+      default: return 'var(--asteroid-grey)';
     }
   };
 
   const getTypeBackground = (type: string) => {
     switch (type) {
-      case 'education': return 'bg-nebula-purple/10';
-      case 'experience': return 'bg-cosmic-blue/10';
-      case 'award': return 'bg-starlight-yellow/10';
-      default: return 'bg-moonlight-gray/10';
+      case 'education': return 'rgba(91, 33, 182, 0.1)';
+      case 'experience': return 'rgba(15, 188, 220, 0.1)';
+      case 'award': return 'rgba(255, 210, 63, 0.1)';
+      default: return 'rgba(139, 134, 128, 0.1)';
     }
   };
 
   return (
     <section className="max-w-4xl mx-auto">
+      {/* Terminal Header */}
       <div className="mb-8">
-        <h2 className="text-gradient mb-4">Journey</h2>
-        <div className="flex flex-wrap gap-2">
+        <div className="border-pixel border-stellar-cyan bg-void-black p-4 font-display">
+          <div className="text-terminal text-sm mb-2">
+            <span className="text-quasar-yellow">ZAVIER_KAMATH.exe</span> 
+            <span className="ml-4">████████░░ 80% Loaded</span>
+          </div>
+          <div className="border-t border-stellar-cyan pt-2">
+            <h2 className="text-gradient font-display text-xl glow-cyan">TIMELINE.DAT</h2>
+          </div>
+        </div>
+        
+        {/* Filter Buttons - Pixel Style */}
+        <div className="flex flex-wrap gap-2 mt-4">
           {(['all', 'education', 'experience', 'award'] as const).map((type) => (
             <button
               key={type}
               onClick={() => setFilter(type)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`px-4 py-2 font-ui text-sm font-bold uppercase transition-all duration-150 border-pixel ${
                 filter === type
-                  ? 'bg-cosmic-blue text-white shadow-lg'
-                  : 'bg-space-dark/50 text-moonlight-gray hover:bg-space-dark/80'
+                  ? 'bg-stellar-cyan text-void-black border-star-white shadow-pixel-sm'
+                  : 'bg-cosmic-indigo text-stellar-cyan border-stellar-cyan hover:bg-stellar-cyan hover:text-void-black'
               }`}
+              style={{
+                transition: 'all 0.15s steps(4)'
+              }}
             >
-              {type.charAt(0).toUpperCase() + type.slice(1)}
+              [
+              {filter === type ? '■' : '□'}
+              ] {type.toUpperCase()}
             </button>
           ))}
         </div>
       </div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="relative"
-      >
-        {/* Timeline line */}
-        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cosmic-blue via-nebula-purple to-starlight-yellow opacity-50" />
+      {/* Timeline Container */}
+      <div className="relative pixel-stagger-children">
+        {/* ASCII Timeline Line */}
+        <div 
+          className="absolute left-8 top-0 bottom-0 w-0.5 opacity-60"
+          style={{
+            background: `linear-gradient(to bottom, 
+              var(--stellar-cyan) 0%, 
+              var(--nebula-purple) 50%, 
+              var(--quasar-yellow) 100%)`
+          }}
+        />
 
         <div className="space-y-8">
-          {filteredData.map((item) => (
-            <motion.div
+          {filteredData.map((item, index) => (
+            <div
               key={item.id}
               id={item.id}
-              variants={itemVariants}
-              className={`timeline-item relative flex items-start space-x-6 ${
-                visibleItems.has(item.id) ? 'animate-fade-in' : ''
-              }`}
+              className="timeline-item pixel-scroll-reveal relative flex items-start space-x-6"
+              style={{
+                animationDelay: `${index * 100}ms`
+              }}
             >
-              {/* Icon */}
-              <div className={`flex-shrink-0 w-16 h-16 rounded-full border-2 ${getTypeColor(item.type)} ${getTypeBackground(item.type)} flex items-center justify-center text-2xl z-10 bg-space-dark`}>
+              {/* Pixel Icon */}
+              <div 
+                className="flex-shrink-0 w-16 h-16 border-pixel-thick flex items-center justify-center text-2xl z-10 font-display pixel-float"
+                style={{
+                  borderColor: getTypeColor(item.type),
+                  backgroundColor: getTypeBackground(item.type),
+                  boxShadow: `0 0 0 2px var(--void-black), 4px 4px 0 var(--void-black)`,
+                  color: getTypeColor(item.type)
+                }}
+              >
                 {item.icon}
               </div>
 
-              {/* Content */}
+              {/* Content Card - Pixel Style */}
               <div className="flex-1 min-w-0">
-                <div className={`card border-l-4 ${getTypeColor(item.type)} pl-6`}>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-white mb-1">
+                <div 
+                  className="card-pixel card-starfield relative"
+                  style={{
+                    borderLeftWidth: '4px',
+                    borderLeftColor: getTypeColor(item.type),
+                    paddingLeft: '24px',
+                    backgroundColor: 'var(--cosmic-navy)'
+                  }}
+                >
+                  {/* Status Bar */}
+                  <div className="text-xs font-body text-terminal mb-2 opacity-80">
+                    <span className="text-quasar-yellow">[{item.type.toUpperCase()}_ENTRY]</span>
+                    <span className="ml-4 text-asteroid-grey">[STATUS: ACTIVE]</span>
+                  </div>
+
+                  {/* Header */}
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
+                    <h3 className="font-ui text-lg font-bold text-star-white mb-1 glow-cyan">
                       {item.title}
                     </h3>
-                    <span className="text-sm text-moonlight-gray/80 whitespace-nowrap">
+                    <span 
+                      className="font-body text-sm whitespace-nowrap terminal-cursor"
+                      style={{ color: getTypeColor(item.type) }}
+                    >
                       {item.period}
                     </span>
                   </div>
                   
-                  <div className="mb-3">
-                    <p className="text-cosmic-blue font-medium">{item.organization}</p>
-                    <p className="text-moonlight-gray/80 text-sm">{item.location}</p>
+                  {/* Organization Info */}
+                  <div className="mb-4 p-2 bg-cosmic-navy border-pixel border-asteroid-grey">
+                    <p className="font-ui font-medium text-stellar-cyan">&gt; {item.organization}</p>
+                    <p className="font-body text-sm text-moon-silver">&gt; {item.location}</p>
                   </div>
 
-                  <ul className="space-y-2">
-                    {item.description.map((desc, index) => (
-                      <li key={index} className="text-body flex items-start">
-                        <span className="text-starlight-yellow mr-2 mt-1">•</span>
-                        <span>{desc}</span>
-                      </li>
+                  {/* Description List - ASCII Style */}
+                  <div className="space-y-1">
+                    {item.description.map((desc, descIndex) => (
+                      <div key={descIndex} className="font-body text-sm flex items-start">
+                        <span 
+                          className="mr-3 font-bold"
+                          style={{ color: getTypeColor(item.type) }}
+                        >
+                          ▸
+                        </span>
+                        <span className="flex-1 text-star-white leading-relaxed">{desc}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
+
+                  {/* Corner Decoration */}
+                  <div 
+                    className="absolute top-2 right-2 font-display text-xs opacity-60"
+                    style={{ color: getTypeColor(item.type) }}
+                  >
+                    [·]
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-      </motion.div>
+
+        {/* Terminal Footer */}
+        <div className="mt-8 border-pixel border-stellar-cyan bg-void-black p-2 font-body text-xs text-terminal">
+          <span className="text-quasar-yellow">TIMELINE.DAT</span>
+          <span className="ml-4 text-asteroid-grey">EOF REACHED</span>
+          <span className="ml-4 text-stellar-cyan">PRESS ANY KEY TO CONTINUE_</span>
+        </div>
+      </div>
     </section>
   );
 }

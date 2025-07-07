@@ -1,0 +1,201 @@
+/* Pixel Cosmos Design System Variables */
+
+:root {
+  /* Primary Cosmic Palette */
+  --void-black: #000000;
+  --nebula-purple: #5B21B6;
+  --stellar-cyan: #0FBCDC;
+  --cosmic-indigo: #1A1A2E;
+
+  /* 16-Color Pixel Art Palette */
+  --star-white: #FFFFFF;
+  --plasma-pink: #FF006E;
+  --quasar-yellow: #FFD23F;
+  --comet-orange: #FF6B35;
+  --galaxy-green: #3EE751;
+  --deep-space-blue: #0F4C81;
+  --asteroid-grey: #8B8680;
+  --moon-silver: #C0C0C0;
+  --mars-red: #D62828;
+  --neptune-teal: #2E8B8B;
+  --shadow-purple: #2B0548;
+  --cosmic-navy: #16213E;
+  --stardust: #F5F5F5;
+  --eclipse: #1C1C1C;
+  --pulsar-magenta: #C77DFF;
+  --meteor-brown: #6F4E37;
+
+  /* Semantic Color Assignments */
+  --color-primary: var(--stellar-cyan);
+  --color-secondary: var(--nebula-purple);
+  --color-accent: var(--quasar-yellow);
+  --color-success: var(--galaxy-green);
+  --color-error: var(--mars-red);
+  --color-warning: var(--comet-orange);
+  --color-info: var(--stellar-cyan);
+
+  /* Background Colors */
+  --bg-primary: var(--void-black);
+  --bg-secondary: var(--cosmic-indigo);
+  --bg-tertiary: var(--cosmic-navy);
+  --bg-card: var(--shadow-purple);
+  --bg-overlay: rgba(0, 0, 0, 0.8);
+
+  /* Text Colors */
+  --text-primary: var(--star-white);
+  --text-secondary: var(--moon-silver);
+  --text-muted: var(--asteroid-grey);
+  --text-accent: var(--stellar-cyan);
+  --text-terminal: var(--galaxy-green);
+
+  /* Border Colors */
+  --border-primary: var(--stellar-cyan);
+  --border-secondary: var(--nebula-purple);
+  --border-accent: var(--quasar-yellow);
+  --border-muted: var(--asteroid-grey);
+
+  /* Pixel Grid System */
+  --pixel-unit: 8px;
+  --pixel-unit-half: 4px;
+  --pixel-unit-double: 16px;
+  --pixel-unit-triple: 24px;
+  --pixel-unit-quad: 32px;
+
+  /* Spacing Scale (8px grid) */
+  --space-xxs: calc(var(--pixel-unit) * 1); /* 8px */
+  --space-xs: calc(var(--pixel-unit) * 2); /* 16px */
+  --space-s: calc(var(--pixel-unit) * 3); /* 24px */
+  --space-m: calc(var(--pixel-unit) * 4); /* 32px */
+  --space-l: calc(var(--pixel-unit) * 6); /* 48px */
+  --space-xl: calc(var(--pixel-unit) * 8); /* 64px */
+  --space-xxl: calc(var(--pixel-unit) * 12); /* 96px */
+
+  /* Font Families */
+  --font-display: 'Press Start 2P', monospace;
+  --font-ui: 'Pixelify Sans', sans-serif;
+  --font-body: 'IBM Plex Mono', monospace;
+  --font-code: 'JetBrains Mono', monospace;
+
+  /* Font Sizes (Pixel Perfect) */
+  --text-xs: 8px;   /* 0.5rem - Pixel UI */
+  --text-sm: 12px;  /* 0.75rem - Small */
+  --text-base: 14px; /* 0.875rem - Regular */
+  --text-lg: 16px;  /* 1rem - Large */
+  --text-xl: 24px;  /* 1.5rem - H2 */
+  --text-2xl: 32px; /* 2rem - H1 */
+
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.4;
+  --line-height-relaxed: 1.6;
+
+  /* Border Widths */
+  --border-width-thin: 2px;
+  --border-width-thick: 4px;
+  --border-width-extra: 8px;
+
+  /* Border Radius (Minimal for pixel theme) */
+  --border-radius-none: 0;
+  --border-radius-sm: 2px; /* Only for CRT monitor effect */
+  --border-radius-md: 4px;
+
+  /* Shadows (Pixel Style) */
+  --shadow-pixel-sm: 2px 2px 0 var(--void-black);
+  --shadow-pixel-md: 4px 4px 0 var(--void-black);
+  --shadow-pixel-lg: 8px 8px 0 var(--void-black);
+  --shadow-inset: inset 2px 2px 0 rgba(255, 255, 255, 0.3), 
+                  inset -2px -2px 0 rgba(0, 0, 0, 0.5);
+
+  /* Glow Effects */
+  --glow-cyan: 0 0 5px var(--stellar-cyan), 
+               0 0 10px var(--stellar-cyan), 
+               0 0 15px var(--stellar-cyan);
+  --glow-purple: 0 0 5px var(--nebula-purple), 
+                 0 0 10px var(--nebula-purple), 
+                 0 0 15px var(--nebula-purple);
+  --glow-yellow: 0 0 5px var(--quasar-yellow), 
+                 0 0 10px var(--quasar-yellow), 
+                 0 0 15px var(--quasar-yellow);
+
+  /* Z-Index Scale */
+  --z-background: -1;
+  --z-base: 0;
+  --z-content: 10;
+  --z-overlay: 100;
+  --z-modal: 1000;
+  --z-tooltip: 1100;
+
+  /* Animation Durations */
+  --duration-instant: 0s;
+  --duration-fast: 0.15s;
+  --duration-normal: 0.3s;
+  --duration-slow: 0.5s;
+  --duration-slower: 1s;
+
+  /* Animation Timing Functions */
+  --timing-pixel: steps(4);
+  --timing-retro: steps(8);
+  --timing-blink: steps(2);
+
+  /* Breakpoints */
+  --breakpoint-mobile: 640px;
+  --breakpoint-tablet: 1024px;
+  --breakpoint-desktop: 1440px;
+
+  /* Container Widths */
+  --container-xs: 320px;
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+
+  /* Particle Counts by Performance Mode */
+  --particles-high: 300;
+  --particles-medium: 150;
+  --particles-low: 50;
+
+  /* Scanline Settings */
+  --scanline-height: 2px;
+  --scanline-spacing: 4px;
+  --scanline-opacity: 0.03;
+
+  /* CRT Effect Settings */
+  --crt-curvature: 4px;
+  --crt-border-width: 8px;
+  --crt-glow-color: var(--stellar-cyan);
+}
+
+/* Dark mode overrides (optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Already dark by default, but could adjust if needed */
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  :root {
+    --text-primary: var(--star-white);
+    --text-secondary: var(--star-white);
+    --bg-primary: var(--void-black);
+    --bg-secondary: var(--void-black);
+    --color-primary: var(--quasar-yellow);
+    --border-primary: var(--star-white);
+  }
+}
+
+/* Reduced motion settings */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0.01ms;
+    --duration-normal: 0.01ms;
+    --duration-slow: 0.01ms;
+    --duration-slower: 0.01ms;
+  }
+}

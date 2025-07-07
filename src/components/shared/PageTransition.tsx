@@ -1,68 +1,50 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useAccessibility } from "@/hooks/useAccessibility";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 interface PageTransitionProps {
   children: ReactNode;
 }
 
-const pageVariants = {
-  initial: {
-    opacity: 0,
-    y: 20,
-    scale: 0.98
-  },
-  in: {
-    opacity: 1,
-    y: 0,
-    scale: 1
-  },
-  out: {
-    opacity: 0,
-    y: -20,
-    scale: 1.02
-  }
-};
-
-const pageTransition = {
-  type: "tween",
-  duration: 0.3,
-  ease: "easeInOut"
-};
-
-const reducedMotionVariants = {
-  initial: { opacity: 0 },
-  in: { opacity: 1 },
-  out: { opacity: 0 }
-};
-
-const reducedMotionTransition = {
-  duration: 0.15
-};
-
 export default function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname();
   const { reducedMotion } = useAccessibility();
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [displayChildren, setDisplayChildren] = useState(children);
 
-  const variants = reducedMotion ? reducedMotionVariants : pageVariants;
-  const transition = reducedMotion ? reducedMotionTransition : pageTransition;
+  useEffect(() => {
+    if (reducedMotion) {
+      setDisplayChildren(children);
+      return;
+    }
+
+    setIsTransitioning(true);
+    
+    // Start exit animation
+    const exitTimer = setTimeout(() => {
+      setDisplayChildren(children);
+      setIsTransitioning(false);
+    }, 250); // Half of transition duration
+
+    return () => clearTimeout(exitTimer);
+  }, [pathname, children, reducedMotion]);
+
+  if (reducedMotion) {
+    return <main className="pixel-page-content">{children}</main>;
+  }
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.div
-        key={pathname}
-        initial="initial"
-        animate="in"
-        exit="out"
-        variants={variants}
-        transition={transition}
-        className="min-h-screen"
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <main 
+      className={`pixel-page-content transition-all duration-500 ${
+        isTransitioning ? 'pixel-page-exit' : 'pixel-page-enter'
+      }`}
+      style={{
+        transition: 'all 0.5s steps(8)'
+      }}
+    >
+      {displayChildren}
+    </main>
   );
 }

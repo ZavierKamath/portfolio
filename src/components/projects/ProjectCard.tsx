@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import { Project } from "@/lib/types";
-import { TechBadge } from "./TechBadge";
 import { processMarkdown, isMarkdownContent } from "@/lib/markdown";
 
 interface ProjectCardProps {
@@ -94,105 +93,178 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article
-      className="card group border-stellar-blue/10 hover:border-stellar-blue/50 hover:shadow-glow cursor-pointer"
+      className="card card-cosmic group cursor-pointer pixel-fade-in"
+      style={{ 
+        borderColor: 'var(--stellar-cyan)',
+        backgroundColor: 'var(--cosmic-navy)',
+        animationDelay: `${Math.random() * 300}ms`
+      }}
     >
-      {/* Header */}
-      <div className="flex justify-between items-start mb-4">
-        <div className="flex-1">
-          <h3 className="text-h4 font-semibold text-moonlight-gray group-hover:text-stellar-blue transition-colors">
-            {project.title}
-          </h3>
+      {/* Terminal Header */}
+      <div className="border-pixel border-stellar-cyan bg-void-black p-3 mb-4 -mx-6 -mt-6 md:-mx-6 md:-mt-6 sm:-mx-4 sm:-mt-4 font-display">
+        <div className="flex justify-between items-center text-xs mb-2">
+          <span className="text-quasar-yellow">PROJECT_FILE.exe</span>
+          <div className="flex items-center space-x-2">
+            <span className="text-stellar-cyan pixel-blink">●</span>
+            <span className="text-asteroid-grey hidden sm:inline">ACTIVE</span>
+          </div>
+        </div>
+        <div className="border-t border-stellar-cyan pt-2">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+            <h3 className="font-ui text-base sm:text-lg font-bold text-gradient glow-cyan">
+              {project.title}
+            </h3>
+            <time 
+              className="font-body text-xs text-asteroid-grey bg-cosmic-indigo px-2 py-1 border-pixel border-asteroid-grey w-fit"
+              dateTime={project.date}
+              aria-label={`Project completed in ${project.date}`}
+            >
+              [{project.date}]
+            </time>
+          </div>
           {project.subtitle && (
-            <p className="text-sm text-moonlight-gray/70 mt-1">{project.subtitle}</p>
+            <p className="text-xs text-stellar-cyan mt-1 font-body">&gt; {project.subtitle}</p>
           )}
         </div>
-        <time 
-          className="text-sm text-moonlight-gray/60 ml-4 flex-shrink-0"
-          dateTime={project.date}
-          aria-label={`Project completed in ${project.date}`}
-        >
-          {project.date}
-        </time>
       </div>
 
-      {/* Description */}
+      {/* Status Bar */}
+      <div className="flex justify-between items-center mb-4 p-2 bg-cosmic-indigo border-pixel border-asteroid-grey font-body text-xs">
+        <div className="flex items-center space-x-4">
+          <span className="text-quasar-yellow">STATUS:</span>
+          <span className="text-stellar-cyan">LOADED</span>
+        </div>
+        <div className="flex items-center space-x-1">
+          <span className="text-asteroid-grey">████████░░</span>
+          <span className="text-stellar-cyan">80%</span>
+        </div>
+      </div>
+
+      {/* Description - Terminal Style */}
       <div className="mb-6">
-        {isProcessing ? (
-          <div className="animate-pulse">
-            <div className="h-4 bg-moonlight-gray/20 rounded w-full mb-2"></div>
-            <div className="h-4 bg-moonlight-gray/20 rounded w-5/6"></div>
-          </div>
-        ) : (
-          <div 
-            className="text-moonlight-gray/80 leading-relaxed markdown-content"
-            id={`description-${project.id}`}
-            dangerouslySetInnerHTML={{
-              __html: isExpanded && hasExtendedDescription 
-                ? (processedExtendedDescription || project.extendedDescription || '') 
-                : (processedDescription || project.description)
-            }}
-          />
-        )}
-        
-        {hasExtendedDescription && (
-          <button
-            onClick={() => setIsExpanded(!isExpanded)}
-            className="text-stellar-blue hover:text-nebula-blue text-sm mt-2 inline-flex items-center gap-1 transition-colors focus-visible:ring-2"
-            aria-expanded={isExpanded}
-            aria-controls={`description-${project.id}`}
-            aria-label={`${isExpanded ? "Collapse" : "Expand"} project description for ${project.title}`}
-          >
-            {isExpanded ? "Show less" : "Read more"}
-            <svg 
-              className={`w-4 h-4 transition-transform ${isExpanded ? "rotate-180" : ""}`} 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-              aria-hidden="true"
+        <div className="border-pixel border-asteroid-grey bg-cosmic-indigo p-3 mb-4">
+          <div className="text-xs text-quasar-yellow mb-2 font-body">[DESCRIPTION.DAT]</div>
+          {isProcessing ? (
+            <div className="space-y-2">
+              <div className="loading-bar-pixel h-3 w-full">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="font-display text-xs text-stellar-cyan">LOADING</span>
+                </div>
+              </div>
+              <div className="loading-bar-pixel h-3 w-4/5">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="font-display text-xs text-stellar-cyan">DATA</span>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div 
+              className="text-star-white leading-relaxed font-body text-sm markdown-content"
+              id={`description-${project.id}`}
+              dangerouslySetInnerHTML={{
+                __html: isExpanded && hasExtendedDescription 
+                  ? (processedExtendedDescription || project.extendedDescription || '') 
+                  : (processedDescription || project.description)
+              }}
+            />
+          )}
+          
+          {hasExtendedDescription && (
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="btn-pixel-secondary mt-3 text-xs"
+              aria-expanded={isExpanded}
+              aria-controls={`description-${project.id}`}
+              aria-label={`${isExpanded ? "Collapse" : "Expand"} project description for ${project.title}`}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-        )}
+              <span className="font-display">{isExpanded ? "▲" : "▼"}</span>
+              <span className="ml-2">{isExpanded ? "MINIMIZE" : "EXPAND"}</span>
+            </button>
+          )}
+        </div>
       </div>
 
-      {/* Impact */}
+      {/* Impact - Alert Style */}
       {project.impact && (
-        <div className="mb-6 p-3 bg-supernova-orange/10 border border-supernova-orange/20 rounded-lg">
-          <p className="text-sm text-supernova-orange font-medium">
-            🎯 {project.impact}
+        <div className="mb-6 card-alert border-pixel-thick border-mars-red p-3">
+          <div className="flex items-center space-x-2 mb-2">
+            <span className="text-mars-red font-display text-lg">!</span>
+            <span className="text-quasar-yellow font-body text-xs">[IMPACT_ANALYSIS]</span>
+          </div>
+          <p className="text-sm text-star-white font-body leading-relaxed">
+            &gt; {project.impact}
           </p>
         </div>
       )}
 
-      {/* Skills */}
+      {/* Skills - Terminal Grid */}
       <div className="mb-6">
-        <div className="flex flex-wrap gap-2 max-h-20 overflow-y-auto">
-          {project.skills.map((skill, index) => (
-            <TechBadge key={`${skill.name}-${index}`} skill={skill} />
-          ))}
+        <div className="border-pixel border-asteroid-grey bg-cosmic-indigo p-3">
+          <div className="text-xs text-quasar-yellow mb-3 font-body">[TECH_STACK.DAT]</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-32 sm:max-h-24 overflow-y-auto">
+            {project.skills.map((skill, index) => (
+              <div
+                key={`${skill.name}-${index}`}
+                className="text-xs font-body text-stellar-cyan bg-void-black border-pixel border-stellar-cyan px-2 py-1 hover:bg-stellar-cyan hover:text-void-black transition-all duration-150"
+                style={{
+                  transition: 'all 0.15s steps(4)',
+                  animationDelay: `${index * 50}ms`
+                }}
+              >
+                ▸ {skill.name}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Links */}
+      {/* Links - Action Panel */}
       {project.links.length > 0 && (
-        <div className="flex gap-3 flex-wrap">
-          {project.links.map((link, index) => (
-            <a
-              key={index}
-              href={link.url}
-              target={link.type === "github" || link.type === "demo" || link.type === "website" ? "_blank" : undefined}
-              rel={link.type === "github" || link.type === "demo" || link.type === "website" ? "noopener noreferrer" : undefined}
-              className="inline-flex items-center gap-2 px-3 py-2 bg-stellar-blue/10 hover:bg-stellar-blue/20 border border-stellar-blue/20 hover:border-stellar-blue/40 rounded-lg text-sm text-stellar-blue hover:text-nebula-blue transition-all duration-200 group/link"
-            >
-              <span className="group-hover/link:animate-pulse">
-                {getLinkIcon(link.type)}
-              </span>
-              {link.label}
-            </a>
-          ))}
+        <div className="border-t border-stellar-cyan pt-4">
+          <div className="text-xs text-quasar-yellow mb-3 font-body">[ACTION_PANEL]</div>
+          <div className="flex gap-3 flex-wrap">
+            {project.links.map((link, index) => (
+              <a
+                key={index}
+                href={link.url}
+                target={link.type === "github" || link.type === "demo" || link.type === "website" ? "_blank" : undefined}
+                rel={link.type === "github" || link.type === "demo" || link.type === "website" ? "noopener noreferrer" : undefined}
+                className="btn-pixel-primary text-xs group/link"
+                style={{
+                  animationDelay: `${index * 100}ms`
+                }}
+              >
+                <span className="font-display group-hover/link:pixel-blink">
+                  {getLinkIcon(link.type)}
+                </span>
+                <span className="ml-2 font-ui">{link.label.toUpperCase()}</span>
+              </a>
+            ))}
+          </div>
         </div>
       )}
+
+      {/* ASCII Corner Decorations */}
+      <div className="absolute -top-1 -left-1 font-display text-stellar-cyan text-xs pointer-events-none">
+        ┌─
+      </div>
+      <div className="absolute -top-1 -right-1 font-display text-stellar-cyan text-xs pointer-events-none">
+        ─┐
+      </div>
+      <div className="absolute -bottom-1 -left-1 font-display text-stellar-cyan text-xs pointer-events-none">
+        └─
+      </div>
+      <div className="absolute -bottom-1 -right-1 font-display text-stellar-cyan text-xs pointer-events-none">
+        ─┘
+      </div>
+
+      {/* Scan Line Effect */}
+      <div className="absolute inset-0 scanlines opacity-10 pointer-events-none" />
+      
+      {/* Status Indicator */}
+      <div className="absolute top-2 right-2 font-display text-xs opacity-60 text-stellar-cyan pointer-events-none">
+        [·]
+      </div>
     </article>
   );
 }

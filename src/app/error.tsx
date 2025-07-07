@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 interface ErrorProps {
@@ -30,115 +29,94 @@ export default function Error({ error, reset }: ErrorProps) {
   return (
     <main className="container mx-auto min-h-screen flex items-center justify-center py-12">
       <div className="text-center max-w-2xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="relative"
-        >
-          {/* Error Icon with Animation */}
-          <motion.div
-            initial={{ scale: 0.8, rotate: 0 }}
-            animate={{ 
-              scale: [0.8, 1.1, 1],
-              rotate: [0, -10, 10, 0]
-            }}
-            transition={{ 
-              duration: 1,
-              ease: "easeInOut"
-            }}
-            className="mb-8"
-          >
-            <div className="text-8xl mb-4">⚠️</div>
-          </motion.div>
+        <div className="relative pixel-fade-in">
+          {/* ASCII Error Display */}
+          <div className="mb-8 font-display">
+            <div className="text-8xl mb-4 pixel-blink text-mars-red">!</div>
+            <div className="border-pixel-thick border-mars-red bg-void-black p-4 font-body text-xs">
+              <div className="text-mars-red mb-2">
+                ERROR: SYSTEM_MALFUNCTION_DETECTED
+              </div>
+              <div className="text-quasar-yellow">
+                ████████████████████████ 100% FAILED
+              </div>
+            </div>
+          </div>
 
           {/* Error Message */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8"
-          >
-            <h1 className="text-4xl font-bold text-gradient mb-4">
-              Houston, We Have a Problem
+          <div className="mb-8 pixel-fade-in pixel-delay-200">
+            <h1 className="font-display text-2xl text-gradient mb-4 glow-cyan">
+              SYSTEM ERROR
             </h1>
-            <h2 className="text-xl font-semibold mb-4 text-cosmic-blue">
-              System Malfunction Detected
+            <h2 className="font-ui text-lg font-bold mb-4 text-stellar-cyan">
+              CRITICAL MALFUNCTION
             </h2>
-            <p className="text-body-lg text-moonlight-gray/80 mb-6">
-              Something went wrong in our cosmic navigation system. 
-              Our mission control team has been notified and is working on a solution.
+            <p className="font-body text-base text-star-white mb-6">
+              &gt; Navigation system failure detected<br/>
+              &gt; Mission control has been notified<br/>
+              &gt; Attempting automated recovery...
             </p>
-          </motion.div>
+          </div>
 
           {/* Error Details (Development) */}
           {process.env.NODE_ENV === "development" && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mb-8 p-4 bg-red-900/20 border border-red-500/30 rounded-lg text-left"
-            >
-              <h3 className="text-red-400 font-semibold mb-2">Error Details:</h3>
-              <pre className="text-sm text-red-300 whitespace-pre-wrap break-words">
+            <div className="mb-8 p-4 border-pixel border-mars-red card-alert text-left pixel-fade-in pixel-delay-300">
+              <h3 className="text-mars-red font-ui font-bold mb-2 text-sm">
+                [DEBUG_OUTPUT]
+              </h3>
+              <pre className="font-code text-xs text-star-white whitespace-pre-wrap break-words bg-void-black p-2 border-pixel border-asteroid-grey">
                 {error.message}
               </pre>
               {error.digest && (
-                <p className="text-xs text-red-400 mt-2">
-                  Error ID: {error.digest}
+                <p className="font-body text-xs text-asteroid-grey mt-2">
+                  &gt; ERROR_ID: {error.digest}
                 </p>
               )}
-            </motion.div>
+            </div>
           )}
 
-          {/* Action Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
-          >
-            <motion.button
+          {/* Action Buttons - Pixel Style */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 pixel-fade-in pixel-delay-400">
+            <button
               onClick={handleReset}
-              className="btn-primary flex items-center justify-center space-x-2"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="btn-pixel-primary flex items-center justify-center space-x-2"
             >
-              <span>🔄</span>
-              <span>Retry Mission</span>
-            </motion.button>
+              <span className="font-display">⟲</span>
+              <span>RETRY</span>
+            </button>
             
-            <motion.button
+            <button
               onClick={() => window.location.href = "/"}
-              className="btn-secondary flex items-center justify-center space-x-2"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="btn-pixel-secondary flex items-center justify-center space-x-2"
             >
-              <span>🏠</span>
-              <span>Return to Base</span>
-            </motion.button>
-          </motion.div>
+              <span className="font-display">⌂</span>
+              <span>HOME</span>
+            </button>
+          </div>
 
-          {/* Technical Support */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="p-6 card border-starlight-yellow/30"
-          >
-            <div className="text-starlight-yellow text-4xl mb-3">🛠️</div>
-            <h3 className="text-lg font-semibold mb-2">Need Technical Support?</h3>
-            <p className="text-body text-moonlight-gray/80 mb-4">
-              If this error persists, please contact mission control with the error details.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-2 text-sm">
-              <span className="text-moonlight-gray/60">Error occurred at:</span>
-              <span className="text-cosmic-blue font-mono">
-                {new Date().toISOString()}
-              </span>
+          {/* Technical Support Terminal */}
+          <div className="p-6 card-pixel card-data border-pixel-thick border-quasar-yellow pixel-fade-in pixel-delay-500">
+            <div className="font-display text-xl mb-3 text-quasar-yellow">
+              [SUPPORT]
             </div>
-          </motion.div>
-        </motion.div>
+            <div className="font-body text-sm space-y-2">
+              <div className="text-star-white">
+                &gt; Technical support required?
+              </div>
+              <div className="text-asteroid-grey">
+                &gt; Contact mission control with error data
+              </div>
+              <div className="border-t border-asteroid-grey pt-2 mt-4">
+                <div className="flex flex-col sm:flex-row gap-2">
+                  <span className="text-asteroid-grey">&gt; ERROR_TIME:</span>
+                  <span className="text-stellar-cyan font-code">
+                    {new Date().toISOString()}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );

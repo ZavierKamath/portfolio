@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useClipboard } from "@/hooks/useClipboard";
 import { useState } from "react";
 
@@ -20,7 +19,7 @@ const contactData: ContactLink[] = [
     label: "Email",
     value: "zavierkamath@gmail.com",
     href: "mailto:zavierkamath@gmail.com",
-    icon: "📧",
+    icon: "✉",
     type: "email",
     copyable: true
   },
@@ -29,7 +28,7 @@ const contactData: ContactLink[] = [
     label: "LinkedIn",
     value: "linkedin.com/in/zavierkamath",
     href: "https://linkedin.com/in/zavierkamath",
-    icon: "💼",
+    icon: "▣",
     type: "social"
   },
   {
@@ -37,208 +36,166 @@ const contactData: ContactLink[] = [
     label: "GitHub",
     value: "github.com/ZavierKamath",
     href: "https://github.com/ZavierKamath",
-    icon: "🔗",
+    icon: "◈",
     type: "social"
   }
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.3
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { 
-    opacity: 0, 
-    y: 20,
-    scale: 0.95
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.4
-    }
-  }
-};
-
-const buttonVariants = {
-  idle: { scale: 1, rotate: 0 },
-  hover: { 
-    scale: 1.05, 
-    rotate: [0, -2, 2, 0],
-    transition: { 
-      duration: 0.3,
-      rotate: { duration: 0.5 }
-    }
-  },
-  tap: { scale: 0.95 }
-};
-
 export default function ContactLinks() {
-  const { copy, error } = useClipboard();
-  const [copiedId, setCopiedId] = useState<string | null>(null);
+  const { copy, copied } = useClipboard();
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [lastCopiedText, setLastCopiedText] = useState<string>('');
 
-  const handleCopy = async (id: string, value: string) => {
-    await copy(value);
-    setCopiedId(id);
-    setTimeout(() => setCopiedId(null), 2000);
+  const handleCopy = async (text: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    await copy(text);
+    setLastCopiedText(text);
   };
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'email': return 'border-starlight-yellow hover:border-starlight-yellow/80';
-      case 'social': return 'border-cosmic-blue hover:border-cosmic-blue/80';
-      case 'external': return 'border-nebula-purple hover:border-nebula-purple/80';
-      default: return 'border-moonlight-gray hover:border-moonlight-gray/80';
+      case 'email': return 'var(--stellar-cyan)';
+      case 'social': return 'var(--nebula-purple)';
+      case 'external': return 'var(--quasar-yellow)';
+      default: return 'var(--asteroid-grey)';
     }
   };
 
   const getTypeBackground = (type: string) => {
     switch (type) {
-      case 'email': return 'hover:bg-starlight-yellow/10';
-      case 'social': return 'hover:bg-cosmic-blue/10';
-      case 'external': return 'hover:bg-nebula-purple/10';
-      default: return 'hover:bg-moonlight-gray/10';
+      case 'email': return 'rgba(15, 188, 220, 0.1)';
+      case 'social': return 'rgba(91, 33, 182, 0.1)';
+      case 'external': return 'rgba(255, 210, 63, 0.1)';
+      default: return 'rgba(139, 134, 128, 0.1)';
     }
   };
 
   return (
-    <section className="max-w-md mx-auto">
-      <h2 className="text-gradient mb-6 text-center">Get In Touch</h2>
-      
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="space-y-4"
-      >
-        {contactData.map((contact) => (
-          <motion.div
+    <section className="max-w-2xl mx-auto">
+      {/* Terminal Header */}
+      <div className="mb-6">
+        <div className="border-pixel border-stellar-cyan bg-void-black p-4 font-display">
+          <div className="text-terminal text-sm mb-2">
+            <span className="text-quasar-yellow">CONTACT_MANAGER.exe</span> 
+            <span className="ml-4">███████░░░ 70% Loaded</span>
+          </div>
+          <div className="border-t border-stellar-cyan pt-2">
+            <h2 className="text-gradient font-display text-xl glow-cyan">COMM_LINKS.DAT</h2>
+          </div>
+        </div>
+      </div>
+
+      {/* Contact Links Grid */}
+      <div className="space-y-4 pixel-stagger-children">
+        {contactData.map((contact, index) => (
+          <div
             key={contact.id}
-            variants={itemVariants}
-            className="relative"
+            className="pixel-scroll-reveal relative"
+            style={{
+              animationDelay: `${index * 100}ms`
+            }}
           >
-            <motion.div
-              variants={buttonVariants}
-              initial="idle"
-              whileHover="hover"
-              whileTap="tap"
-              className={`
-                relative overflow-hidden rounded-xl border-2 ${getTypeColor(contact.type)} 
-                ${getTypeBackground(contact.type)}
-                backdrop-blur-sm bg-space-dark/50
-                transition-all duration-300
-                group cursor-pointer
-              `}
+            <div 
+              className="card-pixel card-terminal card-interactive p-4 transition-all duration-150 hover:shadow-pixel-lg"
+              style={{
+                borderColor: getTypeColor(contact.type),
+                backgroundColor: 'var(--cosmic-navy)',
+                transition: 'all 0.15s steps(4)'
+              }}
+              onMouseEnter={() => setHoveredId(contact.id)}
+              onMouseLeave={() => setHoveredId(null)}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-              
-              <div className="relative p-4 flex items-center justify-between">
+              {/* Status Bar */}
+              <div className="text-xs font-body text-terminal mb-2 opacity-80">
+                <span className="text-quasar-yellow">[{contact.type.toUpperCase()}_LINK]</span>
+                <span className="ml-4 text-asteroid-grey">
+                  {hoveredId === contact.id ? '[READY]' : '[IDLE]'}
+                </span>
+              </div>
+
+              <div className="flex items-center justify-between">
+                {/* Contact Info */}
                 <div className="flex items-center space-x-4">
-                  <div className="text-2xl">{contact.icon}</div>
+                  <div 
+                    className="w-12 h-12 border-pixel flex items-center justify-center font-display text-lg"
+                    style={{
+                      borderColor: getTypeColor(contact.type),
+                      backgroundColor: getTypeBackground(contact.type),
+                      color: getTypeColor(contact.type)
+                    }}
+                  >
+                    {contact.icon}
+                  </div>
+                  
                   <div>
-                    <p className="font-medium text-white">{contact.label}</p>
-                    <p className="text-moonlight-gray/80 text-sm">{contact.value}</p>
+                    <h3 className="font-ui font-bold text-star-white mb-1 text-sm">
+                      {contact.label.toUpperCase()}
+                    </h3>
+                    <p className="font-body text-xs text-asteroid-grey">
+                      {contact.value}
+                    </p>
                   </div>
                 </div>
 
+                {/* Action Buttons */}
                 <div className="flex items-center space-x-2">
                   {contact.copyable && (
                     <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        handleCopy(contact.id, contact.value);
+                      onClick={(e) => handleCopy(contact.value, e)}
+                      className="px-3 py-1 border-pixel border-stellar-cyan bg-cosmic-indigo text-stellar-cyan font-ui text-xs font-bold hover:bg-stellar-cyan hover:text-void-black transition-all duration-150"
+                      style={{
+                        transition: 'all 0.15s steps(4)'
                       }}
-                      className={`
-                        p-2 rounded-lg transition-all duration-200
-                        ${copiedId === contact.id 
-                          ? 'bg-green-500/20 text-green-400' 
-                          : 'bg-space-dark/50 hover:bg-space-dark/80 text-moonlight-gray'
-                        }
-                      `}
-                      title="Copy to clipboard"
                     >
-                      {copiedId === contact.id ? (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          className="w-4 h-4"
-                        >
-                          ✓
-                        </motion.div>
-                      ) : (
-                        <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          className="w-4 h-4"
-                        >
-                          📋
-                        </motion.div>
-                      )}
+                      {copied && lastCopiedText === contact.value ? '[COPIED!]' : '[COPY]'}
                     </button>
                   )}
-
+                  
                   <a
                     href={contact.href}
                     target={contact.type !== 'email' ? '_blank' : undefined}
                     rel={contact.type !== 'email' ? 'noopener noreferrer' : undefined}
-                    className="p-2 rounded-lg bg-space-dark/50 hover:bg-space-dark/80 text-moonlight-gray hover:text-white transition-all duration-200"
-                    title={`Open ${contact.label}`}
+                    className="px-3 py-1 border-pixel bg-void-black font-ui text-xs font-bold hover:shadow-pixel-sm transition-all duration-150"
+                    style={{
+                      borderColor: getTypeColor(contact.type),
+                      color: getTypeColor(contact.type),
+                      transition: 'all 0.15s steps(4)'
+                    }}
                   >
-                    <motion.div
-                      whileHover={{ scale: 1.1 }}
-                      className="w-4 h-4"
-                    >
-                      {contact.type === 'email' ? '📨' : '🔗'}
-                    </motion.div>
+                    [OPEN]
                   </a>
                 </div>
               </div>
-            </motion.div>
 
-            {/* Success/Error Toast */}
-            {copiedId === contact.id && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-green-500/20 text-green-400 px-3 py-1 rounded-lg text-sm whitespace-nowrap border border-green-500/30"
-              >
-                Copied to clipboard!
-              </motion.div>
-            )}
-
-            {error && copiedId === contact.id && (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-red-500/20 text-red-400 px-3 py-1 rounded-lg text-sm whitespace-nowrap border border-red-500/30"
-              >
-                Failed to copy
-              </motion.div>
-            )}
-          </motion.div>
+              {/* Hover Effect ASCII Decoration */}
+              {hoveredId === contact.id && (
+                <div 
+                  className="absolute -top-1 -right-1 font-display text-xs pixel-blink"
+                  style={{ color: getTypeColor(contact.type) }}
+                >
+                  ▸
+                </div>
+              )}
+            </div>
+          </div>
         ))}
-      </motion.div>
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-        className="mt-8 text-center"
-      >
-        <p className="text-moonlight-gray/60 text-sm">
-          Always open to interesting conversations and collaborations
-        </p>
-      </motion.div>
+      {/* Terminal Footer */}
+      <div className="mt-6 border-pixel border-stellar-cyan bg-void-black p-2 font-body text-xs">
+        <div className="flex justify-between items-center">
+          <div className="text-terminal">
+            <span className="text-quasar-yellow">COMM_LINKS.DAT</span>
+            <span className="ml-4 text-asteroid-grey">
+              {contactData.length} CHANNELS ACTIVE
+            </span>
+          </div>
+          <div className="text-stellar-cyan">
+            STATUS: READY_
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

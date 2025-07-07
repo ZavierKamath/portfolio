@@ -60,9 +60,15 @@ export function ProjectGrid({ projects, loading = false, error = null }: Project
 
   // Main grid with projects
   return (
-    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 pixel-stagger-children">
       {projects.map((project, index) => (
-        <div key={`${project.id}-${index}`}>
+        <div 
+          key={`${project.id}-${index}`}
+          className="pixel-fade-in"
+          style={{
+            animationDelay: `${index * 200}ms`
+          }}
+        >
           <ProjectCard project={project} />
         </div>
       ))}

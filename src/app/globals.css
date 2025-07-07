@@ -1,506 +1,519 @@
+/* Import Pixel Cosmos Design System - Must be first */
+@import '../styles/pixel-cosmos-vars.css';
+@import '../styles/pixel-animations.css';
+@import '../styles/pixel-backgrounds.css';
+
+/* Google Fonts - Pixel Theme */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;500;600;700&display=swap');
+
+/* Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Inter Variable Font */
+/* IBM Plex Mono for body text */
 @font-face {
-  font-family: "Inter Variable";
-  src: url("/fonts/inter-var.woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
+  font-family: "IBM Plex Mono";
+  src: url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap");
 }
 
-:root {
-  /* Primary Colors */
-  --cosmic-black: 10 14 26;
-  --nebula-blue: 96 165 250;
-
-  /* Secondary Colors */
-  --stellar-blue: 59 130 246;
-  --deep-space-navy: 30 41 59;
-  --moonlight-gray: 226 232 240;
-
-  /* Accent Colors */
-  --supernova-orange: 249 115 22;
-  --aurora-green: 16 185 129;
-  --pulsar-purple: 139 92 246;
-
-  /* Functional Colors */
-  --success-green: 34 197 94;
-  --error-red: 239 68 68;
-  --info-blue: 59 130 246;
-  --warning-amber: 245 158 11;
-
-  /* Background Colors */
-  --space-black: 0 8 20;
-  --dark-matter: 15 23 42;
-  --starfield: 248 250 252;
-  --cosmic-dust: 241 245 249;
-
-  /* Default theme (dark) */
-  --background: var(--space-black);
-  --foreground: var(--moonlight-gray);
-  --card-background: var(--dark-matter);
-
-  /* Spacing */
-  --spacing-atomic: 4px;
-  --spacing-micro: 8px;
-  --spacing-small: 16px;
-  --spacing-default: 24px;
-  --spacing-medium: 32px;
-  --spacing-large: 48px;
-  --spacing-xl: 64px;
-  --spacing-xxl: 96px;
-
-  /* Shadows */
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
-  --shadow-button: 0 4px 12px rgba(30, 58, 138, 0.2);
-  --shadow-card-hover: 0 8px 32px rgba(59, 130, 246, 0.3);
-  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.5);
-
-  /* Animation durations */
-  --duration-quick: 150ms;
-  --duration-standard: 250ms;
-  --duration-smooth: 350ms;
-  --duration-slow: 500ms;
-
-  /* Easing functions */
-  --ease-out: ease-out;
-  --ease-in-out: ease-in-out;
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: var(--starfield);
-    --foreground: var(--cosmic-black);
-    --card-background: var(--cosmic-dust);
-  }
-}
-
+/* Global Reset and Base Styles */
 @layer base {
   * {
-    @apply border-gray-200;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-space-black text-moonlight-gray;
-    font-family: var(--font-inter), system-ui, sans-serif;
+    font-family: var(--font-body);
+    background-color: var(--void-black);
+    color: var(--star-white);
+    overflow-x: hidden;
+    position: relative;
+    /* Add global scanline effect */
+    background-image: linear-gradient(
+      90deg,
+      transparent 98%,
+      rgba(15, 188, 220, 0.03) 100%
+    );
+    background-size: 2px 2px;
+    image-rendering: pixelated;
   }
 
-  h1 {
-    @apply text-h1 font-bold;
+  /* Pixel-perfect font rendering */
+  * {
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: unset;
+    font-smooth: never;
+    image-rendering: pixelated;
   }
 
-  h2 {
-    @apply text-h2 font-semibold;
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
   }
 
-  h3 {
-    @apply text-h3 font-semibold;
+  ::-webkit-scrollbar-track {
+    background: var(--void-black);
   }
 
-  h4 {
-    @apply text-h4 font-medium;
+  ::-webkit-scrollbar-thumb {
+    background: var(--stellar-cyan);
+    border: 1px solid var(--cosmic-indigo);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--nebula-purple);
+  }
+
+  /* Selection styling */
+  ::selection {
+    background: var(--stellar-cyan);
+    color: var(--void-black);
+  }
+
+  ::-moz-selection {
+    background: var(--stellar-cyan);
+    color: var(--void-black);
   }
 }
 
+/* Pixel Cosmos Component Styles */
 @layer components {
-  .container {
-    @apply mx-auto px-6;
-    max-width: 1200px;
-  }
-
-  .btn-primary {
-    @apply bg-gradient-to-r from-deep-space-navy to-stellar-blue text-white;
-    @apply h-12 px-6 rounded-lg;
-    @apply flex items-center justify-center;
-    @apply shadow-lg hover:brightness-110 hover:shadow-xl hover:scale-105;
-    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900;
-    @apply transition-all duration-300 ease-out;
-    @apply font-medium;
-  }
-
-  .btn-secondary {
-    @apply bg-transparent border-2 border-nebula-blue text-nebula-blue;
-    @apply h-12 px-6 rounded-lg;
-    @apply flex items-center justify-center;
-    @apply hover:bg-nebula-blue/10 hover:scale-105 hover:border-nebula-blue/80;
-    @apply focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900;
-    @apply transition-all duration-300 ease-out;
-    @apply font-medium;
-  }
-
-  .card {
-    @apply bg-dark-matter border border-stellar-blue/10;
-    @apply rounded-2xl p-6;
-    @apply shadow-xl hover:border-stellar-blue/30 hover:shadow-2xl;
-    @apply focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2 focus-within:ring-offset-slate-900;
-    @apply transition-all duration-300 ease-out;
-    @apply hover:scale-105;
-  }
-
-  .link {
-    @apply text-stellar-blue font-medium;
-    @apply hover:text-nebula-blue hover:underline hover:scale-105;
-    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900;
-    @apply transition-all duration-200;
-  }
-}
-
-@layer utilities {
+  /* Typography Classes */
   .text-gradient {
-    @apply bg-gradient-to-r from-nebula-blue to-stellar-blue;
-    @apply bg-clip-text text-transparent;
+    background: linear-gradient(
+      135deg,
+      var(--stellar-cyan) 0%,
+      var(--nebula-purple) 50%,
+      var(--quasar-yellow) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .animate-starfield {
-    animation: starfield 50s linear infinite;
+  .text-terminal {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
-  @keyframes starfield {
-    from {
-      transform: translateY(0);
-    }
-    to {
-      transform: translateY(-100px);
-    }
+  /* Glow Effects */
+  .glow-cyan {
+    text-shadow: 0 0 8px var(--stellar-cyan);
   }
 
-  .glow {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  .glow-purple {
+    text-shadow: 0 0 8px var(--nebula-purple);
   }
 
-  .blur-backdrop {
-    backdrop-filter: blur(12px);
+  .glow-yellow {
+    text-shadow: 0 0 8px var(--quasar-yellow);
   }
 
-  /* Ken Burns effect for photo carousel */
-  @keyframes ken-burns {
-    0% {
-      transform: scale(1) translate(0, 0);
-    }
-    100% {
-      transform: scale(1.1) translate(-2%, -2%);
-    }
+  /* Pixel Borders */
+  .border-pixel {
+    border: 2px solid;
+    border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E") 2;
   }
 
-  .animate-ken-burns {
-    animation: ken-burns 20s ease-out forwards;
+  .border-pixel-thick {
+    border: 4px solid;
+    border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none' stroke='%23000' stroke-width='4'/%3E%3C/svg%3E") 4;
   }
 
-  /* Fade in animation for staggered project cards */
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* Pixel Shadows */
+  .shadow-pixel-sm {
+    box-shadow: 2px 2px 0 var(--void-black);
   }
 
-  .animate-fade-in {
-    animation: fade-in 0.6s ease-out forwards;
+  .shadow-pixel {
+    box-shadow: 4px 4px 0 var(--void-black);
   }
 
-  /* Hover scale effects */
-  
-  /* Interactive element base styles */
-  .interactive {
-    @apply transition-all duration-200 ease-out;
-    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900;
-    @apply hover:scale-105;
+  .shadow-pixel-lg {
+    box-shadow: 8px 8px 0 var(--void-black);
   }
-  
-  /* Navigation link styles */
-  .nav-link {
-    @apply relative px-4 py-2 text-moonlight-gray font-medium;
-    @apply hover:text-blue-400;
-    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-900 rounded;
-    @apply transition-all duration-200;
+
+  /* Cards - Secure Base Styling */
+  .card,
+  .card-pixel {
+    border: 2px solid var(--stellar-cyan);
+    background-color: var(--cosmic-navy) !important;
+    padding: var(--spacing-6);
+    margin: var(--spacing-4);
+    position: relative;
+    isolation: isolate; /* Create new stacking context */
+    box-shadow: 
+      0 0 0 1px var(--void-black),
+      4px 4px 0 var(--void-black);
+    transition: all 0.15s steps(4);
   }
   
-  .nav-link.active::after {
-    @apply absolute bottom-0 left-0 w-full h-0.5 bg-blue-500;
+  .card:hover,
+  .card-pixel:hover {
+    border-color: var(--quasar-yellow);
+    transform: translate(-2px, -2px);
+    box-shadow: 
+      0 0 0 1px var(--void-black),
+      6px 6px 0 var(--void-black),
+      0 0 12px rgba(15, 188, 220, 0.3);
+  }
+  
+  /* Responsive card adjustments */
+  @media (max-width: 768px) {
+    .card,
+    .card-pixel {
+      padding: var(--spacing-4);
+      margin: var(--spacing-2);
+      box-shadow: 
+        0 0 0 1px var(--void-black),
+        2px 2px 0 var(--void-black);
+    }
+    
+    .card:hover,
+    .card-pixel:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 
+        0 0 0 1px var(--void-black),
+        3px 3px 0 var(--void-black),
+        0 0 8px rgba(15, 188, 220, 0.3);
+    }
+  }
+  
+  /* Default cosmic background for cards without specific backgrounds */
+  .card:not(.card-starfield):not(.card-terminal):not(.card-data):not(.card-alert):not(.card-interactive),
+  .card-pixel:not(.card-starfield):not(.card-terminal):not(.card-data):not(.card-alert):not(.card-interactive) {
+    background-color: var(--cosmic-navy) !important;
+  }
+  
+  .card:not(.card-starfield):not(.card-terminal):not(.card-data):not(.card-alert):not(.card-interactive)::before,
+  .card-pixel:not(.card-starfield):not(.card-terminal):not(.card-data):not(.card-alert):not(.card-interactive)::before {
     content: '';
-  }
-
-  /* Screen reader only utility */
-  .sr-only {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(1px 1px at 7px 15px, rgba(15, 188, 220, 0.1), transparent),
+      radial-gradient(1px 1px at 20px 10px, rgba(91, 33, 182, 0.08), transparent),
+      radial-gradient(1px 1px at 15px 22px, rgba(255, 210, 63, 0.06), transparent),
+      radial-gradient(1px 1px at 10px 5px, rgba(255, 255, 255, 0.08), transparent);
+    background-repeat: repeat;
+    background-size: 28px 28px;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Ensure card content stays above backgrounds */
+  .card > *,
+  .card-pixel > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .card-crt {
+    border: 4px solid var(--stellar-cyan);
+    background-color: var(--cosmic-indigo) !important;
+    padding: var(--spacing-4);
+    position: relative;
+    isolation: isolate; /* Create new stacking context */
+    box-shadow: 
+      inset 0 0 0 2px var(--void-black),
+      0 0 0 2px var(--stellar-cyan),
+      4px 4px 0 var(--void-black);
+  }
+  
+  /* Ensure CRT card content stays above backgrounds */
+  .card-crt > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .card-crt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      180deg,
+      transparent 98%,
+      rgba(15, 188, 220, 0.1) 100%
+    );
+    background-size: 100% 2px;
+    pointer-events: none;
+  }
+
+  /* Buttons */
+  .btn-pixel-primary {
+    background: var(--stellar-cyan);
+    color: var(--void-black);
+    border: 2px solid var(--star-white);
+    padding: var(--spacing-2) var(--spacing-4);
+    font-family: var(--font-ui);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: var(--text-sm);
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.15s steps(4);
+    box-shadow: 2px 2px 0 var(--void-black);
+    position: relative;
+  }
+
+  .btn-pixel-primary:hover {
+    background: var(--quasar-yellow);
+    color: var(--void-black);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--void-black);
+  }
+
+  .btn-pixel-primary:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--void-black);
+  }
+
+  .btn-pixel-secondary {
+    background: var(--cosmic-indigo);
+    color: var(--stellar-cyan);
+    border: 2px solid var(--stellar-cyan);
+    padding: var(--spacing-2) var(--spacing-4);
+    font-family: var(--font-ui);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: var(--text-sm);
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.15s steps(4);
+    box-shadow: 2px 2px 0 var(--void-black);
+    position: relative;
+  }
+
+  .btn-pixel-secondary:hover {
+    background: var(--stellar-cyan);
+    color: var(--void-black);
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--void-black);
+  }
+
+  .btn-pixel-secondary:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--void-black);
+  }
+
+  /* Loading Bars */
+  .loading-bar-pixel {
+    background: var(--cosmic-indigo);
+    border: 2px solid var(--asteroid-grey);
+    position: relative;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
   }
 
-  /* Focus visible styles for better accessibility */
-  .focus-visible\:ring-2:focus-visible {
-    outline: 2px solid rgb(59 130 246);
-    outline-offset: 2px;
+  .loading-bar-pixel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--stellar-cyan) 50%,
+      transparent 100%
+    );
+    animation: pixel-loading 2s linear infinite;
   }
 
-  /* High contrast mode support */
-  @media (prefers-contrast: high) {
-    .card {
-      border-width: 2px;
-    }
-    
-    .btn-primary,
-    .btn-secondary {
-      border-width: 2px;
-    }
+  /* Scanline Effect */
+  .scanlines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      180deg,
+      transparent 98%,
+      rgba(15, 188, 220, 0.2) 100%
+    );
+    background-size: 100% 2px;
+    pointer-events: none;
+    animation: scanlines 2s linear infinite;
   }
 
-  /* Simple fade-in animation */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-4);
   }
 
-  .fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+  /* Navigation */
+  .nav-pixel {
+    background: var(--cosmic-indigo);
+    border-bottom: 2px solid var(--stellar-cyan);
+    padding: var(--spacing-2) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
 
-  .fade-in-delay-1 {
-    animation: fadeIn 0.6s ease-out 0.1s forwards;
-    opacity: 0;
+  .nav-pixel::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--stellar-cyan);
+    box-shadow: 0 0 4px var(--stellar-cyan);
   }
 
-  .fade-in-delay-2 {
-    animation: fadeIn 0.6s ease-out 0.2s forwards;
-    opacity: 0;
+  /* Footer */
+  .footer-pixel {
+    background: var(--cosmic-indigo);
+    border-top: 2px solid var(--stellar-cyan);
+    padding: var(--spacing-6) 0;
+    margin-top: var(--spacing-12);
   }
 
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .fade-in,
-    .fade-in-delay-1,
-    .fade-in-delay-2 {
-      animation: none !important;
-      opacity: 1 !important;
-      transform: none !important;
-    }
-    
-    *,
-    *::before,
-    *::after {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
+  .footer-pixel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--stellar-cyan);
+    box-shadow: 0 0 4px var(--stellar-cyan);
   }
 
-
-  /* Markdown content styles */
-  .markdown-content {
-    /* Headings */
-    h1, h2, h3, h4, h5, h6 {
-      @apply text-moonlight-gray font-semibold mt-6 mb-4 first:mt-0;
-    }
-    
-    h1 { @apply text-2xl; }
-    h2 { @apply text-xl; }
-    h3 { @apply text-lg; }
-    h4 { @apply text-base; }
-    
-    /* Paragraphs */
-    p {
-      @apply mb-4 last:mb-0;
-    }
-    
-    /* Inline code */
-    code {
-      @apply px-1.5 py-0.5 bg-dark-matter/60 text-stellar-blue rounded text-sm font-mono;
-    }
-    
-    /* Code blocks */
-    pre {
-      @apply bg-dark-matter/80 rounded-lg p-4 mb-4 overflow-x-auto;
-      @apply border border-stellar-blue/20;
-    }
-    
-    pre code {
-      @apply p-0 bg-transparent text-moonlight-gray;
-    }
-    
-    /* Links */
-    a {
-      @apply text-stellar-blue hover:text-nebula-blue transition-colors underline;
-    }
-    
-    /* Lists */
-    ul, ol {
-      @apply mb-4 pl-6;
-    }
-    
-    ul {
-      @apply list-disc;
-    }
-    
-    ol {
-      @apply list-decimal;
-    }
-    
-    li {
-      @apply mb-1;
-    }
-    
-    /* Nested lists */
-    li > ul,
-    li > ol {
-      @apply mb-2 mt-1;
-    }
-    
-    /* Blockquotes */
-    blockquote {
-      @apply border-l-4 border-stellar-blue/50 pl-4 py-2 mb-4;
-      @apply bg-stellar-blue/5 rounded-r;
-    }
-    
-    blockquote p {
-      @apply mb-0 text-moonlight-gray/90 italic;
-    }
-    
-    /* Tables (GFM) */
-    table {
-      @apply w-full mb-4 border-collapse;
-    }
-    
-    th, td {
-      @apply border border-stellar-blue/20 px-3 py-2 text-left;
-    }
-    
-    th {
-      @apply bg-stellar-blue/10 font-semibold text-moonlight-gray;
-    }
-    
-    td {
-      @apply bg-dark-matter/20;
-    }
-    
-    /* Horizontal rules */
-    hr {
-      @apply border-0 border-t border-stellar-blue/30 my-6;
-    }
-    
-    /* Strikethrough (GFM) */
-    del {
-      @apply text-moonlight-gray/60;
-    }
-    
-    /* Strong and emphasis */
-    strong {
-      @apply font-semibold text-moonlight-gray;
-    }
-    
-    em {
-      @apply italic;
-    }
-    
-    /* Task lists (GFM) */
-    input[type="checkbox"] {
-      @apply mr-2;
-    }
-    
-    /* Image handling */
-    img {
-      @apply max-w-full h-auto rounded;
-    }
-  }
-
-  /* Syntax highlighting theme for highlight.js */
+  /* Code Syntax Highlighting */
   .hljs {
-    @apply bg-transparent text-moonlight-gray;
+    background: var(--void-black) !important;
+    color: var(--star-white) !important;
+    font-family: var(--font-code) !important;
+    padding: var(--spacing-4) !important;
+    border: 2px solid var(--asteroid-grey) !important;
+    border-radius: 0 !important;
+    font-size: var(--text-sm) !important;
+    line-height: 1.6 !important;
+    overflow-x: auto !important;
   }
-  
-  .hljs-comment,
-  .hljs-quote {
-    @apply text-moonlight-gray/60 italic;
+
+  .hljs-keyword {
+    color: var(--nebula-purple) !important;
+    font-weight: bold !important;
   }
-  
-  .hljs-keyword,
-  .hljs-selector-tag,
-  .hljs-subst {
-    @apply text-nebula-blue;
+
+  .hljs-string {
+    color: var(--quasar-yellow) !important;
   }
-  
-  .hljs-number,
-  .hljs-literal,
-  .hljs-variable,
-  .hljs-template-variable,
-  .hljs-tag .hljs-attr {
-    @apply text-supernova-orange;
+
+  .hljs-number {
+    color: var(--stellar-cyan) !important;
   }
-  
-  .hljs-string,
-  .hljs-doctag {
-    @apply text-aurora-green;
+
+  .hljs-comment {
+    color: var(--asteroid-grey) !important;
+    font-style: italic !important;
   }
-  
-  .hljs-title,
-  .hljs-section,
+
+  .hljs-function {
+    color: var(--stellar-cyan) !important;
+  }
+
+  .hljs-variable {
+    color: var(--star-white) !important;
+  }
+
+  .hljs-built_in {
+    color: var(--nebula-purple) !important;
+  }
+
+  .hljs-operator {
+    color: var(--star-white) !important;
+  }
+
+  .hljs-selector-tag {
+    color: var(--nebula-purple) !important;
+  }
+
+  .hljs-selector-class {
+    color: var(--quasar-yellow) !important;
+  }
+
   .hljs-selector-id {
-    @apply text-pulsar-purple;
+    color: var(--stellar-cyan) !important;
   }
-  
-  .hljs-type,
-  .hljs-class .hljs-title {
-    @apply text-stellar-blue;
+
+  .hljs-property {
+    color: var(--stellar-cyan) !important;
   }
-  
-  .hljs-tag,
-  .hljs-name,
-  .hljs-attribute {
-    @apply text-nebula-blue;
+
+  .hljs-value {
+    color: var(--quasar-yellow) !important;
   }
-  
-  .hljs-regexp,
-  .hljs-link {
-    @apply text-aurora-green;
+
+  .hljs-attr {
+    color: var(--stellar-cyan) !important;
   }
-  
-  .hljs-symbol,
-  .hljs-bullet {
-    @apply text-supernova-orange;
+
+  .hljs-tag {
+    color: var(--nebula-purple) !important;
   }
-  
-  .hljs-built_in,
-  .hljs-builtin-name {
-    @apply text-stellar-blue;
+
+  .hljs-title {
+    color: var(--quasar-yellow) !important;
+    font-weight: bold !important;
   }
-  
+
+  .hljs-type {
+    color: var(--stellar-cyan) !important;
+  }
+
+  .hljs-literal {
+    color: var(--quasar-yellow) !important;
+  }
+
+  .hljs-symbol {
+    color: var(--stellar-cyan) !important;
+  }
+
+  .hljs-doctag {
+    color: var(--nebula-purple) !important;
+  }
+
   .hljs-meta {
-    @apply text-moonlight-gray/70;
+    color: var(--asteroid-grey) !important;
   }
-  
+
   .hljs-deletion {
-    @apply bg-error-red/20;
+    background-color: rgba(210, 40, 40, 0.2) !important;
   }
-  
+
   .hljs-addition {
-    @apply bg-aurora-green/20;
+    background-color: rgba(62, 231, 81, 0.2) !important;
   }
-  
+
   .hljs-emphasis {
-    @apply italic;
+    font-style: italic !important;
   }
-  
+
   .hljs-strong {
-    @apply font-bold;
+    font-weight: bold !important;
   }
 }

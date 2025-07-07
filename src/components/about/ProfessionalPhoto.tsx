@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 
@@ -18,123 +17,104 @@ export default function ProfessionalPhoto({
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
-  const containerVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        duration: 0.6
-      }
-    }
+  const handleImageLoad = () => {
+    setImageLoaded(true);
   };
 
-  const imageVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.4
-      }
-    }
-  };
-
-  const placeholderVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        duration: 0.4
-      }
-    }
+  const handleImageError = () => {
+    setImageError(true);
   };
 
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className={`relative ${className}`}
-    >
-      {/* Decorative border */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cosmic-blue via-nebula-purple to-starlight-yellow p-1">
-        <div className="w-full h-full bg-space-dark rounded-xl" />
-      </div>
-
-      {/* Image container */}
-      <div className="relative overflow-hidden rounded-xl aspect-square">
-        {src && !imageError ? (
-          <motion.div
-            variants={imageVariants}
-            initial="hidden"
-            animate={imageLoaded ? "visible" : "hidden"}
-            className="w-full h-full"
-          >
-            <Image
-              src={src}
-              alt={alt}
-              fill
-              className="object-cover object-center"
-              onLoad={() => setImageLoaded(true)}
-              onError={() => setImageError(true)}
-              priority
-            />
-          </motion.div>
-        ) : (
-          <motion.div
-            variants={placeholderVariants}
-            initial="hidden"
-            animate="visible"
-            className="w-full h-full flex items-center justify-center bg-gradient-to-br from-space-dark via-space-dark/80 to-space-dark/60"
-          >
-            {/* Placeholder content */}
-            <div className="text-center space-y-4">
-              <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-cosmic-blue to-nebula-purple flex items-center justify-center">
-                <span className="text-4xl">🚀</span>
-              </div>
-              <div className="space-y-2">
-                <p className="text-white font-medium">Zavier Kamath</p>
-                <p className="text-moonlight-gray/80 text-sm">
-                  Astrophysics → AI/ML
-                </p>
-              </div>
+    <div className={`relative ${className}`}>
+      <div className="pixel-fade-in">
+        {/* CRT Monitor Frame */}
+        <div className="card-crt card-terminal p-4" style={{ backgroundColor: 'var(--cosmic-indigo)' }}>
+          {/* Terminal Header */}
+          <div className="border-pixel border-stellar-cyan bg-void-black p-2 mb-4 font-body text-xs">
+            <div className="flex justify-between items-center">
+              <span className="text-quasar-yellow">PHOTO_VIEWER.exe</span>
+              <span className="text-stellar-cyan">READY_</span>
             </div>
-          </motion.div>
-        )}
+          </div>
 
-        {/* Subtle overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-space-dark/30 via-transparent to-transparent" />
-        
-        {/* Floating particles effect */}
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(5)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-starlight-yellow rounded-full opacity-60"
-              style={{
-                left: `${20 + i * 15}%`,
-                top: `${10 + i * 20}%`,
-              }}
-              animate={{
-                y: [0, -10, 0],
-                opacity: [0.6, 1, 0.6],
-              }}
-              transition={{
-                duration: 3 + i * 0.5,
-                repeat: Infinity,
-                delay: i * 0.3,
-              }}
-            />
-          ))}
+          {/* Photo Container */}
+          <div className="relative aspect-square bg-void-black border-pixel-thick border-asteroid-grey overflow-hidden">
+            {src && !imageError ? (
+              <>
+                {/* Loading State */}
+                {!imageLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="loading-bar-pixel w-32 h-4">
+                      <div className="text-xs text-terminal text-center mt-2">
+                        LOADING IMAGE...
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Actual Image */}
+                <Image
+                  src={src}
+                  alt={alt}
+                  fill
+                  className={`object-cover transition-opacity duration-300 ${
+                    imageLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  style={{ imageRendering: 'pixelated' }}
+                  onLoad={handleImageLoad}
+                  onError={handleImageError}
+                  quality={60} // Reduce quality for more pixelated look
+                />
+
+                {/* Scanline Overlay */}
+                {imageLoaded && (
+                  <div className="absolute inset-0 scanlines pointer-events-none" />
+                )}
+              </>
+            ) : (
+              /* Fallback/Error State */
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+                <div className="font-display text-4xl mb-4 text-asteroid-grey">
+                  ▢
+                </div>
+                <div className="font-body text-sm text-asteroid-grey">
+                  {imageError ? 'IMAGE_NOT_FOUND' : 'NO_IMAGE_LOADED'}
+                </div>
+                <div className="font-body text-xs text-stellar-cyan mt-2">
+                  &gt; Check file path
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Status Bar */}
+          <div className="border-pixel border-stellar-cyan bg-void-black p-2 mt-4 font-body text-xs">
+            <div className="flex justify-between items-center">
+              <span className="text-asteroid-grey">
+                STATUS: {imageLoaded ? 'LOADED' : imageError ? 'ERROR' : 'LOADING'}
+              </span>
+              <span className="text-stellar-cyan">
+                RES: {imageLoaded ? '512x512' : 'UNKNOWN'}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Corner Decorations */}
+        <div className="absolute -top-2 -left-2 font-display text-stellar-cyan text-xs">
+          ┌─
+        </div>
+        <div className="absolute -top-2 -right-2 font-display text-stellar-cyan text-xs">
+          ─┐
+        </div>
+        <div className="absolute -bottom-2 -left-2 font-display text-stellar-cyan text-xs">
+          └─
+        </div>
+        <div className="absolute -bottom-2 -right-2 font-display text-stellar-cyan text-xs">
+          ─┘
         </div>
       </div>
-
-      {/* Glow effect on hover */}
-      <motion.div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-br from-cosmic-blue/20 via-nebula-purple/20 to-starlight-yellow/20 opacity-0 pointer-events-none"
-        whileHover={{ opacity: 1 }}
-        transition={{ duration: 0.3 }}
-      />
-    </motion.div>
+    </div>
   );
 }

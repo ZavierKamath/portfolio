@@ -1,0 +1,293 @@
+/* Pixel Cosmos Background Patterns - Fixed Version */
+
+/* Base pattern animations */
+@keyframes starfield-twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes cosmic-drift {
+  0% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(1px) translateY(-1px); }
+  50% { transform: translateX(0) translateY(-2px); }
+  75% { transform: translateX(-1px) translateY(-1px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+
+@keyframes circuit-pulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes terminal-scan {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 8px; }
+}
+
+/* Core Card Background Classes - Simplified Approach */
+
+/* Starfield Background */
+.card-starfield {
+  background-color: var(--cosmic-navy);
+  position: relative;
+}
+
+.card-starfield::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(1px 1px at 25px 35px, rgba(15, 188, 220, 0.8), transparent),
+    radial-gradient(1px 1px at 60px 80px, rgba(255, 210, 63, 0.6), transparent),
+    radial-gradient(1px 1px at 120px 50px, rgba(91, 33, 182, 0.7), transparent),
+    radial-gradient(1px 1px at 180px 90px, rgba(15, 188, 220, 0.5), transparent),
+    radial-gradient(1px 1px at 200px 40px, rgba(255, 255, 255, 0.9), transparent);
+  background-repeat: repeat;
+  background-size: 240px 120px;
+  opacity: 0.4;
+  animation: starfield-twinkle 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Terminal Grid Background */
+.card-terminal {
+  background-color: var(--cosmic-navy);
+  position: relative;
+}
+
+.card-terminal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(90deg, rgba(15, 188, 220, 0.15) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(15, 188, 220, 0.15) 1px, transparent 1px);
+  background-size: 8px 8px;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-terminal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(1px 1px at 8px 8px, rgba(15, 188, 220, 0.4), transparent),
+    radial-gradient(1px 1px at 24px 24px, rgba(15, 188, 220, 0.3), transparent);
+  background-repeat: repeat;
+  background-size: 32px 32px;
+  opacity: 0.5;
+  animation: terminal-scan 4s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Data Matrix Background */
+.card-data {
+  background-color: var(--cosmic-navy);
+  position: relative;
+}
+
+.card-data::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(90deg, rgba(15, 188, 220, 0.08) 2px, transparent 2px),
+    linear-gradient(180deg, rgba(15, 188, 220, 0.08) 2px, transparent 2px);
+  background-size: 16px 16px;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-data::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 8px 8px, rgba(15, 188, 220, 0.25), transparent),
+    radial-gradient(1px 1px at 24px 24px, rgba(91, 33, 182, 0.2), transparent);
+  background-repeat: repeat;
+  background-size: 32px 32px;
+  opacity: 0.4;
+  animation: circuit-pulse 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Alert/Error Background */
+.card-alert {
+  background-color: var(--cosmic-navy);
+  position: relative;
+}
+
+.card-alert::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(1px 1px at 5px 12px, rgba(210, 40, 40, 0.3), transparent),
+    radial-gradient(1px 1px at 18px 8px, rgba(255, 210, 63, 0.2), transparent),
+    radial-gradient(1px 1px at 12px 20px, rgba(210, 40, 40, 0.15), transparent);
+  background-repeat: repeat;
+  background-size: 24px 24px;
+  opacity: 0.6;
+  animation: cosmic-drift 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Interactive/Hover Background */
+.card-interactive {
+  background-color: var(--cosmic-navy);
+  position: relative;
+  transition: all 0.15s steps(4);
+}
+
+.card-interactive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(90deg, transparent 45%, rgba(15, 188, 220, 0.1) 46%, rgba(15, 188, 220, 0.1) 48%, transparent 49%),
+    linear-gradient(0deg, transparent 45%, rgba(91, 33, 182, 0.1) 46%, rgba(91, 33, 182, 0.1) 48%, transparent 49%);
+  background-repeat: repeat;
+  background-size: 48px 48px;
+  opacity: 0.3;
+  animation: circuit-pulse 7s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+  transition: all 0.15s steps(4);
+}
+
+.card-interactive::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 16px 16px, rgba(255, 210, 63, 0.2), transparent);
+  background-repeat: repeat;
+  background-size: 32px 32px;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 1;
+  transition: all 0.15s steps(4);
+}
+
+.card-interactive:hover::before {
+  opacity: 0.5;
+  animation-duration: 3s;
+}
+
+.card-interactive:hover::after {
+  opacity: 0.4;
+}
+
+/* Default Card Background - Cosmic Noise */
+.card-cosmic {
+  background-color: var(--cosmic-navy);
+  position: relative;
+  transition: all 0.15s steps(4);
+}
+
+.card-cosmic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(1px 1px at 7px 15px, rgba(15, 188, 220, 0.1), transparent),
+    radial-gradient(1px 1px at 20px 10px, rgba(91, 33, 182, 0.08), transparent),
+    radial-gradient(1px 1px at 15px 22px, rgba(255, 210, 63, 0.06), transparent),
+    radial-gradient(1px 1px at 10px 5px, rgba(255, 255, 255, 0.08), transparent);
+  background-repeat: repeat;
+  background-size: 28px 28px;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 1;
+  transition: all 0.15s steps(4);
+  animation: cosmic-drift 12s ease-in-out infinite;
+}
+
+.card-cosmic:hover::before {
+  opacity: 0.8;
+  animation-duration: 6s;
+  background-size: 24px 24px;
+}
+
+/* Ensure content stays above backgrounds */
+.card > *,
+.card-starfield > *,
+.card-terminal > *,
+.card-data > *,
+.card-alert > *,
+.card-interactive > *,
+.card-cosmic > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .card-starfield::before,
+  .card-terminal::after,
+  .card-data::after,
+  .card-alert::before,
+  .card-interactive::before,
+  .card-interactive::after {
+    animation: none;
+  }
+}
+
+/* Performance optimizations */
+.card,
+.card-starfield,
+.card-terminal,
+.card-data,
+.card-alert,
+.card-interactive,
+.card-cosmic {
+  contain: layout style paint;
+}
+
+.card-starfield::before,
+.card-terminal::before,
+.card-terminal::after,
+.card-data::before,
+.card-data::after,
+.card-alert::before,
+.card-interactive::before,
+.card-interactive::after,
+.card-cosmic::before {
+  will-change: auto;
+  transform: translateZ(0);
+}

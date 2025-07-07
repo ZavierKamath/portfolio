@@ -1,33 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
-const floatingVariants = {
-  initial: { y: 0, rotate: 0 },
-  animate: {
-    y: [-10, 10, -10],
-    rotate: [-5, 5, -5],
-    transition: {
-      duration: 4,
-      repeat: Infinity
-    }
-  }
-};
-
-const starsVariants = {
-  initial: { opacity: 0, scale: 0 },
-  animate: {
-    opacity: [0, 1, 0],
-    scale: [0, 1, 0],
-    transition: {
-      duration: 2,
-      repeat: Infinity,
-      repeatDelay: 1
-    }
-  }
-};
 
 export default function NotFound() {
   const [mounted, setMounted] = useState(false);
@@ -41,104 +15,101 @@ export default function NotFound() {
   return (
     <main className="container mx-auto min-h-screen flex items-center justify-center py-12">
       <div className="text-center max-w-2xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="relative"
-        >
-          {/* Floating Astronaut */}
-          <motion.div
-            variants={floatingVariants}
-            initial="initial"
-            animate="animate"
-            className="mb-8 relative"
-          >
-            <div className="text-8xl mb-4">🚀</div>
+        <div className="relative pixel-fade-in">
+          {/* ASCII 404 Display */}
+          <div className="mb-8 font-display">
+            <div className="border-pixel-thick border-mars-red bg-void-black p-4 mb-4">
+              <div className="text-mars-red text-sm mb-2">
+                NAVIGATION ERROR: PAGE_NOT_FOUND
+              </div>
+              <div className="text-quasar-yellow font-lg">
+                ERROR CODE: 404
+              </div>
+            </div>
             
-            {/* Floating Stars */}
-            <div className="absolute inset-0 pointer-events-none">
+            {/* Pixel Art Rocket */}
+            <div className="text-6xl mb-4 pixel-float">🚀</div>
+            
+            {/* ASCII Stars */}
+            <div className="grid grid-cols-6 gap-2 max-w-xs mx-auto mb-4">
               {[...Array(6)].map((_, i) => (
-                <motion.div
+                <div
                   key={i}
-                  variants={starsVariants}
-                  initial="initial"
-                  animate="animate"
-                  className="absolute text-starlight-yellow text-2xl"
+                  className="text-quasar-yellow text-lg pixel-blink"
                   style={{
-                    left: `${20 + i * 12}%`,
-                    top: `${10 + (i % 3) * 30}%`,
-                    animationDelay: `${i * 0.3}s`
+                    animationDelay: `${i * 0.5}s`
                   }}
                 >
-                  ✨
-                </motion.div>
+                  ★
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Error Message */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8"
-          >
-            <h1 className="text-6xl font-bold text-gradient mb-4">404</h1>
-            <h2 className="text-2xl font-semibold mb-4">Lost in Space</h2>
-            <p className="text-body-lg text-moonlight-gray/80 mb-6">
-              The page you&apos;re looking for has drifted into the cosmic void.
-              Let&apos;s navigate you back to familiar territory.
-            </p>
-          </motion.div>
+          <div className="mb-8 pixel-fade-in pixel-delay-200">
+            <h1 className="font-display text-xl text-gradient mb-4 glow-cyan">
+              LOST IN CYBERSPACE
+            </h1>
+            <h2 className="font-ui text-lg font-bold mb-4 text-stellar-cyan">
+              COORDINATES UNKNOWN
+            </h2>
+            <div className="font-body text-sm text-star-white space-y-1">
+              <div>&gt; Target page not found in database</div>
+              <div>&gt; Scanning alternate routes...</div>
+              <div>&gt; Initiating navigation protocol</div>
+            </div>
+          </div>
 
-          {/* Navigation Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
+          {/* Navigation Links - Pixel Style */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 pixel-fade-in pixel-delay-400">
             <Link
               href="/"
-              className="btn-primary flex items-center justify-center space-x-2"
+              className="btn-pixel-primary flex items-center justify-center space-x-2"
             >
-              <span>🏠</span>
-              <span>Return Home</span>
+              <span className="font-display">⌂</span>
+              <span>HOME</span>
             </Link>
             
             <Link
               href="/research"
-              className="btn-secondary flex items-center justify-center space-x-2"
+              className="btn-pixel-secondary flex items-center justify-center space-x-2"
             >
-              <span>🔬</span>
-              <span>View Research</span>
+              <span className="font-display">⚗</span>
+              <span>RESEARCH</span>
             </Link>
             
             <Link
               href="/about"
-              className="btn-secondary flex items-center justify-center space-x-2"
+              className="btn-pixel-secondary flex items-center justify-center space-x-2"
             >
-              <span>👨‍🚀</span>
-              <span>About Me</span>
+              <span className="font-display">☽</span>
+              <span>ABOUT</span>
             </Link>
-          </motion.div>
+          </div>
 
-          {/* Fun Fact */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="mt-12 p-6 card border-cosmic-blue/30"
-          >
-            <div className="text-cosmic-blue text-4xl mb-3">🌌</div>
-            <h3 className="text-lg font-semibold mb-2">Fun Space Fact</h3>
-            <p className="text-body text-moonlight-gray/80">
-              In the time it took you to reach this page, light from the nearest star 
-              (Proxima Centauri) traveled about 300,000 kilometers through space!
-            </p>
-          </motion.div>
-        </motion.div>
+          {/* Info Terminal */}
+          <div className="p-6 card-pixel card-data border-pixel-thick border-stellar-cyan pixel-fade-in pixel-delay-500">
+            <div className="font-display text-lg mb-3 text-stellar-cyan">
+              [SPACE_FACT.DAT]
+            </div>
+            <div className="font-body text-sm space-y-2 text-left">
+              <div className="text-star-white">
+                &gt; DID_YOU_KNOW:
+              </div>
+              <div className="text-asteroid-grey pl-4">
+                In the time it took to reach this page,<br/>
+                light from Proxima Centauri traveled<br/>
+                ~300,000 kilometers through space!
+              </div>
+              <div className="border-t border-asteroid-grey pt-2 mt-2">
+                <div className="text-stellar-cyan text-xs">
+                  &gt; FACT_SOURCE: COSMIC_DATABASE_V2.1
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );
