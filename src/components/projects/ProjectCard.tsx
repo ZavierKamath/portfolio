@@ -1,10 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import React, { useState, useEffect } from "react";
 import { Project } from "@/lib/types";
 import { TechBadge } from "./TechBadge";
-import { cardHoverVariants } from "@/lib/animations";
 import { processMarkdown, isMarkdownContent } from "@/lib/markdown";
 
 interface ProjectCardProps {
@@ -47,7 +45,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const [processedDescription, setProcessedDescription] = useState<string>('');
   const [processedExtendedDescription, setProcessedExtendedDescription] = useState<string>('');
   const [isProcessing, setIsProcessing] = useState(false);
-  const shouldReduceMotion = useReducedMotion();
+
 
   const hasExtendedDescription = project.extendedDescription && project.extendedDescription !== project.description;
 
@@ -95,12 +93,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
   }, [project.description, project.extendedDescription, project.id]);
 
   return (
-    <motion.article
+    <article
       className="card group border-stellar-blue/10 hover:border-stellar-blue/50 hover:shadow-glow cursor-pointer"
-      variants={shouldReduceMotion ? undefined : cardHoverVariants}
-      initial="rest"
-      whileHover="hover"
-      transition={{ duration: 0.2 }}
     >
       {/* Header */}
       <div className="flex justify-between items-start mb-4">
@@ -199,6 +193,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
       )}
-    </motion.article>
+    </article>
   );
 }

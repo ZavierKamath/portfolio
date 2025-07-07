@@ -20,38 +20,18 @@ export function Hero() {
             <div className="order-1 lg:order-2 text-center lg:text-left">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
                 <span className="text-gradient">
-                  From Dark Matter to Neural Networks
+                  Zavier Kamath
                 </span>
               </h1>
               
               <p className="text-lg sm:text-xl text-moonlight-gray/80 mb-8 leading-relaxed">
-                Astrophysicist turned AI researcher, bridging the cosmos with cutting-edge machine
-                learning. Exploring the universe through data, algorithms, and scientific discovery.
+              Bridging Cosmological Research & AI Applications
               </p>
 
               <CTAButtons />
             </div>
           </div>
 
-          {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
-            <p className="text-moonlight-gray/60 text-sm mb-2">Scroll to explore</p>
-            <div className="animate-bounce">
-              <svg
-                className="w-5 h-5 mx-auto text-nebula-blue"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                />
-              </svg>
-            </div>
-          </div>
         </div>
       </div>
     </section>

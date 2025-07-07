@@ -1,10 +1,9 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import React from "react";
 import { Project } from "@/lib/types";
 import { ProjectCard } from "./ProjectCard";
 import { LoadingSkeleton } from "@/components/shared/LoadingSkeleton";
-import { containerVariants, itemVariants, errorVariants } from "@/lib/animations";
 
 interface ProjectGridProps {
   projects: Project[];
@@ -13,8 +12,6 @@ interface ProjectGridProps {
 }
 
 export function ProjectGrid({ projects, loading = false, error = null }: ProjectGridProps) {
-  const shouldReduceMotion = useReducedMotion();
-
   // Loading state
   if (loading) {
     return <LoadingSkeleton variant="project" count={4} />;
@@ -23,12 +20,7 @@ export function ProjectGrid({ projects, loading = false, error = null }: Project
   // Error state
   if (error) {
     return (
-      <motion.div
-        className="text-center py-12"
-        variants={errorVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="text-center py-12">
         <div className="text-6xl mb-4">⚠️</div>
         <h3 className="text-h3 text-moonlight-gray mb-4">Oops! Something went wrong</h3>
         <p className="text-moonlight-gray/70 max-w-md mx-auto mb-6">
@@ -40,19 +32,14 @@ export function ProjectGrid({ projects, loading = false, error = null }: Project
         >
           Try Again
         </button>
-      </motion.div>
+      </div>
     );
   }
 
   // Empty state
   if (projects.length === 0) {
     return (
-      <motion.div
-        className="text-center py-12"
-        variants={errorVariants}
-        initial="hidden"
-        animate="visible"
-      >
+      <div className="text-center py-12">
         <div className="text-6xl mb-4">🚀</div>
         <h3 className="text-h3 text-moonlight-gray mb-4">No Projects Yet</h3>
         <p className="text-moonlight-gray/70 max-w-md mx-auto">
@@ -67,27 +54,18 @@ export function ProjectGrid({ projects, loading = false, error = null }: Project
           </svg>
           Get in Touch
         </a>
-      </motion.div>
+      </div>
     );
   }
 
   // Main grid with projects
   return (
-    <motion.div
-      className="grid gap-8 md:grid-cols-2 lg:grid-cols-2"
-      variants={shouldReduceMotion ? undefined : containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      {projects.map((project) => (
-        <motion.div
-          key={project.id}
-          variants={shouldReduceMotion ? undefined : itemVariants}
-          layout
-        >
+    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+      {projects.map((project, index) => (
+        <div key={`${project.id}-${index}`}>
           <ProjectCard project={project} />
-        </motion.div>
+        </div>
       ))}
-    </motion.div>
+    </div>
   );
 }

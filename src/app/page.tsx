@@ -6,32 +6,51 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
 
+      {/* Scroll indicator */}
+      <div className="text-center py-4 -mt-24">
+        <p className="text-moonlight-gray/60 text-sm mb-2">Scroll to explore</p>
+        <div className="animate-bounce">
+          <svg
+            className="w-5 h-5 mx-auto text-nebula-blue"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </div>
+      </div>
+
       {/* About Section */}
       <section className="container mx-auto py-20">
-        <h2 className="text-center mb-16">About My Work</h2>
+        <h2 className="text-center mb-16">My Passions</h2>
         <div className="grid md:grid-cols-3 gap-8">
           <div className="card text-center">
-            <div className="text-4xl mb-4">🔬</div>
-            <h3 className="mb-4">Research</h3>
+            <div className="text-4xl mb-4">🌟</div>
+            <h3 className="mb-4">Astrophysics Research</h3>
             <p className="text-body">
-              Deep exploration of astrophysical phenomena using computational methods and data
-              analysis techniques.
+              Deep exploration of astrophysical phenomena using computational methods and Bayesian statistics.
             </p>
           </div>
           <div className="card text-center">
-            <div className="text-4xl mb-4">🤖</div>
-            <h3 className="mb-4">AI & ML</h3>
+            <div className="text-4xl mb-4">🦾</div>
+            <h3 className="mb-4">AI Applications</h3>
             <p className="text-body">
-              Applying machine learning to scientific discovery and building intelligent systems for
-              real-world applications.
+              Creation and application of Agentic AI systems for real-world applications. 
+              Leveraging LLMs and AI tools to build products and services.
             </p>
           </div>
           <div className="card text-center">
             <div className="text-4xl mb-4">💻</div>
-            <h3 className="mb-4">Technology</h3>
+            <h3 className="mb-4">Data Science</h3>
             <p className="text-body">
-              Full-stack development with modern frameworks, creating tools that make complex data
-              accessible.
+              Machine learning applications for finding insights in data.
+              Neural networks, Random Forests, and other techniques.
             </p>
           </div>
         </div>
@@ -89,7 +108,7 @@ export default function Home() {
           or exploring opportunities? I&apos;d love to hear from you.
         </p>
         <div className="flex justify-center gap-6">
-          <a href="mailto:contact@example.com" className="btn-primary">
+          <a href="mailto:zavierkamath@gmail.com" className="btn-primary">
             Get in Touch
           </a>
           <a href="/about" className="btn-secondary">

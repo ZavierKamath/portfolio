@@ -5,16 +5,16 @@ import Image from "next/image";
 
 const photos = [
   {
-    src: "/hero/placeholder.svg",
+    src: "/hero/linkdin.jpeg",
     alt: "Professional headshot"
   },
   {
-    src: "/hero/placeholder.svg",
-    alt: "Working on research"
+    src: "/hero/presentation.jpg",
+    alt: "Conference presentation"
   },
   {
-    src: "/hero/placeholder.svg",
-    alt: "Conference presentation"
+    src: "/hero/capngown.jpeg",
+    alt: "Graduation day photo"
   }
 ];
 

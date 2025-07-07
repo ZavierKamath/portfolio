@@ -1,45 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Timeline from "@/components/about/Timeline";
 import ContactLinks from "@/components/about/ContactLinks";
 import ProfessionalPhoto from "@/components/about/ProfessionalPhoto";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.1
-    }
-  }
-};
-
-const sectionVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6
-    }
-  }
-};
-
 export default function About() {
   return (
-    <motion.main 
-      className="container mx-auto min-h-screen py-12"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <main className="container mx-auto min-h-screen py-12 fade-in">
       {/* Hero Section */}
-      <motion.section 
-        variants={sectionVariants}
-        className="mb-16"
-      >
+      <section className="mb-16 fade-in-delay-1">
         <div className="text-center mb-12">
           <h1 className="text-gradient mb-4">About Me</h1>
           <p className="text-body-lg text-moonlight-gray/80 max-w-2xl mx-auto">
@@ -49,20 +18,14 @@ export default function About() {
 
         <div className="grid lg:grid-cols-3 gap-12 items-start">
           {/* Professional Photo */}
-          <motion.div
-            variants={sectionVariants}
-            className="lg:col-span-1"
-          >
+          <div className="lg:col-span-1">
             <div className="max-w-sm mx-auto">
               <ProfessionalPhoto className="w-full max-w-sm" />
             </div>
-          </motion.div>
+          </div>
 
           {/* About Content */}
-          <motion.div
-            variants={sectionVariants}
-            className="lg:col-span-2 space-y-6"
-          >
+          <div className="lg:col-span-2 space-y-6">
             <div className="card">
               <h3 className="mb-4">Background</h3>
               <p className="text-body-lg mb-4">
@@ -105,27 +68,21 @@ export default function About() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Timeline Section */}
-      <motion.section 
-        variants={sectionVariants}
-        className="mb-16"
-      >
+      <section className="mb-16 fade-in-delay-2">
         <Timeline />
-      </motion.section>
+      </section>
 
       {/* Contact Section */}
-      <motion.section 
-        variants={sectionVariants}
-        className="mb-8"
-      >
+      <section className="mb-8 fade-in-delay-2">
         <div className="max-w-2xl mx-auto">
           <ContactLinks />
         </div>
-      </motion.section>
-    </motion.main>
+      </section>
+    </main>
   );
 }

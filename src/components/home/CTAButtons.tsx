@@ -33,7 +33,7 @@ export function CTAButtons() {
 
       {/* Secondary CTAs */}
       <a
-        href="https://github.com/yourusername"
+        href="https://github.com/ZavierKamath"
         target="_blank"
         rel="noopener noreferrer"
         className="btn-secondary inline-flex items-center justify-center gap-2 group"
@@ -49,7 +49,7 @@ export function CTAButtons() {
       </a>
 
       <a
-        href="https://linkedin.com/in/yourusername"
+        href="https://linkedin.com/in/zavierkamath"
         target="_blank"
         rel="noopener noreferrer"
         className="btn-secondary inline-flex items-center justify-center gap-2 group"
