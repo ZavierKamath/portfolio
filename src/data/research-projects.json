@@ -5,8 +5,8 @@
       "title": "Dark Matter Model Statistical Analysis",
       "subtitle": "Bayesian Analysis of Milky Way Satellite Data",
       "date": "Summer 2023 - Summer 2024",
-      "description": "Advanced constraints on **Warm Dark Matter** particle mass to `>4 keV/c²` through *Bayesian statistical analysis* of Milky Way satellite galaxy data, doubling previous research bounds.",
-      "extendedDescription": "Conducted comprehensive **Bayesian statistical analysis** of Milky Way satellite galaxy data using high-performance Python framework with Monte Carlo integration.\n\n### Key Achievements\n\n- Optimized computational bottlenecks achieving **100x runtime improvement**\n- Doubled previous research bounds on WDM particle mass\n- Authored detailed research methods with full GitHub reproducibility\n\n### Technical Implementation\n\n```python\n# Monte Carlo integration for likelihood computation\ndef compute_likelihood(params, data):\n    \"\"\"Compute Bayesian likelihood for WDM constraints\"\"\"\n    return mcmc_sampler.evaluate(params, satellite_data)\n```\n\n> \"This work represents a significant advancement in our understanding of dark matter physics and computational astrophysics.\" - Research Supervisor",
+      "description": "Research project under Prof. Annika Peter and Prof. Ivan Esteban to analyze Dark Matter models.",
+      "extendedDescription": "Advanced constraints on Warm Dark Matter particle mass to >4 keV/c² through Bayesian statistical analysis of Milky Way satellite galaxy data, doubling previous predictions and optimizing computational bottlenecks to obtain 100x runtime improvement.",
       "skills": [
         { "name": "Python", "category": "Language" },
         { "name": "Bayesian Statistics", "category": "Concept" },

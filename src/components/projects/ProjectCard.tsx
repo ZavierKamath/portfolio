@@ -163,7 +163,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {processedExtendedDescription && (
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="text-stellar-cyan text-xs hover:text-cyan-300 transition-colors duration-200 mt-2 font-medium"
+                className="text-stellar-cyan text-sm hover:text-cyan-300 transition-colors duration-200 mt-2 font-medium"
                 aria-label={isExpanded ? "Show less" : "Read more"}
               >
                 {isExpanded ? "Show less ↑" : "Read more ↓"}
