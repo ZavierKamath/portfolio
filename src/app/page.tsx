@@ -108,10 +108,24 @@ export default function Home() {
           or exploring opportunities? I&apos;d love to hear from you.
         </p>
         <div className="flex justify-center gap-6">
-          <a href="mailto:zavierkamath@gmail.com" className="btn-primary">
+          <a 
+            href="mailto:zavierkamath@gmail.com" 
+            className="btn-primary"
+            style={{
+              backgroundColor: 'transparent',
+              boxShadow: '0 0 10px rgba(91, 33, 182, 0.4), 0 0 20px rgba(91, 33, 182, 0.2), 0 0 30px rgba(91, 33, 182, 0.1)',
+            }}
+          >
             Get in Touch
           </a>
-          <a href="/about" className="btn-secondary">
+          <a 
+            href="/about" 
+            className="btn-secondary"
+            style={{
+              backgroundColor: 'transparent',
+              boxShadow: '0 0 10px rgba(91, 33, 182, 0.4), 0 0 20px rgba(91, 33, 182, 0.2), 0 0 30px rgba(91, 33, 182, 0.1)',
+            }}
+          >
             Learn More
           </a>
         </div>

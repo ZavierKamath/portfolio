@@ -50,6 +50,12 @@ export function Navbar() {
             <Link
               href="/"
               className="text-xl font-bold text-moonlight-gray hover:text-nebula-blue transition-colors duration-200"
+              style={{
+                textDecoration: 'underline',
+                textDecorationColor: '#0FBCDC', // stellar-cyan
+                textUnderlineOffset: '4px',
+                textDecorationThickness: '2px'
+              }}
             >
               Zavier Kamath Portfolio
             </Link>
@@ -92,7 +98,7 @@ export function Navbar() {
                 Resume
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/ZavierKamath"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-moonlight-gray hover:text-nebula-blue transition-colors duration-200"
@@ -107,7 +113,7 @@ export function Navbar() {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/zavierkamath/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-moonlight-gray hover:text-nebula-blue transition-colors duration-200"

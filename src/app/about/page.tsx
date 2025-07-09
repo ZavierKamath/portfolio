@@ -20,7 +20,10 @@ export default function About() {
           {/* Professional Photo */}
           <div className="lg:col-span-1">
             <div className="max-w-sm mx-auto">
-              <ProfessionalPhoto className="w-full max-w-sm" />
+              <ProfessionalPhoto 
+                src="/professional-photo.jpg"
+                className="w-full max-w-sm" 
+              />
             </div>
           </div>
 
@@ -29,26 +32,23 @@ export default function About() {
             <div className="card">
               <h3 className="mb-4 text-star-white">Background</h3>
               <p className="text-asteroid-grey mb-4">
-                My journey bridges the cosmic and computational, spanning from dark matter research in 
-                astrophysics to building intelligent AI systems. This unique path combines rigorous 
-                scientific methodology with cutting-edge technology development, creating a foundation 
-                for both theoretical understanding and practical innovation.
+              My background consists of studying dark matter in astrophysics research and creating AI systems at 
+              Huntington National Bank. My background gives me experience with both rigorous scientific analysis 
+              and hands-on technology development. I am always looking for new opportunities in the research / tech space.
               </p>
               <p className="text-asteroid-grey">
-                The mathematical rigor of physics—including Bayesian inference, Monte Carlo simulations, 
-                and optimization theory—translates seamlessly to machine learning architectures, statistical 
-                modeling, and enterprise AI system design, enabling solutions that are both scientifically 
-                sound and commercially viable.
+              The statistical methods I used in physics research—like Monte Carlo simulations and 
+              Bayesian analysis—directly apply to machine learning and AI development. 
+              This background helps me build systems that actually work in practice.
               </p>
             </div>
 
             <div className="card">
               <h3 className="mb-4 text-star-white">Current Focus</h3>
               <p className="text-asteroid-grey mb-4">
-                As a Data Analyst Co-op at Huntington National Bank, I architect and deploy agentic AI 
-                systems that revolutionize financial services through intelligent automation. My work 
-                spans from theoretical AI research to production-ready enterprise solutions, creating 
-                tangible value through innovative technology applications.
+              At Huntington Bank, I build AI automation systems for financial services using 
+              AWS Bedrock and other tools. I work on everything from designing the architecture 
+              to writing Python libraries that help my team create these automated workflows.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -56,7 +56,7 @@ export default function About() {
                   <ul className="space-y-1 text-asteroid-grey">
                     <li>• Advanced agentic AI architectures</li>
                     <li>• Enterprise LLM automation pipelines</li>
-                    <li>• Deep neural network optimization</li>
+                    <li>• Science / Technology Communication</li>
                     <li>• Sophisticated prompt engineering</li>
                   </ul>
                 </div>
@@ -65,7 +65,7 @@ export default function About() {
                   <ul className="space-y-1 text-asteroid-grey">
                     <li>• Advanced Bayesian statistical modeling</li>
                     <li>• High-performance computational systems</li>
-                    <li>• Interactive data visualization</li>
+                    <li>• Data visualizations</li>
                     <li>• Reproducible research methodologies</li>
                   </ul>
                 </div>

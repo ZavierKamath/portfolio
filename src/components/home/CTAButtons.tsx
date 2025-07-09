@@ -14,6 +14,10 @@ export function CTAButtons() {
         download="Your_Name_Resume.pdf"
         onClick={handleResumeDownload}
         className="btn-primary inline-flex items-center justify-center gap-2 group"
+        style={{
+          backgroundColor: 'transparent',
+          boxShadow: '0 0 10px rgba(91, 33, 182, 0.4), 0 0 20px rgba(91, 33, 182, 0.2), 0 0 30px rgba(91, 33, 182, 0.1)',
+        }}
       >
         <svg
           className="w-5 h-5 group-hover:animate-bounce"
@@ -37,6 +41,10 @@ export function CTAButtons() {
         target="_blank"
         rel="noopener noreferrer"
         className="btn-secondary inline-flex items-center justify-center gap-2 group"
+        style={{
+          backgroundColor: 'transparent',
+          boxShadow: '0 0 10px rgba(91, 33, 182, 0.4), 0 0 20px rgba(91, 33, 182, 0.2), 0 0 30px rgba(91, 33, 182, 0.1)',
+        }}
       >
         <svg
           className="w-5 h-5 group-hover:rotate-12 transition-transform"
@@ -53,6 +61,10 @@ export function CTAButtons() {
         target="_blank"
         rel="noopener noreferrer"
         className="btn-secondary inline-flex items-center justify-center gap-2 group"
+        style={{
+          backgroundColor: 'transparent',
+          boxShadow: '0 0 10px rgba(91, 33, 182, 0.4), 0 0 20px rgba(91, 33, 182, 0.2), 0 0 30px rgba(91, 33, 182, 0.1)',
+        }}
       >
         <svg
           className="w-5 h-5 group-hover:scale-110 transition-transform"

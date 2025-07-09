@@ -54,10 +54,19 @@ export default function ContactLinks() {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'email': return 'var(--stellar-cyan)';
-      case 'social': return 'var(--nebula-purple)';
-      case 'external': return 'var(--quasar-yellow)';
-      default: return 'var(--asteroid-grey)';
+      case 'email': return '#0FBCDC'; // stellar-cyan
+      case 'social': return '#5B21B6'; // nebula-purple
+      case 'external': return '#FFD23F'; // quasar-yellow
+      default: return '#8B8680'; // asteroid-grey
+    }
+  };
+
+  const getTypeColorRgba = (type: string) => {
+    switch (type) {
+      case 'email': return { r: 15, g: 188, b: 220 }; // stellar-cyan
+      case 'social': return { r: 91, g: 33, b: 182 }; // nebula-purple
+      case 'external': return { r: 255, g: 210, b: 63 }; // quasar-yellow
+      default: return { r: 139, g: 134, b: 128 }; // asteroid-grey
     }
   };
 
@@ -74,7 +83,7 @@ export default function ContactLinks() {
     <section className="max-w-2xl mx-auto">
       {/* Clean section header */}
       <div className="text-center mb-8">
-        <h2 className="text-gradient font-display text-2xl mb-3">Let's Connect</h2>
+        <h2 className="text-gradient font-display text-2xl mb-3">Let&apos;s Connect</h2>
         <p className="text-asteroid-grey text-sm">
           Open to collaboration, opportunities, and interesting conversations about astrophysics and AI.
         </p>
@@ -145,8 +154,12 @@ export default function ContactLinks() {
                     className="px-4 py-2 text-sm font-ui font-medium transition-all duration-200 hover:scale-105"
                     style={{
                       border: '2px solid ' + getTypeColor(contact.type),
-                      backgroundColor: 'var(--void-black)',
+                      backgroundColor: 'transparent',
                       color: getTypeColor(contact.type),
+                      boxShadow: (() => {
+                        const rgba = getTypeColorRgba(contact.type);
+                        return `0 0 10px rgba(${rgba.r}, ${rgba.g}, ${rgba.b}, 0.4), 0 0 20px rgba(${rgba.r}, ${rgba.g}, ${rgba.b}, 0.2), 0 0 30px rgba(${rgba.r}, ${rgba.g}, ${rgba.b}, 0.1)`;
+                      })(),
                     }}
                   >
                     {contact.type === 'email' ? 'Send Email' : 'Visit'}
@@ -165,7 +178,7 @@ export default function ContactLinks() {
 
       {/* Simple footer note */}
       <div className="text-center mt-8 text-asteroid-grey text-sm">
-        <p>Based in Ohio • Always excited to discuss new opportunities</p>
+        <p>Based in Ohio • Willing to relocate for new opportunities</p>
       </div>
     </section>
   );
