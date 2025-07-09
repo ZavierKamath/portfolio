@@ -28,7 +28,7 @@ const contactData: ContactLink[] = [
     label: "LinkedIn",
     value: "linkedin.com/in/zavierkamath",
     href: "https://linkedin.com/in/zavierkamath",
-    icon: "▣",
+    icon: "⚡",
     type: "social"
   },
   {
@@ -36,14 +36,13 @@ const contactData: ContactLink[] = [
     label: "GitHub",
     value: "github.com/ZavierKamath",
     href: "https://github.com/ZavierKamath",
-    icon: "◈",
+    icon: "◇",
     type: "social"
   }
 ];
 
 export default function ContactLinks() {
   const { copy, copied } = useClipboard();
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [lastCopiedText, setLastCopiedText] = useState<string>('');
 
   const handleCopy = async (text: string, e: React.MouseEvent) => {
@@ -73,54 +72,39 @@ export default function ContactLinks() {
 
   return (
     <section className="max-w-2xl mx-auto">
-      {/* Terminal Header */}
-      <div className="mb-6">
-        <div className="border-pixel border-stellar-cyan bg-void-black p-4 font-display">
-          <div className="text-terminal text-sm mb-2">
-            <span className="text-quasar-yellow">CONTACT_MANAGER.exe</span> 
-            <span className="ml-4">███████░░░ 70% Loaded</span>
-          </div>
-          <div className="border-t border-stellar-cyan pt-2">
-            <h2 className="text-gradient font-display text-xl glow-cyan">COMM_LINKS.DAT</h2>
-          </div>
-        </div>
+      {/* Clean section header */}
+      <div className="text-center mb-8">
+        <h2 className="text-gradient font-display text-2xl mb-3">Let's Connect</h2>
+        <p className="text-asteroid-grey text-sm">
+          Open to collaboration, opportunities, and interesting conversations about astrophysics and AI.
+        </p>
       </div>
 
-      {/* Contact Links Grid */}
-      <div className="space-y-4 pixel-stagger-children">
+      {/* Contact cards - matching ProjectCard styling */}
+      <div className="space-y-4">
         {contactData.map((contact, index) => (
           <div
             key={contact.id}
-            className="pixel-scroll-reveal relative"
+            className="group transition-transform hover:scale-105"
             style={{
               animationDelay: `${index * 100}ms`
             }}
           >
             <div 
-              className="card-pixel card-terminal card-interactive p-4 transition-all duration-150 hover:shadow-pixel-lg"
+              className="card p-4 transition-all duration-200"
               style={{
-                borderColor: getTypeColor(contact.type),
-                backgroundColor: 'var(--cosmic-navy)',
-                transition: 'all 0.15s steps(4)'
+                border: '2px solid var(--stellar-cyan)',
+                backgroundColor: 'var(--void-black)',
+                boxShadow: '2px 2px 0 var(--stellar-cyan)',
               }}
-              onMouseEnter={() => setHoveredId(contact.id)}
-              onMouseLeave={() => setHoveredId(null)}
             >
-              {/* Status Bar */}
-              <div className="text-xs font-body text-terminal mb-2 opacity-80">
-                <span className="text-quasar-yellow">[{contact.type.toUpperCase()}_LINK]</span>
-                <span className="ml-4 text-asteroid-grey">
-                  {hoveredId === contact.id ? '[READY]' : '[IDLE]'}
-                </span>
-              </div>
-
               <div className="flex items-center justify-between">
-                {/* Contact Info */}
+                {/* Contact info with clean layout */}
                 <div className="flex items-center space-x-4">
                   <div 
-                    className="w-12 h-12 border-pixel flex items-center justify-center font-display text-lg"
+                    className="w-12 h-12 flex items-center justify-center text-lg"
                     style={{
-                      borderColor: getTypeColor(contact.type),
+                      border: '2px solid ' + getTypeColor(contact.type),
                       backgroundColor: getTypeBackground(contact.type),
                       color: getTypeColor(contact.type)
                     }}
@@ -129,26 +113,28 @@ export default function ContactLinks() {
                   </div>
                   
                   <div>
-                    <h3 className="font-ui font-bold text-star-white mb-1 text-sm">
-                      {contact.label.toUpperCase()}
+                    <h3 className="font-ui font-bold text-star-white mb-1">
+                      {contact.label}
                     </h3>
-                    <p className="font-body text-xs text-asteroid-grey">
+                    <p className="font-body text-sm text-asteroid-grey">
                       {contact.value}
                     </p>
                   </div>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex items-center space-x-2">
+                {/* Action buttons with clean styling */}
+                <div className="flex items-center space-x-3">
                   {contact.copyable && (
                     <button
                       onClick={(e) => handleCopy(contact.value, e)}
-                      className="px-3 py-1 border-pixel border-stellar-cyan bg-cosmic-indigo text-stellar-cyan font-ui text-xs font-bold hover:bg-stellar-cyan hover:text-void-black transition-all duration-150"
+                      className="px-4 py-2 text-sm font-ui font-medium transition-all duration-200"
                       style={{
-                        transition: 'all 0.15s steps(4)'
+                        border: '2px solid var(--stellar-cyan)',
+                        backgroundColor: copied && lastCopiedText === contact.value ? 'var(--stellar-cyan)' : 'var(--void-black)',
+                        color: copied && lastCopiedText === contact.value ? 'var(--void-black)' : 'var(--stellar-cyan)',
                       }}
                     >
-                      {copied && lastCopiedText === contact.value ? '[COPIED!]' : '[COPY]'}
+                      {copied && lastCopiedText === contact.value ? 'Copied!' : 'Copy'}
                     </button>
                   )}
                   
@@ -156,45 +142,30 @@ export default function ContactLinks() {
                     href={contact.href}
                     target={contact.type !== 'email' ? '_blank' : undefined}
                     rel={contact.type !== 'email' ? 'noopener noreferrer' : undefined}
-                    className="px-3 py-1 border-pixel bg-void-black font-ui text-xs font-bold hover:shadow-pixel-sm transition-all duration-150"
+                    className="px-4 py-2 text-sm font-ui font-medium transition-all duration-200 hover:scale-105"
                     style={{
-                      borderColor: getTypeColor(contact.type),
+                      border: '2px solid ' + getTypeColor(contact.type),
+                      backgroundColor: 'var(--void-black)',
                       color: getTypeColor(contact.type),
-                      transition: 'all 0.15s steps(4)'
                     }}
                   >
-                    [OPEN]
+                    {contact.type === 'email' ? 'Send Email' : 'Visit'}
                   </a>
                 </div>
               </div>
 
-              {/* Hover Effect ASCII Decoration */}
-              {hoveredId === contact.id && (
-                <div 
-                  className="absolute -top-1 -right-1 font-display text-xs pixel-blink"
-                  style={{ color: getTypeColor(contact.type) }}
-                >
-                  ▸
-                </div>
-              )}
+              {/* Subtle hover indicator */}
+              <div 
+                className="h-0.5 w-0 bg-stellar-cyan transition-all duration-300 group-hover:w-full mt-3"
+              />
             </div>
           </div>
         ))}
       </div>
 
-      {/* Terminal Footer */}
-      <div className="mt-6 border-pixel border-stellar-cyan bg-void-black p-2 font-body text-xs">
-        <div className="flex justify-between items-center">
-          <div className="text-terminal">
-            <span className="text-quasar-yellow">COMM_LINKS.DAT</span>
-            <span className="ml-4 text-asteroid-grey">
-              {contactData.length} CHANNELS ACTIVE
-            </span>
-          </div>
-          <div className="text-stellar-cyan">
-            STATUS: READY_
-          </div>
-        </div>
+      {/* Simple footer note */}
+      <div className="text-center mt-8 text-asteroid-grey text-sm">
+        <p>Based in Ohio • Always excited to discuss new opportunities</p>
       </div>
     </section>
   );
