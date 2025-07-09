@@ -51,7 +51,7 @@ export function Navbar() {
               href="/"
               className="text-xl font-bold text-moonlight-gray hover:text-nebula-blue transition-colors duration-200"
             >
-              Portfolio
+              Zavier Kamath Portfolio
             </Link>
 
             {/* Desktop Navigation */}
@@ -63,7 +63,7 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={`
-                      relative py-2 px-1 text-sm font-medium transition-colors duration-200
+                      relative py-2 px-1 text-base font-medium transition-colors duration-200
                       hover:text-nebula-blue
                       ${isActive ? "text-nebula-blue" : "text-moonlight-gray/80"}
                     `}
@@ -87,7 +87,7 @@ export function Navbar() {
               <a
                 href="/resume.pdf"
                 download
-                className="text-sm text-moonlight-gray hover:text-nebula-blue transition-colors duration-200"
+                className="text-base text-moonlight-gray hover:text-nebula-blue transition-colors duration-200"
               >
                 Resume
               </a>

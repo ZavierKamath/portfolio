@@ -7,50 +7,40 @@
   --stellar-cyan: #0FBCDC;
   --cosmic-indigo: #1A1A2E;
 
-  /* 16-Color Pixel Art Palette */
+  /* Simplified 6-Color Pixel Art Palette */
   --star-white: #FFFFFF;
-  --plasma-pink: #FF006E;
-  --quasar-yellow: #FFD23F;
-  --comet-orange: #FF6B35;
-  --galaxy-green: #3EE751;
-  --deep-space-blue: #0F4C81;
+  --stellar-cyan: #0FBCDC;
   --asteroid-grey: #8B8680;
-  --moon-silver: #C0C0C0;
-  --mars-red: #D62828;
-  --neptune-teal: #2E8B8B;
-  --shadow-purple: #2B0548;
-  --cosmic-navy: #16213E;
-  --stardust: #F5F5F5;
-  --eclipse: #1C1C1C;
-  --pulsar-magenta: #C77DFF;
-  --meteor-brown: #6F4E37;
+  --void-black: #000000;
+  --cosmic-indigo: #1A1A2E;
+  --quasar-yellow: #FFD23F;
 
   /* Semantic Color Assignments */
   --color-primary: var(--stellar-cyan);
-  --color-secondary: var(--nebula-purple);
+  --color-secondary: var(--asteroid-grey);
   --color-accent: var(--quasar-yellow);
-  --color-success: var(--galaxy-green);
-  --color-error: var(--mars-red);
-  --color-warning: var(--comet-orange);
+  --color-success: var(--stellar-cyan);
+  --color-error: var(--quasar-yellow);
+  --color-warning: var(--quasar-yellow);
   --color-info: var(--stellar-cyan);
 
   /* Background Colors */
   --bg-primary: var(--void-black);
   --bg-secondary: var(--cosmic-indigo);
-  --bg-tertiary: var(--cosmic-navy);
-  --bg-card: var(--shadow-purple);
+  --bg-tertiary: var(--cosmic-indigo);
+  --bg-card: var(--void-black);
   --bg-overlay: rgba(0, 0, 0, 0.8);
 
   /* Text Colors */
   --text-primary: var(--star-white);
-  --text-secondary: var(--moon-silver);
+  --text-secondary: var(--asteroid-grey);
   --text-muted: var(--asteroid-grey);
   --text-accent: var(--stellar-cyan);
-  --text-terminal: var(--galaxy-green);
+  --text-terminal: var(--stellar-cyan);
 
   /* Border Colors */
   --border-primary: var(--stellar-cyan);
-  --border-secondary: var(--nebula-purple);
+  --border-secondary: var(--asteroid-grey);
   --border-accent: var(--quasar-yellow);
   --border-muted: var(--asteroid-grey);
 
@@ -104,23 +94,16 @@
   --border-radius-sm: 2px; /* Only for CRT monitor effect */
   --border-radius-md: 4px;
 
-  /* Shadows (Pixel Style) */
-  --shadow-pixel-sm: 2px 2px 0 var(--void-black);
-  --shadow-pixel-md: 4px 4px 0 var(--void-black);
-  --shadow-pixel-lg: 8px 8px 0 var(--void-black);
-  --shadow-inset: inset 2px 2px 0 rgba(255, 255, 255, 0.3), 
-                  inset -2px -2px 0 rgba(0, 0, 0, 0.5);
+  /* Shadows (Simplified Pixel Style) */
+  --shadow-pixel-sm: 2px 2px 0 var(--stellar-cyan);
+  --shadow-pixel-md: 2px 2px 0 var(--stellar-cyan);
+  --shadow-pixel-lg: 2px 2px 0 var(--stellar-cyan);
+  --shadow-inset: none;
 
-  /* Glow Effects */
-  --glow-cyan: 0 0 5px var(--stellar-cyan), 
-               0 0 10px var(--stellar-cyan), 
-               0 0 15px var(--stellar-cyan);
-  --glow-purple: 0 0 5px var(--nebula-purple), 
-                 0 0 10px var(--nebula-purple), 
-                 0 0 15px var(--nebula-purple);
-  --glow-yellow: 0 0 5px var(--quasar-yellow), 
-                 0 0 10px var(--quasar-yellow), 
-                 0 0 15px var(--quasar-yellow);
+  /* Glow Effects (Minimal) */
+  --glow-cyan: none;
+  --glow-purple: none;
+  --glow-yellow: none;
 
   /* Z-Index Scale */
   --z-background: -1;

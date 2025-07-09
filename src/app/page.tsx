@@ -32,25 +32,23 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-8">
           <div className="card text-center">
             <div className="text-4xl mb-4">🌟</div>
-            <h3 className="mb-4">Astrophysics Research</h3>
-            <p className="text-body">
-              Deep exploration of astrophysical phenomena using computational methods and Bayesian statistics.
+            <h3 className="mb-4 text-star-white">Astrophysics Research</h3>
+            <p className="text-asteroid-grey">
+              Exploring cosmic phenomena through computational modeling, statistical analysis, and advanced simulation techniques to understand the fundamental physics of our universe.
             </p>
           </div>
           <div className="card text-center">
             <div className="text-4xl mb-4">🦾</div>
-            <h3 className="mb-4">AI Applications</h3>
-            <p className="text-body">
-              Creation and application of Agentic AI systems for real-world applications. 
-              Leveraging LLMs and AI tools to build products and services.
+            <h3 className="mb-4 text-star-white">AI Applications</h3>
+            <p className="text-asteroid-grey">
+              Building intelligent systems and agentic AI solutions that solve real-world problems across industries, from finance to scientific research and beyond.
             </p>
           </div>
           <div className="card text-center">
             <div className="text-4xl mb-4">💻</div>
-            <h3 className="mb-4">Data Science</h3>
-            <p className="text-body">
-              Machine learning applications for finding insights in data.
-              Neural networks, Random Forests, and other techniques.
+            <h3 className="mb-4 text-star-white">Data Science</h3>
+            <p className="text-asteroid-grey">
+              Extracting meaningful insights from complex datasets using machine learning, statistical modeling, and advanced data visualization techniques.
             </p>
           </div>
         </div>
@@ -61,39 +59,41 @@ export default function Home() {
         <h2 className="text-center mb-16">Experience Highlights</h2>
         <div className="space-y-8 max-w-4xl mx-auto">
           <div className="card">
-            <h3 className="mb-4">Latest Research Project</h3>
-            <p className="text-body-lg mb-4">
-              Developed novel neural network architectures for analyzing gravitational wave data,
-              improving detection sensitivity by 15% over traditional methods.
+            <h3 className="mb-4 text-star-white">Dark Matter Model Analysis</h3>
+            <p className="text-asteroid-grey mb-4">
+            Advanced research constraining Warm Dark Matter particle mass to &gt;4 keV/c² through 
+            sophisticated Bayesian statistical analysis of Milky Way satellite galaxy data, achieving 
+            breakthrough improvements in computational efficiency and doubling previous research bounds.
             </p>
             <div className="flex flex-wrap gap-2">
               <span className="px-3 py-1 bg-pulsar-purple/20 text-pulsar-purple rounded-full text-sm">
-                Deep Learning
+                Bayesian Statistics
               </span>
               <span className="px-3 py-1 bg-stellar-blue/20 text-stellar-blue rounded-full text-sm">
                 Python
               </span>
               <span className="px-3 py-1 bg-aurora-green/20 text-aurora-green rounded-full text-sm">
-                TensorFlow
+                Computational Astrophysics
               </span>
             </div>
           </div>
 
           <div className="card">
-            <h3 className="mb-4">Industry Application</h3>
-            <p className="text-body-lg mb-4">
-              Built scalable data pipeline processing terabytes of astronomical observations,
-              enabling real-time analysis and automated anomaly detection.
+            <h3 className="mb-4 text-star-white">Digital Loan Portal POC</h3>
+            <p className="text-asteroid-grey mb-4">
+            Engineered a fully autonomous agentic AI system for loan processing that seamlessly handles 
+            customer interactions, document analysis, natural language processing, and secure data 
+            management using enterprise-grade AWS infrastructure and advanced LLM workflows.
             </p>
             <div className="flex flex-wrap gap-2">
               <span className="px-3 py-1 bg-supernova-orange/20 text-supernova-orange rounded-full text-sm">
-                Data Engineering
-              </span>
-              <span className="px-3 py-1 bg-stellar-blue/20 text-stellar-blue rounded-full text-sm">
                 AWS
               </span>
+              <span className="px-3 py-1 bg-stellar-blue/20 text-stellar-blue rounded-full text-sm">
+                AI Systems Engineering
+              </span>
               <span className="px-3 py-1 bg-aurora-green/20 text-aurora-green rounded-full text-sm">
-                Apache Spark
+                Context Engineering
               </span>
             </div>
           </div>

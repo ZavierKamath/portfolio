@@ -3,10 +3,10 @@
     {
       "id": "agentic-ai-loan-solution",
       "title": "Agentic AI Loan Application Solution",
-      "subtitle": "Enterprise AI Automation for Financial Services",
+      "subtitle": "Enterprise AI Automation for Huntington National Bank",
       "date": "May 2025 - Present",
-      "description": "Developed fully automatic **agentic AI loan application solution** demo using `AWS` and `LangChain` that chats with customers, processes documents and natural language input, and stores data with enterprise-grade architecture.",
-      "extendedDescription": "Built comprehensive **AI-powered loan processing system** featuring natural language customer interactions, automated document processing, and robust data storage.\n\n### System Architecture\n\n| Component | Technology | Purpose |\n|-----------|------------|----------|\n| Chat Interface | LangChain | Customer interactions |\n| Document Processing | AWS Bedrock | NLP analysis |\n| Data Storage | AWS S3 + Athena | Enterprise data lake |\n| Orchestration | AWS Lambda | Serverless execution |\n\n### Key Features\n\n1. **Natural Language Processing**\n   - Advanced memory and context engineering\n   - Multi-turn conversation handling\n   - Intent classification and entity extraction\n\n2. **Document Intelligence**\n   - Automated document parsing\n   - Information extraction pipelines\n   - Compliance validation\n\n3. **Enterprise Integration**\n   - Scalable serverless architecture\n   - Security and compliance standards\n   - Real-time processing capabilities\n\n```python\n# Example: Agentic workflow definition\nagent = create_agent(\n    tools=[document_processor, risk_analyzer, decision_engine],\n    memory=ConversationBufferWindowMemory(k=10),\n    prompt_template=LOAN_PROCESSING_PROMPT\n)\n```",
+      "description": "AI Center of Excellence - Research and development to implement AI solutions across all aspects of banking",
+      "extendedDescription": "Developed fully automatic agentic AI loan application processor POC that chats with customers applying for loans, processes documents and natural language input, and stores data.",
       "skills": [
         { "name": "AWS Bedrock", "category": "Cloud" },
         { "name": "AWS S3", "category": "Cloud" },
@@ -19,21 +19,32 @@
         { "name": "LLMs", "category": "Concept" },
         { "name": "Prompt Engineering", "category": "Concept" },
         { "name": "Agentic AI Systems", "category": "Concept" },
-        { "name": "API Development", "category": "Tool" }
+        { "name": "Context Engineering", "category": "Concept" },
+        { "name": "Git", "category": "Concept" },
+        { "name": "Azure DevOps", "category": "Cloud" },
+        { "name": "Science Communication", "category": "Concept" }
       ],
-      "links": [
-        {
-          "type": "demo",
-          "url": "#",
-          "label": "Internal Demo"
-        },
-        {
-          "type": "website",
-          "url": "#",
-          "label": "Architecture Documentation"
-        }
+      "links": [],
+      "impact": "Created a system of AI Agents that can process loan-related documents with the intent of eventually automating the entire loan application process (could save thousdands of dollars and hours)",
+      "featured": true
+    },
+    {
+      "id": "copilot-prompting",
+      "title": "Chatbot Prompt Engineering for WorkflowAutomation",
+      "subtitle": "Workflow Automation for Data Scientists at Huntington National Bank",
+      "date": "May 2025 - Present",
+      "description": "Data Science team - Creation and maintenance of machine learning pipelines across the bank",
+      "extendedDescription": "Created LLM automation workflows and architecture designs for data science team, authored wiki articles and Python libraries to enable workflow facilitation",
+      "skills": [
+        { "name": "Microsoft Copilot", "category": "Tool" },
+        { "name": "Prompt Engineering", "category": "Concept" },
+        { "name": "Context Engineering", "category": "Concept" },
+        { "name": "Model Documentation Processing", "category": "Concept" },
+        { "name": "Azure DevOps", "category": "Cloud" },
+        { "name": "Science Communication", "category": "Concept" }
       ],
-      "impact": "Fully automated loan application processing with intelligent customer chat, document analysis, and enterprise data integration",
+      "links": [],
+      "impact": "Automated model documentation processing workflows for the bank's data science team by engineering a Microsoft Copilot workflow",
       "featured": true
     }
   ]

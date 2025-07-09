@@ -2,7 +2,7 @@
   "projects": [
     {
       "id": "warm-dark-matter-constraints",
-      "title": "Warm Dark Matter Constraints",
+      "title": "Dark Matter Model Statistical Analysis",
       "subtitle": "Bayesian Analysis of Milky Way Satellite Data",
       "date": "Summer 2023 - Summer 2024",
       "description": "Advanced constraints on **Warm Dark Matter** particle mass to `>4 keV/c²` through *Bayesian statistical analysis* of Milky Way satellite galaxy data, doubling previous research bounds.",
@@ -14,18 +14,15 @@
         { "name": "High-Performance Computing", "category": "Tool" },
         { "name": "Statistical Mechanics", "category": "Concept" },
         { "name": "Git", "category": "Tool" },
-        { "name": "LaTeX", "category": "Tool" }
+        { "name": "LaTeX", "category": "Tool" },
+        { "name": "Science Communication", "category": "Concept" },
+        { "name": "Data Visualization", "category": "Concept" }
       ],
       "links": [
         {
           "type": "github",
-          "url": "https://github.com/ZavierKamath/warm-dark-matter-analysis",
+          "url": "https://github.com/ZavierKamath/WDM-Statistical-Analysis-Su23-Su24-",
           "label": "Research Repository"
-        },
-        {
-          "type": "paper",
-          "url": "#",
-          "label": "Upcoming Publication"
         }
       ],
       "impact": "Advanced particle mass constraints to >4 keV/c², doubling previous research bounds with 100x performance improvement",

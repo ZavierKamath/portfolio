@@ -13,8 +13,8 @@ const photos = [
     alt: "Conference presentation"
   },
   {
-    src: "/hero/capngown.jpeg",
-    alt: "Graduation day photo"
+    src: "/hero/inoffice.jpg",
+    alt: "Picture of me in the office"
   }
 ];
 

@@ -13,12 +13,13 @@
         { "name": "Scikit-Learn", "category": "Library" },
         { "name": "Spectroscopy", "category": "Concept" },
         { "name": "Astronomical Data Processing", "category": "Tool" },
-        { "name": "Dimensionality Reduction", "category": "Concept" }
+        { "name": "Dimensionality Reduction", "category": "Concept" },
+        { "name": "Data Visualization", "category": "Concept" }
       ],
       "links": [
         {
           "type": "github",
-          "url": "https://github.com/ZavierKamath/quasar-pca-analysis",
+          "url": "https://github.com/ZavierKamath/class-projects/blob/main/PCAQuasarAnalysis.ipynb",
           "label": "Analysis Repository"
         }
       ],
@@ -30,20 +31,21 @@
       "title": "Deming Regression Analysis of Tully-Fisher Relation",
       "subtitle": "Bayesian Analysis of Galaxy Velocity-Luminosity Data",
       "date": "March 2025",
-      "description": "Performed novel Bayesian linear regression analysis accounting for X and Y uncertainties in galaxy velocity-luminosity data, generating probability distributions for Tully-Fisher parameters.",
-      "extendedDescription": "Implemented sophisticated Bayesian regression techniques that properly account for measurement uncertainties in both dependent and independent variables. Successfully reproduced results from literature while extending analysis to early-type and late-type galaxy populations, demonstrating deep understanding of both statistical methods and galaxy physics.",
+      "description": "Performed novel Bayesian linear regression analysis accounting for X and Y uncertainties in galaxy velocity-luminosity data",
+      "extendedDescription": "Extended the analysis to early/late-type spiral galaxies to get a more accurate distance indicator",
       "skills": [
         { "name": "Python", "category": "Language" },
         { "name": "Bayesian Statistics", "category": "Concept" },
         { "name": "Linear Regression", "category": "Concept" },
         { "name": "Statistical Analysis", "category": "Concept" },
-        { "name": "Galaxy Physics", "category": "Concept" },
-        { "name": "Data Science", "category": "Tool" }
+        { "name": "Bootstrapping", "category": "Concept" },
+        { "name": "Data Science", "category": "Tool" },
+        { "name": "Data Visualization", "category": "Concept" }
       ],
       "links": [
         {
           "type": "github",
-          "url": "https://github.com/ZavierKamath/tully-fisher-analysis",
+          "url": "https://github.com/ZavierKamath/class-projects/blob/main/TullyFisherAnalysis.ipynb",
           "label": "Regression Analysis"
         }
       ],
@@ -54,8 +56,8 @@
       "title": "NFL Data Analysis & Prediction",
       "subtitle": "Machine Learning for Sports Analytics",
       "date": "November 2024",
-      "description": "Developed **neural network** and **random forest** models to analyze and predict pivotal NFL plays with `75%+ accuracy`, processing `50,000+` plays using advanced ML techniques.",
-      "extendedDescription": "Engineered comprehensive **feature extraction pipeline** for large-scale NFL dataset analysis.\n\n### Model Performance\n\n- **Fumble Prediction**: 78% accuracy using Random Forest\n- **Formation Classification**: 82% accuracy (shotgun vs. non-shotgun)\n- **Play Outcome**: 75% accuracy using Neural Network ensemble\n\n### Technical Approach\n\n```python\n# Feature engineering pipeline\nfeatures = [\n    'down', 'yards_to_go', 'field_position',\n    'score_differential', 'time_remaining',\n    'formation_type', 'personnel_package'\n]\n\n# Model ensemble\nrf_model = RandomForestClassifier(n_estimators=100)\nnn_model = MLPClassifier(hidden_layer_sizes=(128, 64))\nensemble = VotingClassifier([('rf', rf_model), ('nn', nn_model)])\n```\n\n### Key Insights\n\n> Field position and down-and-distance were the strongest predictors of play outcome, while personnel packages significantly influenced formation classification accuracy.\n\n**Correlation Analysis**: Identified unexpected relationships between weather conditions and fumble probability (~15% increase in adverse conditions).",
+      "description": "Trained neural network and random forest models to analyze 50,000+ NFL plays and predict pivotal NFL plays with 75%+ precision",
+      "extendedDescription": "Predicted fumble probability and identified key correlational features while classifying shotgun vs. non-shotgun formations",
       "skills": [
         { "name": "Python", "category": "Language" },
         { "name": "Scikit-Learn", "category": "Library" },
@@ -63,16 +65,43 @@
         { "name": "Random Forest", "category": "Concept" },
         { "name": "Feature Engineering", "category": "Concept" },
         { "name": "Machine Learning", "category": "Concept" },
-        { "name": "Data Processing", "category": "Tool" }
+        { "name": "Data Processing", "category": "Tool" },
+        { "name": "Data Visualization", "category": "Concept" }
       ],
       "links": [
         {
           "type": "github",
-          "url": "https://github.com/ZavierKamath/nfl-ml-analysis",
+          "url": "https://github.com/ZavierKamath/class-projects/blob/main/NFLDataAnalysis.pdf",
           "label": "ML Analysis Repository"
         }
       ],
-      "impact": "Achieved 75%+ accuracy in NFL play prediction with feature extraction pipeline processing 50,000+ plays"
+      "impact": "Achieved 75%+ precision in NFL play prediction with feature extraction pipeline processing 50,000+ plays"
+    },
+    {
+      "id": "thermal-conductivity-analysis",
+      "title": "Analysis of One-Dimensional Thermal Conductivity",
+      "subtitle": "Computational Physics & Numerical Methods",
+      "date": "March 2025",
+      "description": "Confirmed 1D thermal conductivity behavior in space and time along a copper rod matches Modified Heat Equation predictions.",
+      "extendedDescription": "Performed statistical analysis and data analytics with Python and numerical computations with C++ (faster).",
+      "skills": [
+        { "name": "Python", "category": "Language" },
+        { "name": "C++", "category": "Language" },
+        { "name": "LaTeX", "category": "Tool" },
+        { "name": "Laboratory Instrumentation", "category": "Concept" },
+        { "name": "Statistical Analysis", "category": "Concept" },
+        { "name": "Numerical Methods", "category": "Concept" },
+        { "name": "Data Visualization", "category": "Concept" }
+      ],
+      "links": [
+        {
+          "type": "github",
+          "url": "https://github.com/ZavierKamath/class-projects/blob/main/ThermalConductivityAnalysis.pdf",
+          "label": "Analysis Repository"
+        }
+      ],
+      "impact": "Successfully reproduced 1D thermal conductivity behavior in space and time along a copper rod using numerical methods.",
+      "featured": true
     }
   ]
 }

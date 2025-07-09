@@ -27,43 +27,46 @@ export default function About() {
           {/* About Content */}
           <div className="lg:col-span-2 space-y-6">
             <div className="card">
-              <h3 className="mb-4">Background</h3>
-              <p className="text-body-lg mb-4">
-                My journey from astrophysics to AI represents a natural evolution of curiosity about
-                complex systems and patterns. Starting with constraints on dark matter particles in the Milky Way,
-                I&apos;ve applied the same analytical thinking to neural networks and machine learning systems.
+              <h3 className="mb-4 text-star-white">Background</h3>
+              <p className="text-asteroid-grey mb-4">
+                My journey bridges the cosmic and computational, spanning from dark matter research in 
+                astrophysics to building intelligent AI systems. This unique path combines rigorous 
+                scientific methodology with cutting-edge technology development, creating a foundation 
+                for both theoretical understanding and practical innovation.
               </p>
-              <p className="text-body-lg">
-                The mathematical foundations from physics—Bayesian statistics, Monte Carlo methods, and
-                computational optimization—have proven invaluable in understanding deep learning architectures
-                and building enterprise-grade AI solutions.
+              <p className="text-asteroid-grey">
+                The mathematical rigor of physics—including Bayesian inference, Monte Carlo simulations, 
+                and optimization theory—translates seamlessly to machine learning architectures, statistical 
+                modeling, and enterprise AI system design, enabling solutions that are both scientifically 
+                sound and commercially viable.
               </p>
             </div>
 
             <div className="card">
-              <h3 className="mb-4">Current Focus</h3>
-              <p className="text-body-lg mb-4">
-                Currently working as a Data Analyst Co-op at Huntington National Bank, developing agentic AI
-                systems and LLM automation workflows. My focus bridges theoretical physics and practical AI
-                implementations for real-world applications.
+              <h3 className="mb-4 text-star-white">Current Focus</h3>
+              <p className="text-asteroid-grey mb-4">
+                As a Data Analyst Co-op at Huntington National Bank, I architect and deploy agentic AI 
+                systems that revolutionize financial services through intelligent automation. My work 
+                spans from theoretical AI research to production-ready enterprise solutions, creating 
+                tangible value through innovative technology applications.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-semibold text-cosmic-blue mb-2">AI & Machine Learning</h4>
-                  <ul className="space-y-1 text-body">
-                    <li>• Agentic AI systems</li>
-                    <li>• LLM automation workflows</li>
-                    <li>• Neural network architectures</li>
-                    <li>• Prompt engineering</li>
+                  <h4 className="font-semibold mb-2" style={{ color: '#FF6B35' }}>AI & Machine Learning</h4>
+                  <ul className="space-y-1 text-asteroid-grey">
+                    <li>• Advanced agentic AI architectures</li>
+                    <li>• Enterprise LLM automation pipelines</li>
+                    <li>• Deep neural network optimization</li>
+                    <li>• Sophisticated prompt engineering</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-nebula-purple mb-2">Research & Data</h4>
-                  <ul className="space-y-1 text-body">
-                    <li>• Bayesian statistical analysis</li>
-                    <li>• High-performance computing</li>
-                    <li>• Data visualization</li>
-                    <li>• Research reproducibility</li>
+                  <h4 className="font-semibold text-stellar-cyan mb-2">Research & Data</h4>
+                  <ul className="space-y-1 text-asteroid-grey">
+                    <li>• Advanced Bayesian statistical modeling</li>
+                    <li>• High-performance computational systems</li>
+                    <li>• Interactive data visualization</li>
+                    <li>• Reproducible research methodologies</li>
                   </ul>
                 </div>
               </div>

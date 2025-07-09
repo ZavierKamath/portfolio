@@ -89,15 +89,7 @@
 @layer components {
   /* Typography Classes */
   .text-gradient {
-    background: linear-gradient(
-      135deg,
-      var(--stellar-cyan) 0%,
-      var(--nebula-purple) 50%,
-      var(--quasar-yellow) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--star-white);
   }
 
   .text-terminal {
@@ -106,17 +98,17 @@
     letter-spacing: 0.05em;
   }
 
-  /* Glow Effects */
+  /* Glow Effects (Disabled for minimal approach) */
   .glow-cyan {
-    text-shadow: 0 0 8px var(--stellar-cyan);
+    text-shadow: none;
   }
 
   .glow-purple {
-    text-shadow: 0 0 8px var(--nebula-purple);
+    text-shadow: none;
   }
 
   .glow-yellow {
-    text-shadow: 0 0 8px var(--quasar-yellow);
+    text-shadow: none;
   }
 
   /* Pixel Borders */
@@ -143,83 +135,51 @@
     box-shadow: 8px 8px 0 var(--void-black);
   }
 
-  /* Cards - Secure Base Styling */
+  /* Cards - Simplified Styling */
   .card,
   .card-pixel {
     border: 2px solid var(--stellar-cyan);
-    background-color: var(--cosmic-navy) !important;
-    padding: var(--spacing-6);
-    margin: var(--spacing-4);
+    background-color: var(--void-black);
+    padding: 1.5rem;
     position: relative;
-    isolation: isolate; /* Create new stacking context */
-    box-shadow: 
-      0 0 0 1px var(--void-black),
-      4px 4px 0 var(--void-black);
-    transition: all 0.15s steps(4);
+    box-shadow: 2px 2px 0 var(--stellar-cyan);
+    transition: transform 0.2s ease-in-out;
   }
   
   .card:hover,
   .card-pixel:hover {
-    border-color: var(--quasar-yellow);
-    transform: translate(-2px, -2px);
-    box-shadow: 
-      0 0 0 1px var(--void-black),
-      6px 6px 0 var(--void-black),
-      0 0 12px rgba(15, 188, 220, 0.3);
+    transform: scale(1.02);
   }
   
   /* Responsive card adjustments */
   @media (max-width: 768px) {
     .card,
     .card-pixel {
-      padding: var(--spacing-4);
-      margin: var(--spacing-2);
-      box-shadow: 
-        0 0 0 1px var(--void-black),
-        2px 2px 0 var(--void-black);
-    }
-    
-    .card:hover,
-    .card-pixel:hover {
-      transform: translate(-1px, -1px);
-      box-shadow: 
-        0 0 0 1px var(--void-black),
-        3px 3px 0 var(--void-black),
-        0 0 8px rgba(15, 188, 220, 0.3);
+      padding: 1rem;
     }
   }
   
-  /* Default cosmic background for cards without specific backgrounds */
-  .card:not(.card-starfield):not(.card-terminal):not(.card-data):not(.card-alert):not(.card-interactive),
-  .card-pixel:not(.card-starfield):not(.card-terminal):not(.card-data):not(.card-alert):not(.card-interactive) {
-    background-color: var(--cosmic-navy) !important;
-  }
-  
-  .card:not(.card-starfield):not(.card-terminal):not(.card-data):not(.card-alert):not(.card-interactive)::before,
-  .card-pixel:not(.card-starfield):not(.card-terminal):not(.card-data):not(.card-alert):not(.card-interactive)::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      radial-gradient(1px 1px at 7px 15px, rgba(15, 188, 220, 0.1), transparent),
-      radial-gradient(1px 1px at 20px 10px, rgba(91, 33, 182, 0.08), transparent),
-      radial-gradient(1px 1px at 15px 22px, rgba(255, 210, 63, 0.06), transparent),
-      radial-gradient(1px 1px at 10px 5px, rgba(255, 255, 255, 0.08), transparent);
-    background-repeat: repeat;
-    background-size: 28px 28px;
-    opacity: 0.5;
-    pointer-events: none;
-    z-index: 1;
-  }
-  
-  /* Ensure card content stays above backgrounds */
+  /* Simplified card backgrounds */
   .card > *,
   .card-pixel > * {
     position: relative;
-    z-index: 2;
+  }
+
+  /* Enhanced button styling */
+  .pixel-btn {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  .pixel-btn:hover {
+    background-color: var(--stellar-cyan);
+    color: var(--void-black);
   }
 
   .card-crt {

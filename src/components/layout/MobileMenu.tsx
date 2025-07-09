@@ -125,7 +125,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               <a
                 href="/resume.pdf"
                 download
-                className="text-sm text-moonlight-gray hover:text-nebula-blue transition-colors duration-150"
+                className="text-base text-moonlight-gray hover:text-nebula-blue transition-colors duration-150"
               >
                 Resume
               </a>

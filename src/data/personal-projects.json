@@ -5,39 +5,69 @@
       "title": "Physics Grad Match",
       "subtitle": "AI-Powered PhD Program Matching Platform",
       "date": "June 2025",
-      "description": "Leveraged AI tools to build web application matching future PhD program applicants to professors using vector similarity search, LLM integration, and full-stack architecture.",
-      "extendedDescription": "Engineered end-to-end solution combining advanced AI techniques with modern web development. Implemented vector similarity search for intelligent professor-student matching, integrated LLM capabilities for natural language processing, and built responsive full-stack architecture. Features include comprehensive API design, robust database management, sophisticated recommendation algorithms, and polished UI/UX design. Demonstrates proficiency in both AI/ML techniques and software engineering best practices with robust version control and debugging workflows.",
+      "description": "A commercial web application that matches physics PhD program applicants to professors.",
+      "extendedDescription": "Leveraged AI tools to build database of professors and research interest and website for analyzing natural language input using LLM for keyword extraction and vector similarity search for matching.",
       "skills": [
-        { "name": "Python", "category": "Language" },
-        { "name": "Vector Similarity", "category": "Concept" },
-        { "name": "LLM Integration", "category": "Concept" },
-        { "name": "API Development", "category": "Tool" },
-        { "name": "Database Management", "category": "Tool" },
+        { "name": "Claude Code", "category": "Tool" },
+        { "name": "Open AI Embeddings and LLM model APIs", "category": "Tool" },
+        { "name": "React", "category": "Language" },
+        { "name": "Next.js API Routes", "category": "Language" },
+        { "name": "Vercel", "category": "Language" },
         { "name": "Web Development", "category": "Tool" },
         { "name": "Full-Stack Architecture", "category": "Concept" },
         { "name": "UI/UX Design", "category": "Tool" },
-        { "name": "Recommendation Systems", "category": "Concept" },
+        { "name": "Vector Similarity Search", "category": "Concept" },
         { "name": "Web Scraping", "category": "Tool" },
-        { "name": "Git", "category": "Tool" }
+        { "name": "Git", "category": "Tool" },
+        { "name": "Stripe Checkout", "category": "Language" },
+        { "name": "LLM Prompt Engineering", "category": "Concept" },
+        { "name": "LLM Context Engineering", "category": "Concept" },
+        { "name": "Supabase (PostgreSQL and OAuth)", "category": "Language" },
+        { "name": "Crawl4AI", "category": "Language" }
       ],
       "links": [
         {
           "type": "github",
-          "url": "https://github.com/ZavierKamath/physics-grad-match",
+          "url": "https://github.com/ZavierKamath/pgm",
           "label": "Project Repository"
         },
         {
           "type": "demo",
-          "url": "#",
+          "url": "https://physicsgradmatch.com",
           "label": "Live Application"
-        },
-        {
-          "type": "website",
-          "url": "#",
-          "label": "Project Documentation"
         }
       ],
       "impact": "AI-powered matching platform connecting PhD applicants with professors using advanced vector similarity and LLM technology",
+      "featured": true
+    },
+    {
+      "id": "rep-quest",
+      "title": "Rep Quest",
+      "subtitle": "Workout Tracking Application",
+      "date": "May 2025",
+      "description": "Built a web app that I use every day to track my progression in resistance training workouts",
+      "extendedDescription": "Leveraged AI tools to build a web app to track the sets, reps, and weight used for every exercise with graphs and performance metrics",
+      "skills": [
+        { "name": "Replit", "category": "Language" },
+        { "name": "Cursor", "category": "Language" },
+        { "name": "React", "category": "Language" },
+        { "name": "Express.js", "category": "Language" },
+        { "name": "Vercel", "category": "Language" },
+        { "name": "Web Development", "category": "Tool" },
+        { "name": "Full-Stack Architecture", "category": "Concept" },
+        { "name": "UI/UX Design", "category": "Tool" },
+        { "name": "NeonDB", "category": "Tool" },
+        { "name": "Shadcn UI", "category": "Tool" },
+        { "name": "Data Visualization", "category": "Concept" }
+      ],
+      "links": [
+        {
+          "type": "github",
+          "url": "https://github.com/ZavierKamath/Rep-Quest-Replit",
+          "label": "Project Repository"
+        }
+      ],
+      "impact": "Workout tracking application that I use every day to track my progression in resistance training workouts",
       "featured": true
     }
   ]

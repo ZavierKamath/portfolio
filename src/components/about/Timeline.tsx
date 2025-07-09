@@ -138,7 +138,7 @@ export default function Timeline() {
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'education': return 'var(--nebula-purple)';
+      case 'education': return '#5B21B6'; // Purple
       case 'experience': return 'var(--stellar-cyan)';
       case 'award': return 'var(--quasar-yellow)';
       default: return 'var(--asteroid-grey)';
@@ -156,36 +156,23 @@ export default function Timeline() {
 
   return (
     <section className="max-w-4xl mx-auto">
-      {/* Terminal Header */}
+      {/* Simplified Header */}
       <div className="mb-8">
-        <div className="border-pixel border-stellar-cyan bg-void-black p-4 font-display">
-          <div className="text-terminal text-sm mb-2">
-            <span className="text-quasar-yellow">ZAVIER_KAMATH.exe</span> 
-            <span className="ml-4">████████░░ 80% Loaded</span>
-          </div>
-          <div className="border-t border-stellar-cyan pt-2">
-            <h2 className="text-gradient font-display text-xl glow-cyan">TIMELINE.DAT</h2>
-          </div>
-        </div>
+        <h2 className="font-display text-2xl text-star-white mb-6">Timeline</h2>
         
-        {/* Filter Buttons - Pixel Style */}
-        <div className="flex flex-wrap gap-2 mt-4">
+        {/* Simple Filter Buttons */}
+        <div className="flex flex-wrap gap-3">
           {(['all', 'education', 'experience', 'award'] as const).map((type) => (
             <button
               key={type}
               onClick={() => setFilter(type)}
-              className={`px-4 py-2 font-ui text-sm font-bold uppercase transition-all duration-150 border-pixel ${
+              className={`px-4 py-2 text-sm border-2 transition-colors ${
                 filter === type
-                  ? 'bg-stellar-cyan text-void-black border-star-white shadow-pixel-sm'
-                  : 'bg-cosmic-indigo text-stellar-cyan border-stellar-cyan hover:bg-stellar-cyan hover:text-void-black'
+                  ? 'bg-stellar-cyan text-void-black border-stellar-cyan'
+                  : 'bg-void-black text-stellar-cyan border-stellar-cyan hover:bg-stellar-cyan hover:text-void-black'
               }`}
-              style={{
-                transition: 'all 0.15s steps(4)'
-              }}
             >
-              [
-              {filter === type ? '■' : '□'}
-              ] {type.toUpperCase()}
+              {type.charAt(0).toUpperCase() + type.slice(1)}
             </button>
           ))}
         </div>
@@ -214,43 +201,38 @@ export default function Timeline() {
                 animationDelay: `${index * 100}ms`
               }}
             >
-              {/* Pixel Icon */}
+              {/* Simple Icon */}
               <div 
-                className="flex-shrink-0 w-16 h-16 border-pixel-thick flex items-center justify-center text-2xl z-10 font-display pixel-float"
+                className="flex-shrink-0 w-16 h-16 border-2 flex items-center justify-center text-2xl z-10 font-display"
                 style={{
                   borderColor: getTypeColor(item.type),
                   backgroundColor: getTypeBackground(item.type),
-                  boxShadow: `0 0 0 2px var(--void-black), 4px 4px 0 var(--void-black)`,
                   color: getTypeColor(item.type)
                 }}
               >
                 {item.icon}
               </div>
 
-              {/* Content Card - Pixel Style */}
+              {/* Simplified Content Card */}
               <div className="flex-1 min-w-0">
                 <div 
-                  className="card-pixel card-starfield relative"
+                  className="pixel-card"
                   style={{
+                    border: '2px solid var(--stellar-cyan)',
+                    backgroundColor: 'var(--void-black)',
+                    padding: '1.5rem',
+                    boxShadow: '2px 2px 0 var(--stellar-cyan)',
                     borderLeftWidth: '4px',
-                    borderLeftColor: getTypeColor(item.type),
-                    paddingLeft: '24px',
-                    backgroundColor: 'var(--cosmic-navy)'
+                    borderLeftColor: getTypeColor(item.type)
                   }}
                 >
-                  {/* Status Bar */}
-                  <div className="text-xs font-body text-terminal mb-2 opacity-80">
-                    <span className="text-quasar-yellow">[{item.type.toUpperCase()}_ENTRY]</span>
-                    <span className="ml-4 text-asteroid-grey">[STATUS: ACTIVE]</span>
-                  </div>
-
-                  {/* Header */}
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-                    <h3 className="font-ui text-lg font-bold text-star-white mb-1 glow-cyan">
+                  {/* Simple Header */}
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
+                    <h3 className="font-display text-lg text-star-white mb-1">
                       {item.title}
                     </h3>
                     <span 
-                      className="font-body text-sm whitespace-nowrap terminal-cursor"
+                      className="text-sm"
                       style={{ color: getTypeColor(item.type) }}
                     >
                       {item.period}
@@ -258,32 +240,18 @@ export default function Timeline() {
                   </div>
                   
                   {/* Organization Info */}
-                  <div className="mb-4 p-2 bg-cosmic-navy border-pixel border-asteroid-grey">
-                    <p className="font-ui font-medium text-stellar-cyan">&gt; {item.organization}</p>
-                    <p className="font-body text-sm text-moon-silver">&gt; {item.location}</p>
+                  <div className="mb-4">
+                    <p className="text-stellar-cyan font-medium">{item.organization}</p>
+                    <p className="text-asteroid-grey text-sm">{item.location}</p>
                   </div>
 
-                  {/* Description List - ASCII Style */}
-                  <div className="space-y-1">
+                  {/* Clean Description List */}
+                  <div className="space-y-2">
                     {item.description.map((desc, descIndex) => (
-                      <div key={descIndex} className="font-body text-sm flex items-start">
-                        <span 
-                          className="mr-3 font-bold"
-                          style={{ color: getTypeColor(item.type) }}
-                        >
-                          ▸
-                        </span>
-                        <span className="flex-1 text-star-white leading-relaxed">{desc}</span>
-                      </div>
+                      <p key={descIndex} className="text-sm text-star-white leading-relaxed">
+                        • {desc}
+                      </p>
                     ))}
-                  </div>
-
-                  {/* Corner Decoration */}
-                  <div 
-                    className="absolute top-2 right-2 font-display text-xs opacity-60"
-                    style={{ color: getTypeColor(item.type) }}
-                  >
-                    [·]
                   </div>
                 </div>
               </div>
@@ -291,11 +259,9 @@ export default function Timeline() {
           ))}
         </div>
 
-        {/* Terminal Footer */}
-        <div className="mt-8 border-pixel border-stellar-cyan bg-void-black p-2 font-body text-xs text-terminal">
-          <span className="text-quasar-yellow">TIMELINE.DAT</span>
-          <span className="ml-4 text-asteroid-grey">EOF REACHED</span>
-          <span className="ml-4 text-stellar-cyan">PRESS ANY KEY TO CONTINUE_</span>
+        {/* Simple Footer */}
+        <div className="mt-8 text-center">
+          <span className="text-asteroid-grey text-sm">End of Timeline</span>
         </div>
       </div>
     </section>
