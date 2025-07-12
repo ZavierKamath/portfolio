@@ -2,24 +2,49 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const navigationLinks = [
+// Basic navigation links (non-dropdown items)
+const basicNavigationLinks = [
   { href: "/", label: "Home" },
-  { href: "/research", label: "Research" },
-  { href: "/industry", label: "Industry" },
-  { href: "/coursework", label: "Coursework" },
-  { href: "/personal", label: "Personal" },
   { href: "/about", label: "About" },
+];
+
+// Experience and Projects dropdown items with updated labels
+const experienceProjectsItems = [
+  { href: "/research", label: "Research Experience" },
+  { href: "/industry", label: "Industry Experience" },
+  { href: "/coursework", label: "Coursework Projects" },
+  { href: "/personal", label: "Personal Projects" },
 ];
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const pathname = usePathname();
+  const [isExperienceExpanded, setIsExperienceExpanded] = useState(false);
+
+  /**
+   * Check if any experience/projects item is currently active
+   */
+  const hasActiveExperienceItem = experienceProjectsItems.some(item => {
+    if (item.href === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(item.href);
+  });
+
+  /**
+   * Auto-expand experience section if any item is active
+   */
+  useEffect(() => {
+    if (hasActiveExperienceItem) {
+      setIsExperienceExpanded(true);
+    }
+  }, [hasActiveExperienceItem]);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -92,7 +117,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
           {/* Navigation Links */}
           <nav className="flex flex-col space-y-6">
-            {navigationLinks.map((link, index) => {
+            {/* Basic Navigation Links */}
+            {basicNavigationLinks.map((link, index) => {
               const isActive = pathname === link.href;
               return (
                 <Link
@@ -117,6 +143,86 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 </Link>
               );
             })}
+
+            {/* Experience and Projects Expandable Section */}
+            <div className="flex flex-col">
+              {/* Experience and Projects Header Button */}
+              <button
+                onClick={() => setIsExperienceExpanded(!isExperienceExpanded)}
+                className={`
+                  text-xl font-medium transition-all duration-200 text-left
+                  hover:text-nebula-blue hover:translate-x-2 flex items-center justify-between
+                  ${
+                    hasActiveExperienceItem
+                      ? "text-nebula-blue border-l-2 border-nebula-blue pl-4"
+                      : "text-moonlight-gray"
+                  }
+                  transform
+                `}
+                style={{
+                  animationDelay: `${basicNavigationLinks.length * 50}ms`,
+                }}
+                aria-expanded={isExperienceExpanded}
+                aria-label="Experience and Projects menu"
+              >
+                <span>Experience and Projects</span>
+                {/* Expand/Collapse Arrow */}
+                <svg
+                  className={`
+                    w-5 h-5 transition-transform duration-200 ml-2
+                    ${isExperienceExpanded ? "rotate-180" : "rotate-0"}
+                  `}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+
+              {/* Experience and Projects Submenu */}
+              <div
+                className={`
+                  overflow-hidden transition-all duration-300 ease-out
+                  ${isExperienceExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+                `}
+              >
+                <div className="mt-4 ml-6 space-y-4">
+                  {experienceProjectsItems.map((item, subIndex) => {
+                    const isActive = pathname === item.href || 
+                      (item.href !== "/" && pathname.startsWith(item.href));
+                    
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={onClose}
+                        className={`
+                          block text-lg font-medium transition-all duration-200
+                          hover:text-nebula-blue hover:translate-x-2
+                          ${
+                            isActive
+                              ? "text-nebula-blue border-l-2 border-nebula-blue pl-4"
+                              : "text-moonlight-gray/80"
+                          }
+                          transform
+                        `}
+                        style={{
+                          animationDelay: `${(basicNavigationLinks.length + 1 + subIndex) * 50}ms`,
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </nav>
 
           {/* Footer Links */}

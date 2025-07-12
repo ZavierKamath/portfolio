@@ -6,7 +6,7 @@
       "subtitle": "AI-Powered PhD Program Matching Platform",
       "date": "June 2025",
       "description": "A commercial web application that matches physics PhD program applicants to professors.",
-      "extendedDescription": "Leveraged AI tools to build database of professors and research interest and website for analyzing natural language input using LLM for keyword extraction and vector similarity search for matching.",
+      "extendedDescription": "Leveraged AI tools to build database of professors and research interest and website for analyzing natural language input using LLM for keyword extraction and vector similarity search for matching. Website is prepared to be used by many future PhD program applicants this cycle.",
       "skills": [
         { "name": "Claude Code", "category": "Tool" },
         { "name": "Open AI Embeddings and LLM model APIs", "category": "Tool" },

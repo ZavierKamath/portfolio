@@ -6,7 +6,7 @@
       "subtitle": "Enterprise AI Automation for Huntington National Bank",
       "date": "May 2025 - Present",
       "description": "AI Center of Excellence - Research and development to implement AI solutions across all aspects of banking",
-      "extendedDescription": "Developed fully automatic agentic AI loan application processor POC that chats with customers applying for loans, processes documents and natural language input, and stores data.",
+      "extendedDescription": "Developed fully automatic agentic AI loan application processor POC that chats with customers applying for loans, processes documents and natural language input, compares extracted document info to documentation using RAG and stores data in a database. Agents utilize tools and are engineered with considerate context engineering in mind.",
       "skills": [
         { "name": "AWS Bedrock", "category": "Cloud" },
         { "name": "AWS S3", "category": "Cloud" },
@@ -22,7 +22,8 @@
         { "name": "Context Engineering", "category": "Concept" },
         { "name": "Git", "category": "Concept" },
         { "name": "Azure DevOps", "category": "Cloud" },
-        { "name": "Science Communication", "category": "Concept" }
+        { "name": "Science Communication", "category": "Concept" },
+        { "name": "Retrieval-Augmented Generation", "category": "Concept" }
       ],
       "links": [],
       "impact": "Created a system of AI Agents that can process loan-related documents with the intent of eventually automating the entire loan application process (could save thousdands of dollars and hours)",
@@ -30,7 +31,7 @@
     },
     {
       "id": "copilot-prompting",
-      "title": "Chatbot Prompt Engineering for WorkflowAutomation",
+      "title": "Chatbot Prompt Engineering for Workflow Automation",
       "subtitle": "Workflow Automation for Data Scientists at Huntington National Bank",
       "date": "May 2025 - Present",
       "description": "Data Science team - Creation and maintenance of machine learning pipelines across the bank",

@@ -127,12 +127,21 @@ export function ProjectCard({ project }: ProjectCardProps) {
         boxShadow: '2px 2px 0 var(--stellar-cyan)',
       }}
     >
-      {/* Simple header with title and tiny star accent */}
-      <div className="flex justify-between items-start mb-3">
-        <h3 className="font-display text-lg text-star-white">
-          {project.title}
-        </h3>
-        <span className="text-stellar-cyan text-xs">★</span>
+      {/* Enhanced header with larger title, subtitle, and star accent */}
+      <div className="flex justify-between items-start mb-4">
+        <div className="flex-1 mr-3">
+          {/* Main title - larger and more prominent */}
+          <h3 className="font-display text-xl text-star-white leading-tight mb-1">
+            {project.title}
+          </h3>
+          {/* Subtitle - descriptive context */}
+          {project.subtitle && (
+            <p className="font-body text-sm text-asteroid-grey leading-relaxed">
+              {project.subtitle}
+            </p>
+          )}
+        </div>
+        <span className="text-stellar-cyan text-xs mt-1 flex-shrink-0">★</span>
       </div>
 
       {/* Clean description with expandable extended description */}

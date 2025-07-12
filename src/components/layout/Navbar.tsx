@@ -5,14 +5,20 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { MobileMenu } from "./MobileMenu";
+import { DropdownMenu } from "./DropdownMenu";
 
-const navigationLinks = [
+// Basic navigation links (non-dropdown items)
+const basicNavigationLinks = [
   { href: "/", label: "Home" },
-  { href: "/research", label: "Research" },
-  { href: "/industry", label: "Industry" },
-  { href: "/coursework", label: "Coursework" },
-  { href: "/personal", label: "Personal" },
   { href: "/about", label: "About" },
+];
+
+// Experience and Projects dropdown items with updated labels
+const experienceProjectsItems = [
+  { href: "/research", label: "Research Experience" },
+  { href: "/industry", label: "Industry Experience" },
+  { href: "/coursework", label: "Coursework Projects" },
+  { href: "/personal", label: "Personal Projects" },
 ];
 
 export function Navbar() {
@@ -23,7 +29,7 @@ export function Navbar() {
   // Determine if navbar should be visible
   const shouldShow = scrollDirection === "up" || isAtTop;
 
-  // Check if a link is active (including nested routes)
+  // Check if a basic navigation link is active (including nested routes)
   const isLinkActive = (href: string) => {
     if (href === "/") {
       return pathname === "/";
@@ -62,7 +68,8 @@ export function Navbar() {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
-              {navigationLinks.map((link) => {
+              {/* Basic Navigation Links */}
+              {basicNavigationLinks.map((link) => {
                 const isActive = isLinkActive(link.href);
                 return (
                   <Link
@@ -86,6 +93,12 @@ export function Navbar() {
                   </Link>
                 );
               })}
+              
+              {/* Experience and Projects Dropdown */}
+              <DropdownMenu
+                label="Experience and Projects"
+                items={experienceProjectsItems}
+              />
             </div>
 
             {/* Desktop Action Buttons */}
