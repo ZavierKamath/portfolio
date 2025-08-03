@@ -11,7 +11,7 @@ export function CTAButtons() {
       {/* Primary CTA - Resume */}
       <a
         href="/resume.pdf"
-        download="Your_Name_Resume.pdf"
+        download="Zavier_Kamath_Resume.pdf"
         onClick={handleResumeDownload}
         className="btn-primary inline-flex items-center justify-center gap-2 group"
         style={{

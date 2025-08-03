@@ -7,6 +7,15 @@
       "date": "Summer 2023 - Summer 2024",
       "description": "Research project under Prof. Annika Peter and Prof. Ivan Esteban to analyze Dark Matter models.",
       "extendedDescription": "Advanced constraints on Warm Dark Matter particle mass to >4 keV/c² through Bayesian statistical analysis of Milky Way satellite galaxy data, doubling previous predictions and optimizing computational bottlenecks to obtain 100x runtime improvement. Authored summary of methods and conclusions, presented at the 2023 SRP poster session. Uploaded all code and writeup to GitHub.",
+      "media": {
+        "type": "image",
+        "src": "/projects/wdm/poster.png",
+        "alt": "WDM final plot.",
+        "poster": "/projects/wdm/poster.png",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
       "skills": [
         { "name": "Python", "category": "Language" },
         { "name": "Bayesian Statistics", "category": "Concept" },

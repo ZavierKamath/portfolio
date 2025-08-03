@@ -1,4 +1,5 @@
 import { Hero } from "@/components/home/Hero";
+import { ExperienceHighlight } from "@/components/home/ExperienceHighlight";
 
 export default function Home() {
   return (
@@ -54,51 +55,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Experience Preview */}
-      <section className="container mx-auto py-20">
-        <h2 className="text-center mb-16">Experience Highlights</h2>
-        <div className="space-y-8 max-w-4xl mx-auto">
-          <div className="card">
-            <h3 className="mb-4 text-star-white">Dark Matter Model Analysis</h3>
-            <p className="text-asteroid-grey mb-4">
-            Advanced research constraining Warm Dark Matter particle mass to &gt;4 keV/c² through 
-            sophisticated Bayesian statistical analysis of Milky Way satellite galaxy data, achieving 
-            breakthrough improvements in computational efficiency and doubling previous research bounds.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 bg-pulsar-purple/20 text-pulsar-purple rounded-full text-sm">
-                Bayesian Statistics
-              </span>
-              <span className="px-3 py-1 bg-stellar-blue/20 text-stellar-blue rounded-full text-sm">
-                Python
-              </span>
-              <span className="px-3 py-1 bg-aurora-green/20 text-aurora-green rounded-full text-sm">
-                Computational Astrophysics
-              </span>
-            </div>
-          </div>
-
-          <div className="card">
-            <h3 className="mb-4 text-star-white">Digital Loan Portal POC</h3>
-            <p className="text-asteroid-grey mb-4">
-            Engineered a fully autonomous agentic AI system for loan processing that seamlessly handles 
-            customer interactions, document analysis, natural language processing, and secure data 
-            management using enterprise-grade AWS infrastructure and advanced LLM workflows.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 bg-supernova-orange/20 text-supernova-orange rounded-full text-sm">
-                AWS
-              </span>
-              <span className="px-3 py-1 bg-stellar-blue/20 text-stellar-blue rounded-full text-sm">
-                AI Systems Engineering
-              </span>
-              <span className="px-3 py-1 bg-aurora-green/20 text-aurora-green rounded-full text-sm">
-                Context Engineering
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Featured Experience Highlight */}
+      <ExperienceHighlight
+        title="AI Voice Agent in Action"
+        subtitle="Real-time Pizza Ordering System"
+        description="Watch this AI agent take pizza orders in real-time, demonstrating advanced voice recognition, context understanding, and automated workflow processing. This technology can be applied to any business using telephone-based customer support."
+        media={{
+          type: "video",
+          src: "/projects/pizza-agent/demo.mp4",
+          alt: "Pizza voice AI agent demo showcasing an AI agent that takes pizza orders over phone",
+          poster: "/projects/pizza-agent/poster.png",
+          autoplay: false,
+          loop: true,
+          muted: true
+        }}
+        techStack={[
+          "Deepgram",
+          "Voice AI", 
+          "Agentic AI",
+          "Python",
+          "Asyncio",
+          "Twilio",
+          "React",
+          "Context Engineering"
+        ]}
+        githubUrl="https://github.com/ZavierKamath/pizza-agent"
+      />
 
       {/* Call to Action */}
       <section className="container mx-auto py-20 text-center">

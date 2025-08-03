@@ -1,12 +1,64 @@
 {
   "projects": [
     {
+      "id": "pizza-agent-demo",
+      "title": "AI Voice Agent",
+      "subtitle": "AI-Powered Voice Agent That Takes Pizza Orders",
+      "date": "June 2025",
+      "description": "Deepgram voice agent takes pizza orders and creates tickets for the pizza workers to view.",
+      "extendedDescription": "Leveraged AI tools to build voice agent back-end with tool calling (for order tracking and menu retrieval) and front-end dashboard with ticketes and call tracking. This technology can be applied to any type of business that uses telephone-based customer support.",
+      "media": {
+        "type": "video",
+        "src": "/projects/pizza-agent/demo.mp4",
+        "alt": "Pizza voice AI aent demo showcasing an AI agent that takes pizza orders over phone.",
+        "poster": "/projects/pizza-agent/poster.png",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      "skills": [
+        { "name": "Claude Code", "category": "Tool" },
+        { "name": "Deepgram", "category": "Tool" },
+        { "name": "React", "category": "Language" },
+        { "name": "Agentic AI", "category": "Concept" },
+        { "name": "AI Engineering", "category": "Concept" },
+        { "name": "Python", "category": "Language" },
+        { "name": "Asyncio", "category": "Language" },
+        { "name": "Web Development", "category": "Tool" },
+        { "name": "Full-Stack Architecture", "category": "Concept" },
+        { "name": "UI/UX Design", "category": "Tool" },
+        { "name": "Voice AI", "category": "Language" },
+        { "name": "Context Engineering", "category": "Concept" },
+        { "name": "Git", "category": "Tool" },
+        { "name": "Prompt Engineering", "category": "Concept" },
+        { "name": "Twilio", "category": "Tool" }
+      ],
+      "links": [
+        {
+          "type": "github",
+          "url": "https://github.com/ZavierKamath/pizza-agent",
+          "label": "Project Repository"
+        }
+      ],
+      "impact": "AI Voice agent can be applied for telephone-based customer support at any type of business.",
+      "featured": true
+    },
+    {
       "id": "physics-grad-match",
       "title": "Physics Grad Match",
       "subtitle": "AI-Powered PhD Program Matching Platform",
       "date": "June 2025",
       "description": "A commercial web application that matches physics PhD program applicants to professors.",
       "extendedDescription": "Leveraged AI tools to build database of professors and research interest and website for analyzing natural language input using LLM for keyword extraction and vector similarity search for matching. Website is prepared to be used by many future PhD program applicants this cycle.",
+      "media": {
+        "type": "video",
+        "src": "/projects/physics-grad-match/demo.mp4",
+        "alt": "Physics Grad Match application demo showing the AI-powered matching interface",
+        "poster": "/projects/physics-grad-match/poster.png",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
       "skills": [
         { "name": "Claude Code", "category": "Tool" },
         { "name": "Open AI Embeddings and LLM model APIs", "category": "Tool" },

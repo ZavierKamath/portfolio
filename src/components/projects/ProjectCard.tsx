@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Project } from "@/lib/types";
 import { processMarkdown, isMarkdownContent } from "@/lib/markdown";
+import { ProjectMedia } from "./ProjectMedia";
 
 interface ProjectCardProps {
   project: Project;
@@ -143,6 +144,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </div>
         <span className="text-stellar-cyan text-xs mt-1 flex-shrink-0">★</span>
       </div>
+
+      {/* Project Media - displayed prominently after header */}
+      {project.media && (
+        <div className="mb-4">
+          <ProjectMedia 
+            media={project.media} 
+            className="w-full h-48 sm:h-56 md:h-64"
+          />
+        </div>
+      )}
 
       {/* Clean description with expandable extended description */}
       <div className="mb-4">

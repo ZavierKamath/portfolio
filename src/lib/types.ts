@@ -9,6 +9,16 @@ export interface ProjectLink {
   label: string;
 }
 
+export interface ProjectMedia {
+  type: "video" | "image";
+  src: string;
+  alt: string;
+  poster?: string; // For video thumbnail
+  autoplay?: boolean;
+  loop?: boolean;
+  muted?: boolean;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -20,6 +30,7 @@ export interface Project {
   links: ProjectLink[];
   impact?: string; // Key achievement or metric
   featured?: boolean;
+  media?: ProjectMedia;
 }
 
 export interface ProjectCategory {
