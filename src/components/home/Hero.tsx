@@ -19,19 +19,16 @@ export function Hero() {
             {/* Right side - Text content */}
             <div className="order-1 lg:order-2 text-center lg:text-left">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-                <span className="text-gradient">
-                  Zavier Kamath
-                </span>
+                <span className="text-gradient">Zavier Kamath</span>
               </h1>
-              
+
               <p className="text-lg sm:text-xl text-moonlight-gray/80 mb-8 leading-relaxed">
-              Bridging Cosmological Research & AI Applications
+                AI Engineer, Georgia Tech OMSCS Student, and Astrophysics Lover
               </p>
 
               <CTAButtons />
             </div>
           </div>
-
         </div>
       </div>
     </section>

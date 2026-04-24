@@ -1,176 +1,105 @@
 "use client";
 
-import React from "react";
-import { ProjectMedia } from "@/components/projects/ProjectMedia";
-import { ProjectMedia as ProjectMediaType } from "@/lib/types";
-
-interface ExperienceHighlightProps {
+interface HighlightedExperienceItem {
   title: string;
   subtitle?: string;
   description: string;
-  media: ProjectMediaType;
+  impact?: string;
+  status?: string;
   techStack: string[];
-  githubUrl?: string;
-  demoUrl?: string;
+  href?: string;
+  hrefLabel?: string;
 }
 
-export function ExperienceHighlight({
-  title,
-  subtitle,
-  description,
-  media,
-  techStack,
-  githubUrl,
-  demoUrl
-}: ExperienceHighlightProps) {
+interface ExperienceHighlightProps {
+  items: HighlightedExperienceItem[];
+}
+
+export function ExperienceHighlight({ items }: ExperienceHighlightProps) {
   return (
     <section className="container mx-auto py-20">
-      <h2 className="text-center mb-16 font-display text-2xl text-star-white">
-        Featured Experience
-      </h2>
-      
-      <div className="max-w-7xl mx-auto">
-        {/* Main highlight card */}
-        <div 
-          className="pixel-card group overflow-hidden"
-          style={{ 
-            border: '4px solid var(--stellar-cyan)',
-            backgroundColor: 'var(--void-black)',
-            padding: '0',
-            boxShadow: '8px 8px 0 var(--stellar-cyan), 0 0 20px rgba(15, 188, 220, 0.3)',
-          }}
-        >
-          <div className="grid lg:grid-cols-3 gap-0 min-h-[400px]">
-            {/* Video Section - Takes 2/3 width on desktop */}
-            <div className="lg:col-span-2 relative">
-              <ProjectMedia 
-                media={media} 
-                className="w-full h-full min-h-[300px] lg:min-h-[400px]"
-              />
-              
-              {/* Video overlay gradient for better text readability */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-void-black/20 pointer-events-none" />
-              
-              {/* Featured badge */}
-              <div className="absolute top-4 left-4 bg-stellar-cyan text-void-black px-3 py-1 font-display text-xs border-2 border-void-black">
-                FEATURED
-              </div>
-            </div>
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="font-display text-2xl text-star-white mb-4">Highlighted Experiences</h2>
+          <p className="text-moonlight-gray/75 max-w-3xl mx-auto leading-relaxed">
+            A snapshot of the Huntington work I am most focused on right now, from reusable internal
+            AI platforms to customer-facing financial experiences being prepared for production.
+          </p>
+        </div>
 
-            {/* Info Section - Takes 1/3 width on desktop */}
-            <div className="p-6 lg:p-8 flex flex-col justify-center bg-gradient-to-b from-void-black to-cosmic-navy">
-              {/* Title and subtitle */}
-              <div className="mb-6">
-                <h3 className="font-display text-xl lg:text-2xl text-star-white leading-tight mb-2">
-                  {title}
-                </h3>
-                {subtitle && (
-                  <p className="font-body text-sm text-stellar-cyan mb-4">
-                    {subtitle}
+        <div className="grid gap-8 lg:grid-cols-2">
+          {items.map((item, index) => {
+            const accentClass =
+              index % 2 === 0
+                ? "border-stellar-cyan shadow-[8px_8px_0_var(--stellar-cyan)]"
+                : "border-quasar-yellow shadow-[8px_8px_0_var(--quasar-yellow)]";
+            const badgeClass =
+              index % 2 === 0
+                ? "border-stellar-cyan/60 text-stellar-cyan bg-stellar-cyan/10"
+                : "border-quasar-yellow/60 text-quasar-yellow bg-quasar-yellow/10";
+
+            return (
+              <article
+                key={item.title}
+                className={`pixel-card flex h-full flex-col border-4 bg-void-black/95 p-8 ${accentClass}`}
+              >
+                <div className="mb-6 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="mb-2 font-body text-xs uppercase tracking-[0.2em] text-moonlight-gray/60">
+                      Huntington National Bank
+                    </p>
+                    <h3 className="font-display text-xl text-star-white md:text-2xl">
+                      {item.title}
+                    </h3>
+                    {item.subtitle && (
+                      <p className="mt-2 text-sm text-moonlight-gray/80">{item.subtitle}</p>
+                    )}
+                  </div>
+
+                  {item.status && (
+                    <span
+                      className={`shrink-0 border px-3 py-2 text-[11px] uppercase tracking-[0.2em] ${badgeClass}`}
+                    >
+                      {item.status}
+                    </span>
+                  )}
+                </div>
+
+                <p className="mb-5 text-sm leading-relaxed text-moonlight-gray/85 md:text-base">
+                  {item.description}
+                </p>
+
+                {item.impact && (
+                  <p className="mb-6 border-l-2 border-supernova-orange pl-4 text-sm leading-relaxed text-star-white/90">
+                    {item.impact}
                   </p>
                 )}
-                <p className="font-body text-sm lg:text-base text-moonlight-gray leading-relaxed">
-                  {description}
-                </p>
-              </div>
 
-              {/* Tech stack */}
-              <div className="mb-6">
-                <h4 className="font-display text-xs text-stellar-cyan mb-3 uppercase tracking-wider">
-                  Technologies
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {techStack.slice(0, 6).map((tech, index) => (
+                <div className="mb-8 flex flex-wrap gap-2">
+                  {item.techStack.map((tech) => (
                     <span
-                      key={index}
-                      className="px-2 py-1 text-xs font-body border border-stellar-cyan/50 text-stellar-cyan bg-stellar-cyan/10 hover:bg-stellar-cyan/20 transition-colors"
+                      key={tech}
+                      className="border border-moonlight-gray/20 bg-cosmic-navy/70 px-2 py-1 text-xs text-moonlight-gray"
                     >
                       {tech}
                     </span>
                   ))}
-                  {techStack.length > 6 && (
-                    <span className="px-2 py-1 text-xs font-body text-asteroid-grey">
-                      +{techStack.length - 6} more
-                    </span>
-                  )}
                 </div>
-              </div>
 
-              {/* Action buttons */}
-              <div className="flex gap-3 mt-auto">
-                {githubUrl && (
-                  <a
-                    href={githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 pixel-btn text-xs px-3 py-2 border-2 border-stellar-cyan text-stellar-cyan hover:bg-stellar-cyan hover:text-void-black transition-colors text-center"
-                  >
-                    <span className="mr-1">⚡</span>
-                    View Code
-                  </a>
+                {item.href && (
+                  <div className="mt-auto">
+                    <a
+                      href={item.href}
+                      className="inline-flex items-center gap-2 border-2 border-stellar-cyan px-4 py-3 text-sm text-stellar-cyan transition-colors hover:bg-stellar-cyan hover:text-void-black"
+                    >
+                      <span>{item.hrefLabel ?? "Explore details"}</span>
+                      <span aria-hidden="true">-&gt;</span>
+                    </a>
+                  </div>
                 )}
-                {demoUrl && (
-                  <a
-                    href={demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 pixel-btn text-xs px-3 py-2 border-2 border-quasar-yellow text-quasar-yellow hover:bg-quasar-yellow hover:text-void-black transition-colors text-center"
-                  >
-                    <span className="mr-1">→</span>
-                    Live Demo
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Supporting projects grid */}
-        <div className="mt-16">
-          <h3 className="text-center mb-8 font-display text-lg text-moonlight-gray">
-            Other Highlights
-          </h3>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {/* Dark Matter Research */}
-            <div className="card bg-cosmic-navy/50 border-2 border-pulsar-purple/50">
-              <h4 className="mb-3 text-star-white font-display text-base">Dark Matter Analysis</h4>
-              <p className="text-asteroid-grey text-sm mb-4 leading-relaxed">
-                Advanced Bayesian analysis constraining Warm Dark Matter particle mass to &gt;4 keV/c², 
-                achieving 100x computational improvement and doubling previous research bounds.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-2 py-1 bg-pulsar-purple/20 text-pulsar-purple text-xs">
-                  Bayesian Statistics
-                </span>
-                <span className="px-2 py-1 bg-stellar-cyan/20 text-stellar-cyan text-xs">
-                  Python
-                </span>
-                <span className="px-2 py-1 bg-aurora-green/20 text-aurora-green text-xs">
-                  Astrophysics
-                </span>
-              </div>
-            </div>
-
-            {/* AI Loan Processing */}
-            <div className="card bg-cosmic-navy/50 border-2 border-supernova-orange/50">
-              <h4 className="mb-3 text-star-white font-display text-base">AI Loan Processing</h4>
-              <p className="text-asteroid-grey text-sm mb-4 leading-relaxed">
-                Engineered autonomous agentic AI system for loan processing with document analysis, 
-                natural language processing, and secure data management on AWS infrastructure.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-2 py-1 bg-supernova-orange/20 text-supernova-orange text-xs">
-                  AWS
-                </span>
-                <span className="px-2 py-1 bg-stellar-cyan/20 text-stellar-cyan text-xs">
-                  AI Engineering
-                </span>
-                <span className="px-2 py-1 bg-aurora-green/20 text-aurora-green text-xs">
-                  LangChain
-                </span>
-              </div>
-            </div>
-          </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

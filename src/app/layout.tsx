@@ -24,12 +24,13 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://zavierkamath.com"),
   title: {
     template: "Zavier Kamath | %s",
-    default: "Zavier Kamath | Astrophysics & AI Research"
+    default: "Zavier Kamath | Astrophysics & AI Research",
   },
   description:
-    "Physics graduate turned AI researcher. From dark matter constraints to neural networks, bridging theoretical physics and machine learning at Huntington National Bank.",
+    "Physics graduate, Georgia Tech OMSCS student on the AI track, and AI engineer at Huntington National Bank building production-minded intelligent systems.",
   keywords: [
     "Zavier Kamath",
     "astrophysics",
@@ -38,17 +39,19 @@ export const metadata: Metadata = {
     "physics",
     "data science",
     "Ohio State University",
+    "Georgia Tech OMSCS",
     "Huntington National Bank",
     "dark matter research",
     "neural networks",
     "Bayesian statistics",
-    "Monte Carlo methods"
+    "Monte Carlo methods",
   ],
   authors: [{ name: "Zavier Kamath", url: "https://zavierkamath.com" }],
   creator: "Zavier Kamath",
   openGraph: {
     title: "Zavier Kamath | Astrophysics & AI Research",
-    description: "Physics graduate turned AI researcher. From dark matter constraints to neural networks.",
+    description:
+      "Physics graduate, Georgia Tech OMSCS AI student, and Huntington AI engineer building intelligent systems.",
     type: "website",
     locale: "en_US",
     url: "https://zavierkamath.com",
@@ -58,15 +61,16 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Zavier Kamath - Astrophysics & AI Research"
-      }
-    ]
+        alt: "Zavier Kamath - Astrophysics & AI Research",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Zavier Kamath | Astrophysics & AI Research",
-    description: "Physics graduate turned AI researcher. From dark matter constraints to neural networks.",
-    images: ["/og-image.jpg"]
+    description:
+      "Physics graduate, Georgia Tech OMSCS AI student, and Huntington AI engineer building intelligent systems.",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -80,16 +84,16 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "google-site-verification-code"
+    google: "google-site-verification-code",
   },
-  category: "portfolio"
+  category: "portfolio",
 };
 
 export const viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#1e1b4b"
+  themeColor: "#1e1b4b",
 };
 
 export default function RootLayout({

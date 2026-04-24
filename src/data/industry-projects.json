@@ -1,72 +1,112 @@
 {
   "projects": [
     {
-      "id": "agentic-ai-loan-solution",
-      "title": "Agentic AI Loan Application Solution",
-      "subtitle": "Enterprise AI Automation for Huntington National Bank",
-      "date": "May 2025 - Present",
-      "description": "AI Center of Excellence - Research and development to implement AI solutions across all aspects of banking. Generated $400,000 / year with this project by saving time for underwriters on every loan application processed.",
-      "extendedDescription": "Developed fully automatic agentic AI loan application processor POC that chats with customers applying for loans, processes documents and natural language input, compares extracted document info to documentation using RAG and stores data in a database. Agents utilize tools and are engineered with considerate context engineering in mind.",
-      "media": {
-        "type": "image",
-        "src": "/projects/huntington/simple-agent.jpg",
-        "alt": "Simple agentic system picture",
-        "poster": "/projects/huntington/simple-agent.jpg",
-        "autoplay": false,
-        "loop": true,
-        "muted": true
-      },
-      "skills": [
-        { "name": "AWS Bedrock", "category": "Cloud" },
-        { "name": "AWS S3", "category": "Cloud" },
-        { "name": "AWS Athena", "category": "Cloud" },
-        { "name": "AWS Lambda", "category": "Cloud" },
-        { "name": "AWS SageMaker AI", "category": "Cloud" },
-        { "name": "LangChain", "category": "Framework" },
-        { "name": "LangGraph", "category": "Framework" },
-        { "name": "Python", "category": "Language" },
-        { "name": "LLMs", "category": "Concept" },
-        { "name": "AI Engineering", "category": "Concept" },
-        { "name": "Prompt Engineering", "category": "Concept" },
-        { "name": "Agentic AI Systems", "category": "Concept" },
-        { "name": "Context Engineering", "category": "Concept" },
-        { "name": "Git", "category": "Concept" },
-        { "name": "Azure DevOps", "category": "Cloud" },
-        { "name": "Science Communication", "category": "Concept" },
-        { "name": "Retrieval-Augmented Generation", "category": "Concept" },
-        { "name": "Project Presentation", "category": "Concept"}
-      ],
-      "links": [],
-      "impact": "Created a system of AI Agents that can process loan-related documents with the intent of eventually automating the entire loan application process (could save thousdands of dollars and hours)",
-      "featured": true
-    },
-    {
-      "id": "copilot-prompting",
-      "title": "Chatbot Prompt Engineering for Workflow Automation",
-      "subtitle": "Workflow Automation for Data Scientists at Huntington National Bank",
-      "date": "May 2025 - Present",
-      "description": "Data Science team - Creation and maintenance of machine learning pipelines across the bank",
-      "extendedDescription": "Created LLM automation workflows and architecture designs for data science team, authored wiki articles and Python libraries to enable workflow facilitation",
+      "id": "reusable-enterprise-rag-platform",
+      "title": "Reusable Enterprise RAG Platform",
+      "subtitle": "Config-Driven Knowledge Systems for Huntington National Bank",
+      "date": "2025 - Present",
+      "description": "Built a reusable retrieval-augmented generation platform that lets teams launch new internal AI knowledge systems without rebuilding the infrastructure each time.",
+      "extendedDescription": "Designed generalized AWS infrastructure for recurring enterprise RAG use cases, including scheduled SharePoint ingestion, document vectorization, OpenSearch indexing, agent configuration via S3, reranked retrieval, session memory, logging, and observability with LangFuse. The platform now supports multiple internal use cases such as policy search, onboarding support, HR knowledge access, vendor capability search, and call center assistance.",
       "media": {
         "type": "image",
         "src": "/projects/huntington/prompt-eng.jpg",
-        "alt": "Prompt engineering image",
+        "alt": "Enterprise RAG platform illustration",
         "poster": "/projects/huntington/prompt-eng.jpg",
         "autoplay": false,
         "loop": true,
         "muted": true
       },
       "skills": [
+        { "name": "AWS Lambda", "category": "Cloud" },
+        { "name": "AWS Step Functions", "category": "Cloud" },
+        { "name": "Amazon OpenSearch", "category": "Cloud" },
+        { "name": "EventBridge", "category": "Cloud" },
+        { "name": "LangChain", "category": "Framework" },
+        { "name": "Strands", "category": "Framework" },
+        { "name": "LangFuse", "category": "Tool" },
+        { "name": "Python", "category": "Language" },
+        { "name": "Retrieval-Augmented Generation", "category": "Concept" },
+        { "name": "Context Engineering", "category": "Concept" },
+        { "name": "Agentic AI Systems", "category": "Concept" },
+        { "name": "AI Guardrails", "category": "Concept" }
+      ],
+      "links": [],
+      "impact": "Reduced time-to-launch for new knowledge agents by turning repeated RAG work into a reusable platform now supporting tools used by tens of thousands of colleagues.",
+      "featured": true
+    },
+    {
+      "id": "customer-financial-insights-chatbot",
+      "title": "Customer Financial Insights + AI Chatbot",
+      "subtitle": "In Development: Customer-Facing AI for Mobile and Web",
+      "date": "2026 - Present",
+      "description": "Spearheading the data and AI architecture for an in-development customer-facing system that prepares personalized financial insights and future chatbot experiences for Huntington customers.",
+      "extendedDescription": "Leading the data preparation and AI design work for a production-oriented customer experience that aggregates customer data nightly, generates structured prompts at scale, and serves LLM-powered insights across Huntington digital channels. The architecture spans AWS data systems and GCP inference services, and includes the groundwork for future conversational features such as retrieval over financial guidance content, product knowledge, and customer-specific data analysis tools.",
+      "media": {
+        "type": "image",
+        "src": "/projects/huntington/simple-agent.jpg",
+        "alt": "Customer-facing financial AI concept art",
+        "poster": "/projects/huntington/simple-agent.jpg",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      "skills": [
+        { "name": "AWS Glue", "category": "Cloud" },
+        { "name": "AWS Athena", "category": "Cloud" },
+        { "name": "AWS S3", "category": "Cloud" },
+        { "name": "Snowflake", "category": "Cloud" },
+        { "name": "Google Cloud Run", "category": "Cloud" },
+        { "name": "Vertex AI", "category": "Cloud" },
+        { "name": "Python", "category": "Language" },
+        { "name": "SQL", "category": "Language" },
+        { "name": "LLMs", "category": "Concept" },
+        { "name": "Data Engineering", "category": "Concept" },
+        { "name": "AI Product Architecture", "category": "Concept" },
+        { "name": "Retrieval-Augmented Generation", "category": "Concept" }
+      ],
+      "links": [],
+      "impact": "In development for large-scale customer experiences, with architecture and data pipelines being prepared for production rollout across digital banking channels.",
+      "featured": true
+    },
+    {
+      "id": "ai-document-processing-systems",
+      "title": "AI Document Processing Systems",
+      "subtitle": "Structured Extraction from Complex Financial Documents",
+      "date": "2025 - Present",
+      "description": "Built LLM-powered document processing workflows that turn messy, unstructured financial documents into structured outputs for downstream business use.",
+      "extendedDescription": "Developed multiple proof-of-concepts for document-heavy banking workflows, including loan document review and Federal Reserve report parsing. The systems use multi-step LLM orchestration to break large parsing tasks into manageable stages, extract line items and key fields from inconsistent PDFs, and produce structured outputs suitable for spreadsheet workflows and rule-based review.",
+      "skills": [
+        { "name": "LangChain", "category": "Framework" },
+        { "name": "Strands", "category": "Framework" },
+        { "name": "Python", "category": "Language" },
+        { "name": "Prompt Engineering", "category": "Concept" },
+        { "name": "Context Engineering", "category": "Concept" },
+        { "name": "Document AI", "category": "Concept" },
+        { "name": "PDF Processing", "category": "Tool" },
+        { "name": "Workflow Orchestration", "category": "Concept" }
+      ],
+      "links": [],
+      "impact": "Turned inconsistent multi-page documents into structured outputs that support faster review and downstream analysis.",
+      "featured": false
+    },
+    {
+      "id": "ai-enablement-workflow-automation",
+      "title": "AI Enablement, Workflow Automation, and Technical Advocacy",
+      "subtitle": "Helping Teams Across Huntington Adopt AI Effectively",
+      "date": "2025 - Present",
+      "description": "Created practical AI workflows, reusable guidance, and presentations that help colleagues and leadership teams apply modern AI tools to everyday work.",
+      "extendedDescription": "Regularly teach colleagues across the bank how to use AI tools such as Microsoft Copilot effectively, present project work to audiences ranging from team meetings to leadership reviews, and create workflow designs, internal documentation, and supporting libraries that help teams adopt AI with stronger habits and clearer architecture.",
+      "skills": [
         { "name": "Microsoft Copilot", "category": "Tool" },
         { "name": "Prompt Engineering", "category": "Concept" },
         { "name": "Context Engineering", "category": "Concept" },
-        { "name": "Model Documentation Processing", "category": "Concept" },
-        { "name": "Azure DevOps", "category": "Cloud" },
+        { "name": "Technical Writing", "category": "Concept" },
         { "name": "Science Communication", "category": "Concept" },
-        { "name": "Project Presentation", "category": "Concept"}
+        { "name": "Project Presentation", "category": "Concept" },
+        { "name": "Azure DevOps", "category": "Cloud" }
       ],
       "links": [],
-      "impact": "Automated model documentation processing workflows for the bank's data science team by engineering a Microsoft Copilot workflow",
+      "impact": "Extended impact beyond shipped systems by helping teams across the bank understand, evaluate, and use AI tools more effectively.",
       "featured": true
     }
   ]

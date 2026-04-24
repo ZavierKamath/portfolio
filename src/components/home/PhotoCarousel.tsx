@@ -5,17 +5,17 @@ import Image from "next/image";
 
 const photos = [
   {
-    src: "/hero/linkdin.jpeg",
-    alt: "Professional headshot"
+    src: "/hero/Zavier_Kamath_3.png",
+    alt: "Zavier Kamath in office",
   },
   {
-    src: "/hero/presentation.jpg",
-    alt: "Conference presentation"
+    src: "/hero/Zavier_Kamath_2.png",
+    alt: "Zavier Kamath professional photo",
   },
   {
-    src: "/hero/inoffice.jpg",
-    alt: "Picture of me in the office"
-  }
+    src: "/hero/Zavier_Kamath_1.png",
+    alt: "Zavier Kamath portrait",
+  },
 ];
 
 export function PhotoCarousel() {
@@ -53,7 +53,7 @@ export function PhotoCarousel() {
   };
 
   return (
-    <div 
+    <div
       className="relative w-full aspect-[4/5] sm:aspect-square rounded-2xl overflow-hidden shadow-2xl"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -68,9 +68,9 @@ export function PhotoCarousel() {
         >
           <div className="relative w-full h-full">
             {/* Ken Burns effect container */}
-            <div className={`absolute inset-0 ${
-              index === currentIndex ? "animate-ken-burns" : ""
-            }`}>
+            <div
+              className={`absolute inset-0 ${index === currentIndex ? "animate-ken-burns" : ""}`}
+            >
               <Image
                 src={photo.src}
                 alt={photo.alt}
@@ -94,8 +94,8 @@ export function PhotoCarousel() {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentIndex 
-                ? "w-8 bg-moonlight-gray" 
+              index === currentIndex
+                ? "w-8 bg-moonlight-gray"
                 : "bg-moonlight-gray/40 hover:bg-moonlight-gray/60"
             }`}
             aria-label={`Go to photo ${index + 1}`}

@@ -27,59 +27,35 @@ export default function Home() {
         </div>
       </div>
 
-      {/* About Section */}
-      <section className="container mx-auto py-20">
-        <h2 className="text-center mb-16">My Passions</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="card text-center">
-            <div className="text-4xl mb-4">🌟</div>
-            <h3 className="mb-4 text-star-white">Astrophysics Research</h3>
-            <p className="text-asteroid-grey">
-              Exploring cosmic phenomena through computational modeling, statistical analysis, and advanced simulation techniques to understand the fundamental physics of our universe.
-            </p>
-          </div>
-          <div className="card text-center">
-            <div className="text-4xl mb-4">🦾</div>
-            <h3 className="mb-4 text-star-white">AI Applications</h3>
-            <p className="text-asteroid-grey">
-              Building intelligent systems and agentic AI solutions that solve real-world problems across industries, from finance to scientific research and beyond.
-            </p>
-          </div>
-          <div className="card text-center">
-            <div className="text-4xl mb-4">💻</div>
-            <h3 className="mb-4 text-star-white">Data Science</h3>
-            <p className="text-asteroid-grey">
-              Extracting meaningful insights from complex datasets using machine learning, statistical modeling, and advanced data visualization techniques.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Experience Highlight */}
       <ExperienceHighlight
-        title="AI Voice Agent in Action"
-        subtitle="Real-time Pizza Ordering System"
-        description="Watch this AI agent take pizza orders in real-time, demonstrating advanced voice recognition, context understanding, and automated workflow processing. This technology can be applied to any business using telephone-based customer support."
-        media={{
-          type: "video",
-          src: "/projects/pizza-agent/demo.mp4",
-          alt: "Pizza voice AI agent demo showcasing an AI agent that takes pizza orders over phone",
-          poster: "/projects/pizza-agent/poster.png",
-          autoplay: false,
-          loop: true,
-          muted: true
-        }}
-        techStack={[
-          "Deepgram",
-          "Voice AI", 
-          "Agentic AI",
-          "Python",
-          "Asyncio",
-          "Twilio",
-          "React",
-          "Context Engineering"
+        items={[
+          {
+            title: "Reusable Enterprise RAG Platform",
+            subtitle: "Config-driven internal knowledge systems for teams across Huntington",
+            description:
+              "I built reusable AWS infrastructure for retrieval, indexing, agent configuration, session history, observability, and reranked search so new internal RAG tools can be launched without rebuilding the stack from scratch.",
+            impact:
+              "This platform now supports multiple enterprise use cases and powers tools used by tens of thousands of colleagues.",
+            status: "Production Systems",
+            techStack: ["Python", "AWS Lambda", "OpenSearch", "LangChain", "Strands", "LangFuse"],
+            href: "/industry",
+            hrefLabel: "View industry work",
+          },
+          {
+            title: "Customer-Facing Financial Insights + AI Chatbot",
+            subtitle:
+              "Preparing personalized financial AI experiences for Huntington digital channels",
+            description:
+              "This project is still in development, and I am spearheading much of the data and AI work needed to prepare it for production. The work includes nightly data preparation, large-scale prompt generation, and the foundation for future customer-facing conversational experiences.",
+            impact:
+              "The goal is a production-ready system that can eventually support AI experiences across mobile and web for millions of customers.",
+            status: "In Development",
+            techStack: ["AWS Glue", "Athena", "Snowflake", "Cloud Run", "Vertex AI", "SQL"],
+            href: "/industry",
+            hrefLabel: "See project details",
+          },
         ]}
-        githubUrl="https://github.com/ZavierKamath/pizza-agent"
       />
 
       {/* Call to Action */}
@@ -90,22 +66,24 @@ export default function Home() {
           or exploring opportunities? I&apos;d love to hear from you.
         </p>
         <div className="flex justify-center gap-6">
-          <a 
-            href="mailto:zavierkamath@gmail.com" 
+          <a
+            href="mailto:zavierkamath@gmail.com"
             className="btn-primary"
             style={{
-              backgroundColor: 'transparent',
-              boxShadow: '0 0 10px rgba(91, 33, 182, 0.4), 0 0 20px rgba(91, 33, 182, 0.2), 0 0 30px rgba(91, 33, 182, 0.1)',
+              backgroundColor: "transparent",
+              boxShadow:
+                "0 0 10px rgba(91, 33, 182, 0.4), 0 0 20px rgba(91, 33, 182, 0.2), 0 0 30px rgba(91, 33, 182, 0.1)",
             }}
           >
             Get in Touch
           </a>
-          <a 
-            href="/about" 
+          <a
+            href="/about"
             className="btn-secondary"
             style={{
-              backgroundColor: 'transparent',
-              boxShadow: '0 0 10px rgba(91, 33, 182, 0.4), 0 0 20px rgba(91, 33, 182, 0.2), 0 0 30px rgba(91, 33, 182, 0.1)',
+              backgroundColor: "transparent",
+              boxShadow:
+                "0 0 10px rgba(91, 33, 182, 0.4), 0 0 20px rgba(91, 33, 182, 0.2), 0 0 30px rgba(91, 33, 182, 0.1)",
             }}
           >
             Learn More

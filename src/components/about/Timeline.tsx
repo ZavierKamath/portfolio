@@ -9,24 +9,52 @@ interface TimelineItem {
   location: string;
   period: string;
   description: string[];
-  type: 'education' | 'experience' | 'award';
+  type: "education" | "experience" | "award";
   icon: string;
 }
 
 const timelineData: TimelineItem[] = [
   {
-    id: "huntington-coop",
-    title: "Data Analyst Co-op",
+    id: "georgia-tech-omscs",
+    title: "M.S. in Computer Science (OMSCS)",
+    organization: "Georgia Institute of Technology",
+    location: "Remote",
+    period: "Jan 2026 - Dec 2027 (Expected)",
+    description: [
+      "Part-way through the program on the AI track with a 4.0 GPA",
+      "Completed coursework in Quantum Computing and Human-Computer Interaction",
+      "Deepening formal CS foundations alongside production AI engineering work",
+    ],
+    type: "education",
+    icon: "◉",
+  },
+  {
+    id: "huntington-ai-engineer",
+    title: "AI Engineer",
     organization: "Huntington National Bank",
     location: "Columbus, OH",
-    period: "May 2025 - Present",
+    period: "Sep 2025 - Present",
     description: [
-      "Developed fully automatic agentic AI loan application solution demo using AWS and LangChain",
-      "Created LLM automation workflows and architecture designs for data science team",
-      "Integrated enterprise-grade prompt engineering techniques"
+      "Built reusable enterprise RAG infrastructure serving multiple internal knowledge systems",
+      "Spearheading data and AI work for an in-development customer financial insights initiative",
+      "Designed document processing and AI microservice workflows for banking use cases",
     ],
     type: "experience",
-    icon: "■"
+    icon: "■",
+  },
+  {
+    id: "huntington-coop",
+    title: "AI Engineering Co-op",
+    organization: "Huntington National Bank",
+    location: "Columbus, OH",
+    period: "May 2025 - Aug 2025",
+    description: [
+      "Built early proof-of-concepts in agentic AI, retrieval, and document handling",
+      "Developed loan automation and workflow prototypes using AWS and LangChain",
+      "Contributed to AI Center of Excellence research and development initiatives",
+    ],
+    type: "experience",
+    icon: "□",
   },
   {
     id: "senior-award",
@@ -36,10 +64,10 @@ const timelineData: TimelineItem[] = [
     period: "May 2025",
     description: [
       "Recognized for outstanding academic achievement among senior Physics majors",
-      "Awarded $400 prize for exceptional performance"
+      "Awarded $400 prize for exceptional performance",
     ],
     type: "award",
-    icon: "▲"
+    icon: "▲",
   },
   {
     id: "graduation",
@@ -50,10 +78,10 @@ const timelineData: TimelineItem[] = [
     description: [
       "Majors: Physics and Astronomy & Astrophysics | Minor: Spanish",
       "GPA: 3.983/4.0 | Summa Cum Laude",
-      "Dean's List recognition for all 8 semesters"
+      "Dean's List recognition for all 8 semesters",
     ],
     type: "education",
-    icon: "●"
+    icon: "●",
   },
   {
     id: "research-assistant",
@@ -64,10 +92,10 @@ const timelineData: TimelineItem[] = [
     description: [
       "Advanced constraints on Warm Dark Matter particle mass to >4 keV/c²",
       "Optimized computational bottlenecks achieving 100x runtime improvement",
-      "Authored research methods summary for upcoming publication"
+      "Authored research methods summary for upcoming publication",
     ],
     type: "experience",
-    icon: "♦"
+    icon: "♦",
   },
   {
     id: "valorant-captain",
@@ -78,10 +106,10 @@ const timelineData: TimelineItem[] = [
     description: [
       "Led competitive esports team to tournament-level performance",
       "Coordinated strategic planning and practice sessions",
-      "Mentored teammates while representing organization"
+      "Mentored teammates while representing organization",
     ],
     type: "experience",
-    icon: "★"
+    icon: "★",
   },
   {
     id: "research-scholarship",
@@ -91,10 +119,10 @@ const timelineData: TimelineItem[] = [
     period: "May 2023",
     description: [
       "Awarded $5,000 scholarship for conducting cutting-edge physics research",
-      "Recognized for academic excellence and research potential"
+      "Recognized for academic excellence and research potential",
     ],
     type: "award",
-    icon: "✦"
+    icon: "✦",
   },
   {
     id: "trustees-scholarship",
@@ -104,53 +132,59 @@ const timelineData: TimelineItem[] = [
     period: "Fall 2021 - Spring 2025",
     description: [
       "Merit-based scholarship for academic excellence",
-      "Sustained high academic performance throughout undergraduate studies"
+      "Sustained high academic performance throughout undergraduate studies",
     ],
     type: "award",
-    icon: "♠"
-  }
+    icon: "♠",
+  },
 ];
 
 export default function Timeline() {
-  const [filter, setFilter] = useState<'all' | 'education' | 'experience' | 'award'>('all');
+  const [filter, setFilter] = useState<"all" | "education" | "experience" | "award">("all");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
+            entry.target.classList.add("in-view");
           }
         });
       },
       { threshold: 0.3 }
     );
 
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach(item => observer.observe(item));
+    const timelineItems = document.querySelectorAll(".timeline-item");
+    timelineItems.forEach((item) => observer.observe(item));
 
     return () => observer.disconnect();
   }, []);
 
-  const filteredData = timelineData.filter(item => 
-    filter === 'all' || item.type === filter
-  );
+  const filteredData = timelineData.filter((item) => filter === "all" || item.type === filter);
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'education': return '#5B21B6'; // Purple
-      case 'experience': return 'var(--stellar-cyan)';
-      case 'award': return 'var(--quasar-yellow)';
-      default: return 'var(--asteroid-grey)';
+      case "education":
+        return "#5B21B6"; // Purple
+      case "experience":
+        return "var(--stellar-cyan)";
+      case "award":
+        return "var(--quasar-yellow)";
+      default:
+        return "var(--asteroid-grey)";
     }
   };
 
   const getTypeBackground = (type: string) => {
     switch (type) {
-      case 'education': return 'rgba(91, 33, 182, 0.1)';
-      case 'experience': return 'rgba(15, 188, 220, 0.1)';
-      case 'award': return 'rgba(255, 210, 63, 0.1)';
-      default: return 'rgba(139, 134, 128, 0.1)';
+      case "education":
+        return "rgba(91, 33, 182, 0.1)";
+      case "experience":
+        return "rgba(15, 188, 220, 0.1)";
+      case "award":
+        return "rgba(255, 210, 63, 0.1)";
+      default:
+        return "rgba(139, 134, 128, 0.1)";
     }
   };
 
@@ -159,17 +193,17 @@ export default function Timeline() {
       {/* Simplified Header */}
       <div className="mb-8">
         <h2 className="font-display text-2xl text-star-white mb-6">Timeline</h2>
-        
+
         {/* Simple Filter Buttons */}
         <div className="flex flex-wrap gap-3">
-          {(['all', 'education', 'experience', 'award'] as const).map((type) => (
+          {(["all", "education", "experience", "award"] as const).map((type) => (
             <button
               key={type}
               onClick={() => setFilter(type)}
               className={`px-4 py-2 text-sm border-2 transition-colors ${
                 filter === type
-                  ? 'bg-stellar-cyan text-void-black border-stellar-cyan'
-                  : 'bg-void-black text-stellar-cyan border-stellar-cyan hover:bg-stellar-cyan hover:text-void-black'
+                  ? "bg-stellar-cyan text-void-black border-stellar-cyan"
+                  : "bg-void-black text-stellar-cyan border-stellar-cyan hover:bg-stellar-cyan hover:text-void-black"
               }`}
             >
               {type.charAt(0).toUpperCase() + type.slice(1)}
@@ -181,13 +215,13 @@ export default function Timeline() {
       {/* Timeline Container */}
       <div className="relative pixel-stagger-children">
         {/* ASCII Timeline Line */}
-        <div 
+        <div
           className="absolute left-8 top-0 bottom-0 w-0.5 opacity-60"
           style={{
             background: `linear-gradient(to bottom, 
               var(--stellar-cyan) 0%, 
               var(--nebula-purple) 50%, 
-              var(--quasar-yellow) 100%)`
+              var(--quasar-yellow) 100%)`,
           }}
         />
 
@@ -198,16 +232,16 @@ export default function Timeline() {
               id={item.id}
               className="timeline-item pixel-scroll-reveal relative flex items-start space-x-6"
               style={{
-                animationDelay: `${index * 100}ms`
+                animationDelay: `${index * 100}ms`,
               }}
             >
               {/* Simple Icon */}
-              <div 
+              <div
                 className="flex-shrink-0 w-16 h-16 border-2 flex items-center justify-center text-2xl z-10 font-display"
                 style={{
                   borderColor: getTypeColor(item.type),
                   backgroundColor: getTypeBackground(item.type),
-                  color: getTypeColor(item.type)
+                  color: getTypeColor(item.type),
                 }}
               >
                 {item.icon}
@@ -215,30 +249,25 @@ export default function Timeline() {
 
               {/* Simplified Content Card */}
               <div className="flex-1 min-w-0">
-                <div 
+                <div
                   className="pixel-card"
                   style={{
-                    border: '2px solid var(--stellar-cyan)',
-                    backgroundColor: 'var(--void-black)',
-                    padding: '1.5rem',
-                    boxShadow: '2px 2px 0 var(--stellar-cyan)',
-                    borderLeftWidth: '4px',
-                    borderLeftColor: getTypeColor(item.type)
+                    border: "2px solid var(--stellar-cyan)",
+                    backgroundColor: "var(--void-black)",
+                    padding: "1.5rem",
+                    boxShadow: "2px 2px 0 var(--stellar-cyan)",
+                    borderLeftWidth: "4px",
+                    borderLeftColor: getTypeColor(item.type),
                   }}
                 >
                   {/* Simple Header */}
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
-                    <h3 className="font-display text-lg text-star-white mb-1">
-                      {item.title}
-                    </h3>
-                    <span 
-                      className="text-sm"
-                      style={{ color: getTypeColor(item.type) }}
-                    >
+                    <h3 className="font-display text-lg text-star-white mb-1">{item.title}</h3>
+                    <span className="text-sm" style={{ color: getTypeColor(item.type) }}>
                       {item.period}
                     </span>
                   </div>
-                  
+
                   {/* Organization Info */}
                   <div className="mb-4">
                     <p className="text-stellar-cyan font-medium">{item.organization}</p>
