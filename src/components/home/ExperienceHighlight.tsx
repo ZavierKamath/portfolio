@@ -20,10 +20,12 @@ export function ExperienceHighlight({ items }: ExperienceHighlightProps) {
     <section className="container mx-auto py-20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="font-display text-2xl text-star-white mb-4">Highlighted Experiences</h2>
+          <h2 className="font-display text-2xl text-star-white mb-4">
+            Highlighted AI Engineering Work
+          </h2>
           <p className="text-moonlight-gray/75 max-w-3xl mx-auto leading-relaxed">
-            A snapshot of the Huntington work I am most focused on right now, from reusable internal
-            AI platforms to customer-facing financial experiences being prepared for production.
+            Production-minded AI systems, full-stack product work, and colleague enablement from my
+            current role at Huntington National Bank.
           </p>
         </div>
 
@@ -41,7 +43,9 @@ export function ExperienceHighlight({ items }: ExperienceHighlightProps) {
             return (
               <article
                 key={item.title}
-                className={`pixel-card flex h-full flex-col border-4 bg-void-black/95 p-8 ${accentClass}`}
+                className={`pixel-card flex h-full flex-col border-4 bg-void-black/95 p-8 ${
+                  index === items.length - 1 && items.length % 2 === 1 ? "lg:col-span-2" : ""
+                } ${accentClass}`}
               >
                 <div className="mb-6 flex items-start justify-between gap-4">
                   <div>

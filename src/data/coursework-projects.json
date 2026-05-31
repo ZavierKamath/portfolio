@@ -5,8 +5,8 @@
       "title": "PCA Analysis of Quasar UV Spectra",
       "subtitle": "Astronomical Data Science & Spectroscopy",
       "date": "April 2025",
-      "description": "Applied Principal Component Analysis to reconstruct full quasar continuum spectra from red-side spectral weights and reproduced mean transmitted flux vs. redshift relation.",
-      "extendedDescription": "Implemented advanced spectroscopic analysis techniques using Python with astronomical data processing libraries. Performed dimensionality reduction on high-resolution UV data to extract meaningful patterns from complex quasar spectra. Successfully reconstructed complete continuum spectra demonstrating mastery of both statistical methods and astrophysical data analysis.",
+      "description": "Reconstructed full quasar continuum spectra by applying PCA to red-side spectral weights and reproducing the mean transmitted flux-redshift relation.",
+      "extendedDescription": "Implemented spectroscopic analysis in Python, applied dimensionality reduction to high-resolution UV data, and reconstructed complete continuum spectra from partial spectral information.",
       "skills": [
         { "name": "Python", "category": "Language" },
         { "name": "Principal Component Analysis", "category": "Concept" },
@@ -23,7 +23,7 @@
           "label": "Analysis Repository"
         }
       ],
-      "impact": "Successfully reconstructed full quasar continuum spectra from partial spectral data using advanced PCA techniques",
+      "impact": "Recovered full quasar continuum spectra from partial spectral data by applying PCA-based dimensionality reduction.",
       "featured": true
     },
     {
@@ -31,8 +31,8 @@
       "title": "Deming Regression Analysis of Tully-Fisher Relation",
       "subtitle": "Bayesian Analysis of Galaxy Velocity-Luminosity Data",
       "date": "March 2025",
-      "description": "Performed novel Bayesian linear regression analysis accounting for X and Y uncertainties in galaxy velocity-luminosity data",
-      "extendedDescription": "Extended the analysis to early/late-type spiral galaxies to get a more accurate distance indicator",
+      "description": "Improved Tully-Fisher distance analysis by applying Bayesian regression that accounts for uncertainty in both velocity and luminosity.",
+      "extendedDescription": "Extended the model across early and late-type spiral galaxies to evaluate whether population-specific fits improve distance estimation.",
       "skills": [
         { "name": "Python", "category": "Language" },
         { "name": "Bayesian Statistics", "category": "Concept" },
@@ -49,15 +49,15 @@
           "label": "Regression Analysis"
         }
       ],
-      "impact": "Novel Bayesian approach accounting for bidirectional uncertainties, extending analysis to multiple galaxy populations"
+      "impact": "Accounted for bidirectional uncertainty and compared multiple galaxy populations to improve the reliability of distance indicators."
     },
     {
       "id": "nfl-data-analysis",
       "title": "NFL Data Analysis & Prediction",
       "subtitle": "Machine Learning for Sports Analytics",
       "date": "November 2024",
-      "description": "Trained neural network and random forest models to analyze 50,000+ NFL plays and predict pivotal NFL plays with 75%+ precision",
-      "extendedDescription": "Predicted fumble probability and identified key correlational features while classifying shotgun vs. non-shotgun formations",
+      "description": "Achieved 75%+ precision on pivotal NFL play prediction by training neural network and random forest models on 50,000+ plays.",
+      "extendedDescription": "Built feature pipelines to predict fumble probability, classify offensive formations, and identify the features most correlated with pivotal plays.",
       "skills": [
         { "name": "Python", "category": "Language" },
         { "name": "Scikit-Learn", "category": "Library" },
@@ -75,15 +75,15 @@
           "label": "ML Analysis Repository"
         }
       ],
-      "impact": "Achieved 75%+ precision in NFL play prediction with feature extraction pipeline processing 50,000+ plays"
+      "impact": "Processed 50,000+ plays and reached 75%+ precision by pairing feature engineering with neural network and random forest models."
     },
     {
       "id": "thermal-conductivity-analysis",
       "title": "Analysis of One-Dimensional Thermal Conductivity",
       "subtitle": "Computational Physics & Numerical Methods",
       "date": "March 2025",
-      "description": "Confirmed 1D thermal conductivity behavior in space and time along a copper rod matches Modified Heat Equation predictions.",
-      "extendedDescription": "Performed statistical analysis and data analytics with Python and numerical computations with C++ (faster).",
+      "description": "Validated modified heat equation predictions by analyzing 1D thermal conductivity behavior across space and time in a copper rod.",
+      "extendedDescription": "Combined Python analysis with faster C++ numerical computations to compare measured thermal behavior against model predictions.",
       "skills": [
         { "name": "Python", "category": "Language" },
         { "name": "C++", "category": "Language" },
@@ -100,7 +100,7 @@
           "label": "Analysis Repository"
         }
       ],
-      "impact": "Successfully reproduced 1D thermal conductivity behavior in space and time along a copper rod using numerical methods.",
+      "impact": "Confirmed model behavior by reproducing copper rod thermal conductivity patterns with numerical methods.",
       "featured": true
     }
   ]

@@ -23,7 +23,8 @@ export function Hero() {
               </h1>
 
               <p className="text-lg sm:text-xl text-moonlight-gray/80 mb-8 leading-relaxed">
-                AI Engineer, Georgia Tech OMSCS Student, and Astrophysics Lover
+                AI Engineer / Full-Stack Developer building useful AI tools and web applications
+                for real business workflows.
               </p>
 
               <CTAButtons />

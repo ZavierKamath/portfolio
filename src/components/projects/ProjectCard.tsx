@@ -31,44 +31,44 @@ const getSkillColor = (category: string) => {
     case "Language":
       return {
         backgroundColor: "#5B21B6", // Purple for languages
-        color: "#FFFFFF"
+        color: "#FFFFFF",
       };
     case "Framework":
       return {
         backgroundColor: "#0FBCDC", // Cyan for frameworks
-        color: "#000000"
+        color: "#000000",
       };
     case "Tool":
       return {
         backgroundColor: "#3EE751", // Green for tools
-        color: "#000000"
+        color: "#000000",
       };
     case "Cloud":
       return {
         backgroundColor: "#FFD23F", // Yellow for cloud
-        color: "#000000"
+        color: "#000000",
       };
     case "Library":
       return {
         backgroundColor: "#FF6B35", // Orange for libraries
-        color: "#FFFFFF"
+        color: "#FFFFFF",
       };
     case "Concept":
       return {
         backgroundColor: "#8B8680", // Grey for concepts
-        color: "#FFFFFF"
+        color: "#FFFFFF",
       };
     default:
       return {
         backgroundColor: "#0FBCDC", // Default cyan
-        color: "#000000"
+        color: "#000000",
       };
   }
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const [processedDescription, setProcessedDescription] = useState<string>('');
-  const [processedExtendedDescription, setProcessedExtendedDescription] = useState<string>('');
+  const [processedDescription, setProcessedDescription] = useState<string>("");
+  const [processedExtendedDescription, setProcessedExtendedDescription] = useState<string>("");
   const [isExpanded, setIsExpanded] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
 
@@ -78,7 +78,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
     const processDescriptions = async () => {
       if (!isMounted) return;
-      
+
       setIsProcessing(true);
 
       try {
@@ -88,7 +88,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           : project.description;
 
         // Process extended description if it exists
-        let extendedDescriptionHtml = '';
+        let extendedDescriptionHtml = "";
         if (project.extendedDescription) {
           extendedDescriptionHtml = isMarkdownContent(project.extendedDescription)
             ? await processMarkdown(project.extendedDescription)
@@ -101,11 +101,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
           setIsProcessing(false);
         }
       } catch (error) {
-        console.error('Error processing markdown for project:', project.id, error);
+        console.error("Error processing markdown for project:", project.id, error);
         if (isMounted) {
           // Fallback to original text
           setProcessedDescription(project.description);
-          setProcessedExtendedDescription(project.extendedDescription || '');
+          setProcessedExtendedDescription(project.extendedDescription || "");
           setIsProcessing(false);
         }
       }
@@ -121,11 +121,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article
       className="pixel-card group transition-transform hover:scale-105"
-      style={{ 
-        border: '2px solid var(--stellar-cyan)',
-        backgroundColor: 'var(--void-black)',
-        padding: '1.5rem',
-        boxShadow: '2px 2px 0 var(--stellar-cyan)',
+      style={{
+        border: "2px solid var(--stellar-cyan)",
+        backgroundColor: "var(--void-black)",
+        padding: "1.5rem",
+        boxShadow: "2px 2px 0 var(--stellar-cyan)",
       }}
     >
       {/* Enhanced header with larger title, subtitle, and star accent */}
@@ -148,10 +148,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       {/* Project Media - displayed prominently after header */}
       {project.media && (
         <div className="mb-4">
-          <ProjectMedia 
-            media={project.media} 
-            className="w-full h-48 sm:h-56 md:h-64"
-          />
+          <ProjectMedia media={project.media} className="w-full h-48 sm:h-56 md:h-64" />
         </div>
       )}
 
@@ -162,23 +159,23 @@ export function ProjectCard({ project }: ProjectCardProps) {
         ) : (
           <div className="text-sm leading-relaxed">
             {/* Main description - always visible */}
-            <div 
+            <div
               className="text-gray-300 mb-2"
               dangerouslySetInnerHTML={{
-                __html: processedDescription || project.description
+                __html: processedDescription || project.description,
               }}
             />
-            
+
             {/* Extended description - conditionally visible */}
             {isExpanded && processedExtendedDescription && (
-              <div 
+              <div
                 className="text-gray-400 transition-all duration-300 ease-in-out"
                 dangerouslySetInnerHTML={{
-                  __html: processedExtendedDescription
+                  __html: processedExtendedDescription,
                 }}
               />
             )}
-            
+
             {/* Read more/Show less button - only if extended description exists */}
             {processedExtendedDescription && (
               <button
@@ -193,6 +190,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
         )}
       </div>
 
+      {project.impact && (
+        <p className="mb-4 border-l-2 border-supernova-orange pl-4 text-sm leading-relaxed text-star-white/90">
+          {project.impact}
+        </p>
+      )}
+
       {/* Colored skill bubbles */}
       <div className="mb-4">
         <div className="flex flex-wrap gap-2">
@@ -205,7 +208,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 style={{
                   backgroundColor: skillColors.backgroundColor,
                   color: skillColors.color,
-                  border: '1px solid rgba(255, 255, 255, 0.2)'
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
                 }}
               >
                 {skill.name}
@@ -222,8 +225,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <a
               key={index}
               href={link.url}
-              target={link.type === "github" || link.type === "demo" || link.type === "website" ? "_blank" : undefined}
-              rel={link.type === "github" || link.type === "demo" || link.type === "website" ? "noopener noreferrer" : undefined}
+              target={
+                link.type === "github" || link.type === "demo" || link.type === "website"
+                  ? "_blank"
+                  : undefined
+              }
+              rel={
+                link.type === "github" || link.type === "demo" || link.type === "website"
+                  ? "noopener noreferrer"
+                  : undefined
+              }
               className="pixel-btn text-sm px-4 py-2 border-2 border-stellar-cyan text-stellar-cyan hover:bg-stellar-cyan hover:text-void-black transition-colors rounded-sm"
             >
               <span className="mr-2">{getLinkIcon(link.type)}</span>

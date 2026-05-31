@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface OptimizedImageProps {
   src: string;
@@ -52,27 +52,55 @@ export default function OptimizedImage({
 }: OptimizedImageProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const onLoadRef = useRef(onLoad);
+  const onErrorRef = useRef(onError);
+
+  useEffect(() => {
+    onLoadRef.current = onLoad;
+    onErrorRef.current = onError;
+  }, [onLoad, onError]);
 
   const handleLoad = () => {
     setIsLoading(false);
-    onLoad?.();
+    onLoadRef.current?.();
   };
 
   const handleError = () => {
     setIsLoading(false);
     setHasError(true);
-    onError?.();
+    onErrorRef.current?.();
   };
 
   useEffect(() => {
-    // Reset states when src changes
+    let isActive = true;
+
     setIsLoading(true);
     setHasError(false);
+
+    const preloadImage = new window.Image();
+    preloadImage.onload = () => {
+      if (!isActive) return;
+      setIsLoading(false);
+      onLoadRef.current?.();
+    };
+    preloadImage.onerror = () => {
+      if (!isActive) return;
+      setIsLoading(false);
+      setHasError(true);
+      onErrorRef.current?.();
+    };
+    preloadImage.src = src;
+
+    return () => {
+      isActive = false;
+    };
   }, [src]);
 
   if (hasError) {
     return (
-      <div className={`bg-shadow-purple border-pixel border-mars-red flex items-center justify-center ${className}`}>
+      <div
+        className={`bg-shadow-purple border-pixel border-mars-red flex items-center justify-center ${className}`}
+      >
         <div className="text-center p-4">
           <div className="font-display text-2xl mb-2 text-mars-red">!</div>
           <div className="font-body text-xs text-asteroid-grey">IMG_ERROR</div>
@@ -98,12 +126,10 @@ export default function OptimizedImage({
         height={fill ? undefined : height}
         fill={fill}
         priority={priority}
-        className={`transition-opacity duration-300 ${
-          isLoading ? 'opacity-0' : 'opacity-100'
-        }`}
-        style={{ 
+        className={`transition-opacity duration-300 ${isLoading ? "opacity-0" : "opacity-100"}`}
+        style={{
           objectFit,
-          imageRendering: 'pixelated' // Add pixel rendering
+          imageRendering: "pixelated", // Add pixel rendering
         }}
         placeholder={placeholder}
         blurDataURL={blurDataURL}

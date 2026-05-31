@@ -6,17 +6,18 @@ import { ErrorBoundary } from "@/components/shared/ErrorBoundary";
 
 export default function Research() {
   const { projects, loading, error } = useProjectData("research");
-  
+
   return (
     <ErrorBoundary>
       <main className="container mx-auto min-h-screen py-12 fade-in">
         <div className="text-center mb-12 fade-in-delay-1">
           <h1 className="text-gradient mb-4">Research Projects</h1>
           <p className="text-moonlight-gray/70 max-w-2xl mx-auto">
-            Exploring the frontiers of astrophysics through computational methods, statistical analysis, and cutting-edge research techniques.
+            Scientific research background that trained my statistical rigor, computational
+            thinking, and comfort with complex technical systems.
           </p>
         </div>
-        
+
         <div className="fade-in-delay-2">
           <ProjectGrid projects={projects} loading={loading} error={error} />
         </div>

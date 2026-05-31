@@ -8,6 +8,14 @@ const photos = [
     src: "/hero/Zavier_Kamath_3.png",
     alt: "Zavier Kamath in office",
   },
+  {
+    src: "/hero/suit_and_tie.png",
+    alt: "Zavier Kamath in suit and tie",
+  },
+  {
+    src: "/hero/navy_blazer.png",
+    alt: "Zavier Kamath in navy blazer",
+  },
 ];
 
 export function PhotoCarousel() {

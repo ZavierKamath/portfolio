@@ -5,13 +5,13 @@
       "title": "Reusable Enterprise RAG Platform",
       "subtitle": "Config-Driven Knowledge Systems for Huntington National Bank",
       "date": "2025 - Present",
-      "description": "Built a reusable retrieval-augmented generation platform that lets teams launch new internal AI knowledge systems without rebuilding the infrastructure each time.",
-      "extendedDescription": "Designed generalized AWS infrastructure for recurring enterprise RAG use cases, including scheduled SharePoint ingestion, document vectorization, OpenSearch indexing, agent configuration via S3, reranked retrieval, session memory, logging, and observability with LangFuse. The platform now supports multiple internal use cases such as policy search, onboarding support, HR knowledge access, vendor capability search, and call center assistance.",
+      "description": "Saved an estimated $300K+ per year by leading development of a reusable enterprise RAG agent framework that now supports 5 internal AI projects.",
+      "extendedDescription": "Built reusable AWS infrastructure for retrieval, indexing, agent configuration, session memory, reranked search, logging, and LangFuse observability so teams can launch new knowledge agents without rebuilding the stack. The framework now supports policy search, onboarding support, HR knowledge access, vendor capability search, and call center assistance.",
       "media": {
         "type": "image",
-        "src": "/projects/huntington/prompt-eng.jpg",
+        "src": "/projects/huntington/rag-framework.png",
         "alt": "Enterprise RAG platform illustration",
-        "poster": "/projects/huntington/prompt-eng.jpg",
+        "poster": "/projects/huntington/rag-framework.png",
         "autoplay": false,
         "loop": true,
         "muted": true
@@ -31,7 +31,7 @@
         { "name": "AI Guardrails", "category": "Concept" }
       ],
       "links": [],
-      "impact": "Reduced time-to-launch for new knowledge agents by turning repeated RAG work into a reusable platform now supporting tools used by tens of thousands of colleagues.",
+      "impact": "Powers tools used by tens of thousands of colleagues and standardizes chatbot delivery across 5 internal AI projects.",
       "featured": true
     },
     {
@@ -39,13 +39,13 @@
       "title": "Customer Financial Insights + AI Chatbot",
       "subtitle": "In Development: Customer-Facing AI for Mobile and Web",
       "date": "2026 - Present",
-      "description": "Spearheading the data and AI architecture for an in-development customer-facing system that prepares personalized financial insights and future chatbot experiences for Huntington customers.",
-      "extendedDescription": "Leading the data preparation and AI design work for a production-oriented customer experience that aggregates customer data nightly, generates structured prompts at scale, and serves LLM-powered insights across Huntington digital channels. The architecture spans AWS data systems and GCP inference services, and includes the groundwork for future conversational features such as retrieval over financial guidance content, product knowledge, and customer-specific data analysis tools.",
+      "description": "Lead development of customer-facing AI prototypes by designing data preparation workflows, LLM insight generation, and cross-cloud serving architecture.",
+      "extendedDescription": "Designed production-oriented AI architecture that aggregates customer data nightly, generates structured prompts at scale, and serves LLM-powered insights through AWS data systems and GCP inference services. Filed a patent-in-process concept for structured prompt pre-generation using SQL, Snowflake, Athena, S3, Glue, and Cloud Run.",
       "media": {
         "type": "image",
-        "src": "/projects/huntington/simple-agent.jpg",
+        "src": "/projects/huntington/customer-facing-ai.png",
         "alt": "Customer-facing financial AI concept art",
-        "poster": "/projects/huntington/simple-agent.jpg",
+        "poster": "/projects/huntington/customer-facing-ai.png",
         "autoplay": false,
         "loop": true,
         "muted": true
@@ -65,7 +65,51 @@
         { "name": "Retrieval-Augmented Generation", "category": "Concept" }
       ],
       "links": [],
-      "impact": "In development for large-scale customer experiences, with architecture and data pipelines being prepared for production rollout across digital banking channels.",
+      "impact": "Lays groundwork for AI experiences that could eventually serve millions of banking customers across mobile and web channels.",
+      "featured": true
+    },
+    {
+      "id": "ai-enablement-workflow-automation",
+      "title": "AI Enablement, Workflow Automation, and Technical Advocacy",
+      "subtitle": "Helping Teams Across Huntington Adopt AI Effectively",
+      "date": "2025 - Present",
+      "description": "Drove responsible AI adoption by teaching developers, business partners, executives, and large internal audiences how to use modern AI tools effectively.",
+      "extendedDescription": "Introduced modern AI coding tools to the team and turned that early usage into enablement for others. Delivered presentations to hundreds of colleagues, wrote technical guidance for Copilot, Claude Code, OpenCode, Codex, and AI chatbots, and translated AI workflows for engineers, business partners, and executive audiences.",
+      "skills": [
+        { "name": "Microsoft Copilot", "category": "Tool" },
+        { "name": "Claude Code", "category": "Tool" },
+        { "name": "OpenCode", "category": "Tool" },
+        { "name": "Codex", "category": "Tool" },
+        { "name": "Prompt Engineering", "category": "Concept" },
+        { "name": "Context Engineering", "category": "Concept" },
+        { "name": "Technical Writing", "category": "Concept" },
+        { "name": "Developer Mentoring", "category": "Concept" },
+        { "name": "Science Communication", "category": "Concept" },
+        { "name": "Project Presentation", "category": "Concept" },
+        { "name": "Azure DevOps", "category": "Cloud" }
+      ],
+      "links": [],
+      "impact": "Turns individual AI expertise into team capability through mentoring, documentation, workflow design, and presentations to hundreds of colleagues.",
+      "featured": true
+    },
+    {
+      "id": "ai-agent-skills-repository",
+      "title": "AI Agent Skills Repository",
+      "subtitle": "Capturing Data Science Team Knowledge for Agentic Workflows",
+      "date": "2026 - Present",
+      "description": "Own the data science AI agent skills repository, capturing tribal knowledge so colleagues can reuse it through agentic workflows.",
+      "extendedDescription": "Built and maintain a repository that turns repeatable domain knowledge, workflow patterns, and implementation guidance into durable agent context. The repository helps data scientists move from one-off prompting to reusable instructions that improve consistency across projects.",
+      "skills": [
+        { "name": "AI Agents", "category": "Concept" },
+        { "name": "Knowledge Management", "category": "Concept" },
+        { "name": "Developer Enablement", "category": "Concept" },
+        { "name": "Technical Writing", "category": "Concept" },
+        { "name": "Prompt Engineering", "category": "Concept" },
+        { "name": "Context Engineering", "category": "Concept" },
+        { "name": "Git", "category": "Tool" }
+      ],
+      "links": [],
+      "impact": "Enables data scientists to reuse team knowledge through agent-ready context and repeatable workflow instructions.",
       "featured": true
     },
     {
@@ -73,8 +117,8 @@
       "title": "AI Document Processing Systems",
       "subtitle": "Structured Extraction from Complex Financial Documents",
       "date": "2025 - Present",
-      "description": "Built LLM-powered document processing workflows that turn messy, unstructured financial documents into structured outputs for downstream business use.",
-      "extendedDescription": "Developed multiple proof-of-concepts for document-heavy banking workflows, including loan document review and Federal Reserve report parsing. The systems use multi-step LLM orchestration to break large parsing tasks into manageable stages, extract line items and key fields from inconsistent PDFs, and produce structured outputs suitable for spreadsheet workflows and rule-based review.",
+      "description": "Built document processing workflows that convert inconsistent financial PDFs into structured outputs for faster business review.",
+      "extendedDescription": "Developed proof-of-concepts for loan document review and Federal Reserve report parsing by breaking large extraction tasks into staged LLM workflows. Extracted line items and key fields from inconsistent PDFs and produced outputs that business teams could review in spreadsheet and rule-based workflows.",
       "skills": [
         { "name": "LangChain", "category": "Framework" },
         { "name": "Strands", "category": "Framework" },
@@ -86,28 +130,8 @@
         { "name": "Workflow Orchestration", "category": "Concept" }
       ],
       "links": [],
-      "impact": "Turned inconsistent multi-page documents into structured outputs that support faster review and downstream analysis.",
+      "impact": "Reduced manual review effort by turning messy multi-page documents into structured data for downstream analysis.",
       "featured": false
-    },
-    {
-      "id": "ai-enablement-workflow-automation",
-      "title": "AI Enablement, Workflow Automation, and Technical Advocacy",
-      "subtitle": "Helping Teams Across Huntington Adopt AI Effectively",
-      "date": "2025 - Present",
-      "description": "Created practical AI workflows, reusable guidance, and presentations that help colleagues and leadership teams apply modern AI tools to everyday work.",
-      "extendedDescription": "Regularly teach colleagues across the bank how to use AI tools such as Microsoft Copilot effectively, present project work to audiences ranging from team meetings to leadership reviews, and create workflow designs, internal documentation, and supporting libraries that help teams adopt AI with stronger habits and clearer architecture.",
-      "skills": [
-        { "name": "Microsoft Copilot", "category": "Tool" },
-        { "name": "Prompt Engineering", "category": "Concept" },
-        { "name": "Context Engineering", "category": "Concept" },
-        { "name": "Technical Writing", "category": "Concept" },
-        { "name": "Science Communication", "category": "Concept" },
-        { "name": "Project Presentation", "category": "Concept" },
-        { "name": "Azure DevOps", "category": "Cloud" }
-      ],
-      "links": [],
-      "impact": "Extended impact beyond shipped systems by helping teams across the bank understand, evaluate, and use AI tools more effectively.",
-      "featured": true
     }
   ]
 }

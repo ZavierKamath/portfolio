@@ -1,16 +1,86 @@
 {
   "projects": [
     {
+      "id": "memvia",
+      "title": "Memvia",
+      "subtitle": "AI Resume and Job Application Memory System",
+      "date": "May 2026",
+      "description": "Built Memvia, a full-stack AI job application assistant that generates tailored resume content and application answers from a curated memory store.",
+      "extendedDescription": "Developed the FastAPI, Pydantic AI, OpenRouter, SQLite, React, TypeScript, Tailwind, and Vite stack by hand. The system retrieves relevant memories with vector search, reasons over them with agent workflows, and produces application-ready responses or resume drafts while preserving strict formatting constraints.",
+      "media": {
+        "type": "image",
+        "src": "https://img.youtube.com/vi/v_iPcjeXWnI/hqdefault.jpg",
+        "alt": "Memvia AI resume and job application assistant demo",
+        "poster": "https://img.youtube.com/vi/v_iPcjeXWnI/hqdefault.jpg",
+        "autoplay": false,
+        "loop": false,
+        "muted": true
+      },
+      "skills": [
+        { "name": "Python", "category": "Language" },
+        { "name": "FastAPI", "category": "Framework" },
+        { "name": "Pydantic AI", "category": "Framework" },
+        { "name": "OpenRouter", "category": "Tool" },
+        { "name": "SQLite", "category": "Tool" },
+        { "name": "React", "category": "Framework" },
+        { "name": "TypeScript", "category": "Language" },
+        { "name": "Tailwind", "category": "Framework" },
+        { "name": "Vite", "category": "Tool" },
+        { "name": "Agentic AI", "category": "Concept" },
+        { "name": "Retrieval-Augmented Generation", "category": "Concept" },
+        { "name": "Full-Stack Architecture", "category": "Concept" }
+      ],
+      "links": [
+        {
+          "type": "demo",
+          "url": "https://youtu.be/v_iPcjeXWnI",
+          "label": "Video Demo"
+        }
+      ],
+      "impact": "Shows end-to-end AI product engineering across memory curation, retrieval, agent reasoning, structured resume generation, and frontend/backend integration.",
+      "featured": true
+    },
+    {
+      "id": "nero",
+      "title": "Nero",
+      "subtitle": "Mobile AI Voice Assistant for Personal Tracking",
+      "date": "2026",
+      "description": "Developed Nero, a React Native and Expo mobile AI voice assistant with tool-calling workflows for workouts, nutrition, and spending.",
+      "extendedDescription": "Built practical daily workflows around voice input, tool calls, and personal data. Integrated AssemblyAI and ElevenLabs for voice interactions, Plaid for spending analysis, and tracking flows for workouts and nutrition.",
+      "media": {
+        "type": "video",
+        "src": "/projects/nero/demo.mp4",
+        "alt": "Nero mobile AI voice assistant demo showing personal tracking workflows.",
+        "autoplay": false,
+        "loop": true,
+        "muted": true
+      },
+      "skills": [
+        { "name": "React Native", "category": "Framework" },
+        { "name": "Expo", "category": "Tool" },
+        { "name": "TypeScript", "category": "Language" },
+        { "name": "AssemblyAI", "category": "Tool" },
+        { "name": "ElevenLabs", "category": "Tool" },
+        { "name": "Plaid API", "category": "Tool" },
+        { "name": "Voice AI", "category": "Concept" },
+        { "name": "Tool Calling", "category": "Concept" },
+        { "name": "Mobile Development", "category": "Concept" }
+      ],
+      "links": [],
+      "impact": "Turns common personal tracking tasks into voice-driven AI workflows across fitness, nutrition, and finances.",
+      "featured": true
+    },
+    {
       "id": "pizza-agent-demo",
       "title": "AI Voice Agent",
       "subtitle": "AI-Powered Voice Agent That Takes Pizza Orders",
       "date": "June 2025",
-      "description": "Deepgram voice agent takes pizza orders and creates tickets for the pizza workers to view.",
-      "extendedDescription": "Leveraged AI tools to build voice agent back-end with tool calling (for order tracking and menu retrieval) and front-end dashboard with ticketes and call tracking. This technology can be applied to any type of business that uses telephone-based customer support.",
+      "description": "Built an AI voice agent that takes phone orders with Deepgram and Twilio and creates live tickets for restaurant staff.",
+      "extendedDescription": "Developed the Python voice-agent backend with tool calls for menu retrieval and order tracking, then built a frontend dashboard for tickets and call history. The same pattern can support telephone-based customer service workflows in other businesses.",
       "media": {
         "type": "video",
         "src": "/projects/pizza-agent/demo.mp4",
-        "alt": "Pizza voice AI aent demo showcasing an AI agent that takes pizza orders over phone.",
+        "alt": "Pizza voice AI agent demo showcasing an AI agent that takes pizza orders over phone.",
         "poster": "/projects/pizza-agent/poster.png",
         "autoplay": false,
         "loop": true,
@@ -40,7 +110,7 @@
           "label": "Project Repository"
         }
       ],
-      "impact": "AI Voice agent can be applied for telephone-based customer support at any type of business.",
+      "impact": "Demonstrates how phone-based customer support can be routed through an AI agent while still giving staff a live operational dashboard.",
       "featured": true
     },
     {
@@ -48,8 +118,8 @@
       "title": "Physics Grad Match",
       "subtitle": "AI-Powered PhD Program Matching Platform",
       "date": "June 2025",
-      "description": "A commercial web application that matches physics PhD program applicants to professors.",
-      "extendedDescription": "Leveraged AI tools to build database of professors and research interest and website for analyzing natural language input using LLM for keyword extraction and vector similarity search for matching. Website is prepared to be used by many future PhD program applicants this cycle.",
+      "description": "Built Physics Grad Match, a commercial web app that matches physics graduate applicants with professors by research niche.",
+      "extendedDescription": "Scraped university physics departments to build a professor database, extracted applicant research keywords with an LLM, and matched users to professors through vector similarity search. Added Stripe checkout, Supabase storage, and a React frontend to make the tool usable as a commercial product.",
       "media": {
         "type": "video",
         "src": "/projects/physics-grad-match/demo.mp4",
@@ -89,7 +159,7 @@
           "label": "Live Application"
         }
       ],
-      "impact": "AI-powered matching platform connecting PhD applicants with professors using advanced vector similarity and LLM technology",
+      "impact": "Connects physics graduate applicants with relevant professors by combining scraped department data, LLM keyword extraction, and vector similarity search.",
       "featured": true
     },
     {
@@ -97,8 +167,8 @@
       "title": "Rep Quest",
       "subtitle": "Workout Tracking Application",
       "date": "May 2025",
-      "description": "Built a web app that I use every day to track my progression in resistance training workouts",
-      "extendedDescription": "Leveraged AI tools to build a web app to track the sets, reps, and weight used for every exercise with graphs and performance metrics",
+      "description": "Built RepQuest, a workout tracking web app used regularly on mobile to track resistance training progression.",
+      "extendedDescription": "Developed tracking flows for sets, reps, and weight by pairing a React frontend with backend storage and performance charts. Used the app from my phone for months in the gym.",
       "skills": [
         { "name": "Replit", "category": "Language" },
         { "name": "Cursor", "category": "Language" },
@@ -119,7 +189,7 @@
           "label": "Project Repository"
         }
       ],
-      "impact": "Workout tracking application that I use every day to track my progression in resistance training workouts",
+      "impact": "Supported consistent training by making workout history, progression, and performance metrics easy to log from a phone.",
       "featured": true
     }
   ]

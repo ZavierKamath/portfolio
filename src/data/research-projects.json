@@ -5,8 +5,8 @@
       "title": "Dark Matter Model Statistical Analysis",
       "subtitle": "Bayesian Analysis of Milky Way Satellite Data",
       "date": "Summer 2023 - Summer 2024",
-      "description": "Research project under Prof. Annika Peter and Prof. Ivan Esteban to analyze Dark Matter models.",
-      "extendedDescription": "Advanced constraints on Warm Dark Matter particle mass to >4 keV/c² through Bayesian statistical analysis of Milky Way satellite galaxy data, doubling previous predictions and optimizing computational bottlenecks to obtain 100x runtime improvement. Authored summary of methods and conclusions, presented at the 2023 SRP poster session. Uploaded all code and writeup to GitHub.",
+      "description": "Advanced Warm Dark Matter particle mass constraints to >4 keV/c? through Bayesian analysis of Milky Way satellite galaxy data.",
+      "extendedDescription": "Advanced Warm Dark Matter particle mass constraints by comparing model predictions against Milky Way satellite observations. Cut runtime by 100x by optimizing computational bottlenecks, authored a methods summary for an upcoming publication, presented findings at the 2023 OSU Physics Summer Research Program poster session, and published the code and writeup on GitHub.",
       "media": {
         "type": "image",
         "src": "/projects/wdm/poster.png",
@@ -34,7 +34,7 @@
           "label": "Research Repository"
         }
       ],
-      "impact": "Advanced particle mass constraints to >4 keV/c², doubling previous research bounds with 100x performance improvement",
+      "impact": "Advanced particle mass constraints to >4 keV/c? and made the analysis practical to run by delivering a 100x runtime improvement.",
       "featured": true
     }
   ]

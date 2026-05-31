@@ -17,10 +17,10 @@ const basicNavigationLinks = [
 
 // Experience and Projects dropdown items with updated labels
 const experienceProjectsItems = [
-  { href: "/research", label: "Research Experience" },
-  { href: "/industry", label: "Industry Experience" },
+  { href: "/industry", label: "AI / Industry Work" },
+  { href: "/personal", label: "Personal AI Projects" },
   { href: "/coursework", label: "Coursework Projects" },
-  { href: "/personal", label: "Personal Projects" },
+  { href: "/research", label: "Research Background" },
 ];
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
@@ -30,7 +30,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   /**
    * Check if any experience/projects item is currently active
    */
-  const hasActiveExperienceItem = experienceProjectsItems.some(item => {
+  const hasActiveExperienceItem = experienceProjectsItems.some((item) => {
     if (item.href === "/") {
       return pathname === "/";
     }
@@ -163,9 +163,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   animationDelay: `${basicNavigationLinks.length * 50}ms`,
                 }}
                 aria-expanded={isExperienceExpanded}
-                aria-label="Experience and Projects menu"
+                aria-label="Work and Projects menu"
               >
-                <span>Experience and Projects</span>
+                <span>Work and Projects</span>
                 {/* Expand/Collapse Arrow */}
                 <svg
                   className={`
@@ -194,9 +194,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               >
                 <div className="mt-4 ml-6 space-y-4">
                   {experienceProjectsItems.map((item, subIndex) => {
-                    const isActive = pathname === item.href || 
+                    const isActive =
+                      pathname === item.href ||
                       (item.href !== "/" && pathname.startsWith(item.href));
-                    
+
                     return (
                       <Link
                         key={item.href}
@@ -236,7 +237,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 Resume
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/ZavierKamath"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-moonlight-gray hover:text-nebula-blue transition-colors duration-150"
@@ -244,7 +245,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/zavierkamath/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-moonlight-gray hover:text-nebula-blue transition-colors duration-150"

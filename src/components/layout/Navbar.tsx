@@ -15,10 +15,10 @@ const basicNavigationLinks = [
 
 // Experience and Projects dropdown items with updated labels
 const experienceProjectsItems = [
-  { href: "/research", label: "Research Experience" },
-  { href: "/industry", label: "Industry Experience" },
+  { href: "/industry", label: "AI / Industry Work" },
+  { href: "/personal", label: "Personal AI Projects" },
   { href: "/coursework", label: "Coursework Projects" },
-  { href: "/personal", label: "Personal Projects" },
+  { href: "/research", label: "Research Background" },
 ];
 
 export function Navbar() {
@@ -57,10 +57,10 @@ export function Navbar() {
               href="/"
               className="text-xl font-bold text-moonlight-gray hover:text-nebula-blue transition-colors duration-200"
               style={{
-                textDecoration: 'underline',
-                textDecorationColor: '#0FBCDC', // stellar-cyan
-                textUnderlineOffset: '4px',
-                textDecorationThickness: '2px'
+                textDecoration: "underline",
+                textDecorationColor: "#0FBCDC", // stellar-cyan
+                textUnderlineOffset: "4px",
+                textDecorationThickness: "2px",
               }}
             >
               Zavier Kamath Portfolio
@@ -93,12 +93,9 @@ export function Navbar() {
                   </Link>
                 );
               })}
-              
+
               {/* Experience and Projects Dropdown */}
-              <DropdownMenu
-                label="Experience and Projects"
-                items={experienceProjectsItems}
-              />
+              <DropdownMenu label="Work and Projects" items={experienceProjectsItems} />
             </div>
 
             {/* Desktop Action Buttons */}
