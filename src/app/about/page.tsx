@@ -5,16 +5,55 @@ import ContactLinks from "@/components/about/ContactLinks";
 import ProfessionalPhoto from "@/components/about/ProfessionalPhoto";
 
 export default function About() {
+  const quickFacts = [
+    {
+      label: "Current Role",
+      value: "AI Engineer",
+      detail: "Building internal AI tools at Huntington National Bank",
+    },
+    {
+      label: "Education",
+      value: "Georgia Tech OMSCS + OSU Physics",
+      detail: "AI graduate work plus physics research",
+    },
+    {
+      label: "Strongest Work",
+      value: "RAG, AI agents, and AI Education",
+      detail: "Production systems, useful chatbots, and presentations",
+    },
+    {
+      label: "Currently Building",
+      value: "Banking AI + small products",
+      detail: "Memvia, Nero, Physics Grad Match, and automation experiments",
+    },
+  ];
+
   return (
     <main className="container mx-auto min-h-screen py-12 fade-in">
       {/* Hero Section */}
       <section className="mb-16 fade-in-delay-1">
         <div className="text-center mb-12">
           <h1 className="text-gradient mb-4">About Me</h1>
-          <p className="text-body-lg text-moonlight-gray/80 max-w-2xl mx-auto">
-            I build practical AI systems and full-stack products, then teach other people how to use
-            them responsibly.
+          <p className="text-body-lg text-moonlight-gray/80 max-w-3xl mx-auto">
+            I build practical AI tools, then teach people how to make the most out of them.
           </p>
+        </div>
+
+        <div className="mb-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {quickFacts.map((fact) => (
+            <div
+              key={fact.label}
+              className="border-2 border-stellar-cyan bg-void-black/95 p-4 shadow-[2px_2px_0_var(--stellar-cyan)]"
+            >
+              <p className="mb-2 text-[10px] uppercase tracking-[0.22em] text-stellar-cyan">
+                {fact.label}
+              </p>
+              <h2 className="font-ui text-xl font-bold leading-tight text-star-white">
+                {fact.value}
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-moonlight-gray/70">{fact.detail}</p>
+            </div>
+          ))}
         </div>
 
         <div className="grid lg:grid-cols-3 gap-12 items-start">
@@ -30,27 +69,23 @@ export default function About() {
             <div className="card">
               <h3 className="mb-4 text-star-white">Background</h3>
               <p className="text-asteroid-grey mb-4">
-                I&apos;m an AI Engineer and full-stack developer at Huntington National Bank, where
-                I lead production-minded AI work in a highly regulated banking environment. My
-                strongest work combines agentic AI, data systems, backend services, React frontends,
-                and practical product design.
+                I&apos;m an AI Engineer at Huntington National Bank, where I build AI tools in a
+                regulated banking environment. My strongest work combines agents, data systems,
+                backend services, React frontends, and practical product design.
               </p>
               <p className="text-asteroid-grey">
-                Before moving into industry AI engineering, I trained in physics and astrophysics at
-                Ohio State and advanced dark matter research through Bayesian analysis and code
-                optimization. Astrophysics is still a personal interest, but professionally I use
-                that research background to build reliable software and AI products.
+                Before industry, I studied physics and astrophysics at Ohio State and worked on dark
+                matter research through Bayesian analysis and code optimization. I still use that
+                research background to build reliable software.
               </p>
             </div>
 
             <div className="card">
               <h3 className="mb-4 text-star-white">Current Focus</h3>
               <p className="text-asteroid-grey mb-4">
-                At Huntington, I lead development of reusable AI platforms, customer-facing AI
-                prototypes, document processing workflows, and React interfaces that make AI systems
-                usable for business partners. Outside work, I build personal AI products such as
-                Memvia, Nero, and Physics Grad Match to keep sharpening end-to-end product
-                engineering.
+                At Huntington, I build shared AI tools, customer-facing prototypes, document
+                processing flows, and React interfaces. Outside work, I build products like Memvia,
+                Nero, and Physics Grad Match.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
@@ -58,19 +93,19 @@ export default function About() {
                     AI Engineering
                   </h4>
                   <ul className="space-y-1 text-asteroid-grey">
-                    <li>• Reusable enterprise RAG systems</li>
-                    <li>• Customer-facing LLM product architecture</li>
-                    <li>• Agentic workflows and tool-calling systems</li>
-                    <li>• AI document processing and data pipelines</li>
+                    <li>• Shared RAG systems</li>
+                    <li>• Customer AI prototypes</li>
+                    <li>• Agents and tool calls</li>
+                    <li>• Document processing</li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-stellar-cyan mb-2">Full-Stack Development</h4>
+                  <h4 className="font-semibold text-stellar-cyan mb-2">Web Development</h4>
                   <ul className="space-y-1 text-asteroid-grey">
-                    <li>• React, TypeScript, and Tailwind frontends</li>
-                    <li>• Python, FastAPI, and Pydantic AI backends</li>
-                    <li>• Cross-cloud data and inference architecture</li>
-                    <li>• Product demos, dashboards, and AI UX</li>
+                    <li>• React and TypeScript frontends</li>
+                    <li>• Python and FastAPI backends</li>
+                    <li>• Cloud data and inference</li>
+                    <li>• Demos and dashboards</li>
                   </ul>
                 </div>
               </div>
@@ -79,16 +114,13 @@ export default function About() {
             <div className="card">
               <h3 className="mb-4 text-star-white">Communication & AI Education</h3>
               <p className="text-asteroid-grey mb-4">
-                A major part of my value is helping other people use AI well. I drove responsible AI
-                adoption by teaching developers, business partners, executives, and large internal
-                audiences how to use Copilot, Claude Code, OpenCode, Codex, and AI chatbots
-                effectively. That includes presentations to hundreds of colleagues, technical
-                documentation, workflow design, and direct mentoring.
+                A major part of my value is helping other people use AI well. I&apos;ve taught
+                developers, business partners, executives, and large internal groups how to use
+                Copilot, Claude Code, OpenCode, Codex, and chatbots effectively.
               </p>
               <p className="text-asteroid-grey">
-                I also own a data science AI agent skills repository, capturing team knowledge so
-                colleagues can reuse it through agentic workflows. I care about turning AI from
-                isolated demos into shared engineering capability.
+                I also own a data science agent skills repo that captures reusable team knowledge.
+                I care about turning AI from isolated demos into shared practice.
               </p>
             </div>
           </div>

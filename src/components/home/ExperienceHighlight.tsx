@@ -20,12 +20,9 @@ export function ExperienceHighlight({ items }: ExperienceHighlightProps) {
     <section className="container mx-auto py-20">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="font-display text-2xl text-star-white mb-4">
-            Highlighted AI Engineering Work
-          </h2>
+          <h2 className="font-display text-2xl text-star-white mb-4">Featured Work</h2>
           <p className="text-moonlight-gray/75 max-w-3xl mx-auto leading-relaxed">
-            Production-minded AI systems, full-stack product work, and colleague enablement from my
-            current role at Huntington National Bank.
+            AI tools, prototypes, and training from my current role at Huntington National Bank.
           </p>
         </div>
 

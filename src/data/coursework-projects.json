@@ -2,11 +2,11 @@
   "projects": [
     {
       "id": "quasar-pca-analysis",
-      "title": "PCA Analysis of Quasar UV Spectra",
-      "subtitle": "Astronomical Data Science & Spectroscopy",
+      "title": "Quasar PCA",
+      "subtitle": "Reconstructing UV spectra",
       "date": "April 2025",
-      "description": "Reconstructed full quasar continuum spectra by applying PCA to red-side spectral weights and reproducing the mean transmitted flux-redshift relation.",
-      "extendedDescription": "Implemented spectroscopic analysis in Python, applied dimensionality reduction to high-resolution UV data, and reconstructed complete continuum spectra from partial spectral information.",
+      "description": "Reconstructed full quasar spectra with PCA and reproduced the mean transmitted flux-redshift relation.",
+      "extendedDescription": "Implemented spectroscopic analysis in Python and reconstructed complete continuum spectra from partial spectral information.",
       "skills": [
         { "name": "Python", "category": "Language" },
         { "name": "Principal Component Analysis", "category": "Concept" },
@@ -23,16 +23,16 @@
           "label": "Analysis Repository"
         }
       ],
-      "impact": "Recovered full quasar continuum spectra from partial spectral data by applying PCA-based dimensionality reduction.",
+      "impact": "Recovered full quasar spectra from partial spectral data.",
       "featured": true
     },
     {
       "id": "tully-fisher-regression",
-      "title": "Deming Regression Analysis of Tully-Fisher Relation",
-      "subtitle": "Bayesian Analysis of Galaxy Velocity-Luminosity Data",
+      "title": "Tully-Fisher Regression",
+      "subtitle": "Galaxy distance model",
       "date": "March 2025",
-      "description": "Improved Tully-Fisher distance analysis by applying Bayesian regression that accounts for uncertainty in both velocity and luminosity.",
-      "extendedDescription": "Extended the model across early and late-type spiral galaxies to evaluate whether population-specific fits improve distance estimation.",
+      "description": "Applied Bayesian regression to account for uncertainty in galaxy velocity and luminosity.",
+      "extendedDescription": "Compared early and late-type spiral galaxies to test whether separate fits improve distance estimates.",
       "skills": [
         { "name": "Python", "category": "Language" },
         { "name": "Bayesian Statistics", "category": "Concept" },
@@ -49,14 +49,14 @@
           "label": "Regression Analysis"
         }
       ],
-      "impact": "Accounted for bidirectional uncertainty and compared multiple galaxy populations to improve the reliability of distance indicators."
+      "impact": "Modeled uncertainty in both variables and compared galaxy populations."
     },
     {
       "id": "nfl-data-analysis",
-      "title": "NFL Data Analysis & Prediction",
-      "subtitle": "Machine Learning for Sports Analytics",
+      "title": "NFL Play Prediction",
+      "subtitle": "50,000+ plays analyzed",
       "date": "November 2024",
-      "description": "Achieved 75%+ precision on pivotal NFL play prediction by training neural network and random forest models on 50,000+ plays.",
+      "description": "Reached 75%+ precision on pivotal NFL play prediction using neural network and random forest models.",
       "extendedDescription": "Built feature pipelines to predict fumble probability, classify offensive formations, and identify the features most correlated with pivotal plays.",
       "skills": [
         { "name": "Python", "category": "Language" },
@@ -75,15 +75,15 @@
           "label": "ML Analysis Repository"
         }
       ],
-      "impact": "Processed 50,000+ plays and reached 75%+ precision by pairing feature engineering with neural network and random forest models."
+      "impact": "Processed 50,000+ plays and reached 75%+ precision."
     },
     {
       "id": "thermal-conductivity-analysis",
-      "title": "Analysis of One-Dimensional Thermal Conductivity",
-      "subtitle": "Computational Physics & Numerical Methods",
+      "title": "1D Thermal Conductivity",
+      "subtitle": "Copper rod heat model",
       "date": "March 2025",
-      "description": "Validated modified heat equation predictions by analyzing 1D thermal conductivity behavior across space and time in a copper rod.",
-      "extendedDescription": "Combined Python analysis with faster C++ numerical computations to compare measured thermal behavior against model predictions.",
+      "description": "Validated heat equation predictions against 1D thermal conductivity data from a copper rod.",
+      "extendedDescription": "Combined Python analysis with C++ computations to compare measured heat behavior against model predictions.",
       "skills": [
         { "name": "Python", "category": "Language" },
         { "name": "C++", "category": "Language" },
@@ -100,7 +100,7 @@
           "label": "Analysis Repository"
         }
       ],
-      "impact": "Confirmed model behavior by reproducing copper rod thermal conductivity patterns with numerical methods.",
+      "impact": "Confirmed the model by reproducing copper rod heat patterns.",
       "featured": true
     }
   ]

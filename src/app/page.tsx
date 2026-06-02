@@ -1,4 +1,5 @@
 import { Hero } from "@/components/home/Hero";
+import { PortfolioDigest } from "@/components/home/PortfolioDigest";
 import { ExperienceHighlight } from "@/components/home/ExperienceHighlight";
 import { FeaturedDemo } from "@/components/home/FeaturedDemo";
 
@@ -28,11 +29,14 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Proof points and section links */}
+      <PortfolioDigest />
+
       {/* Featured Demo */}
       <FeaturedDemo
         eyebrow="Featured Personal Build"
-        title="Memvia: AI Resume + Job Application Assistant"
-        description="Built Memvia, a full-stack AI job application assistant that generates tailored resume content and application answers by searching a curated memory store. Developed the FastAPI, Pydantic AI, OpenRouter, SQLite, React, TypeScript, Tailwind, and Vite stack by hand."
+        title="Memvia"
+        description="Resume memory assistant that drafts tailored resume content and application answers from a curated memory store. Built with FastAPI, Pydantic AI, SQLite, React, TypeScript, Tailwind, and Vite."
         youtubeId="v_iPcjeXWnI"
         ctaHref="/personal"
         ctaLabel="View personal projects"
@@ -42,38 +46,36 @@ export default function Home() {
       <ExperienceHighlight
         items={[
           {
-            title: "Reusable Enterprise RAG Platform",
-            subtitle: "Config-driven internal knowledge systems for teams across Huntington",
+            title: "Shared RAG Platform",
+            subtitle: "Reusable knowledge tools for Huntington",
             description:
-              "Saved an estimated $300K+ per year by leading development of reusable AWS infrastructure for retrieval, indexing, agent configuration, session history, observability, and reranked search.",
+              "Saved an estimated $300K+ per year by building a shared RAG base for 5 internal AI tools.",
             impact:
-              "Powers tools used by tens of thousands of colleagues and standardizes chatbot delivery across 5 internal AI projects.",
-            status: "Production Systems",
+              "Supports tools used by tens of thousands of colleagues across 5 internal AI projects.",
+            status: "Active",
             techStack: ["Python", "AWS Lambda", "OpenSearch", "LangChain", "Strands", "LangFuse"],
             href: "/industry",
             hrefLabel: "View industry work",
           },
           {
-            title: "Customer-Facing Financial Insights + AI Chatbot",
-            subtitle:
-              "Preparing personalized financial AI experiences for Huntington digital channels",
+            title: "Customer Insights Chatbot",
+            subtitle: "In development for mobile and web",
             description:
-              "Lead development of customer-facing AI prototypes by designing nightly data preparation, large-scale prompt generation, and cross-cloud serving architecture for future mobile and web experiences.",
-            impact:
-              "Lays groundwork for production AI experiences that could eventually serve millions of banking customers.",
+              "Lead development of prototypes that turn customer data into useful banking insights.",
+            impact: "Lays groundwork for AI features across mobile and web banking.",
             status: "In Development",
             techStack: ["AWS Glue", "Athena", "Snowflake", "Cloud Run", "Vertex AI", "SQL"],
             href: "/industry",
             hrefLabel: "See project details",
           },
           {
-            title: "AI Enablement, Mentoring, and Education",
-            subtitle: "Teaching colleagues how to use AI tools responsibly and effectively",
+            title: "AI Training",
+            subtitle: "Teaching colleagues how to use AI well",
             description:
-              "Drove responsible AI adoption by teaching developers, business partners, executives, and large internal audiences how to use Copilot, Claude Code, OpenCode, Codex, and AI chatbots effectively.",
+              "Taught developers, business partners, executives, and large internal groups how to use Copilot, Claude Code, OpenCode, Codex, and chatbots effectively.",
             impact:
-              "Turns individual AI expertise into team capability through presentations, documentation, workflow design, and hands-on mentoring for hundreds of colleagues.",
-            status: "Enablement",
+              "Turned individual AI know-how into team practice through mentoring, docs, and presentations.",
+            status: "Training",
             techStack: [
               "Copilot",
               "Claude Code",
@@ -83,7 +85,7 @@ export default function Home() {
               "Mentoring",
             ],
             href: "/industry",
-            hrefLabel: "View enablement work",
+            hrefLabel: "View training work",
           },
         ]}
       />
@@ -92,8 +94,7 @@ export default function Home() {
       <section className="container mx-auto py-20 text-center">
         <h2 className="mb-8">Let&apos;s Connect</h2>
         <p className="text-body-lg max-w-2xl mx-auto mb-12">
-          Interested in AI engineering, full-stack product work, or practical AI adoption? I&apos;d
-          love to hear from you.
+          Interested in AI tools, web apps, or practical adoption? I&apos;d love to hear from you.
         </p>
         <div className="flex justify-center gap-6">
           <a

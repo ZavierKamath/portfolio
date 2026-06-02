@@ -27,15 +27,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://zavierkamath.com"),
   title: {
     template: "Zavier Kamath | %s",
-    default: "Zavier Kamath | AI Engineer & Full-Stack Developer",
+    default: "Zavier Kamath | AI Engineer",
   },
-  description:
-    "AI engineer and full-stack developer building practical agentic AI systems, data products, and production web applications.",
+  description: "AI engineer building useful AI tools, web apps, and research software.",
   keywords: [
     "Zavier Kamath",
     "AI engineer",
-    "full-stack developer",
-    "agentic AI",
+    "web apps",
+    "AI tools",
     "AI agents",
     "RAG",
     "machine learning",
@@ -46,7 +45,7 @@ export const metadata: Metadata = {
     "data science",
     "Georgia Tech OMSCS",
     "Huntington National Bank",
-    "AI enablement",
+    "AI training",
     "developer mentoring",
     "astrophysics",
     "physics",
@@ -55,9 +54,8 @@ export const metadata: Metadata = {
   authors: [{ name: "Zavier Kamath", url: "https://zavierkamath.com" }],
   creator: "Zavier Kamath",
   openGraph: {
-    title: "Zavier Kamath | AI Engineer & Full-Stack Developer",
-    description:
-      "AI engineer and full-stack developer building practical agentic AI systems, data products, and production web applications.",
+    title: "Zavier Kamath | AI Engineer",
+    description: "AI engineer building useful AI tools, web apps, and research software.",
     type: "website",
     locale: "en_US",
     url: "https://zavierkamath.com",
@@ -67,15 +65,14 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Zavier Kamath - AI Engineer and Full-Stack Developer",
+        alt: "Zavier Kamath - AI Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zavier Kamath | AI Engineer & Full-Stack Developer",
-    description:
-      "AI engineer and full-stack developer building practical agentic AI systems, data products, and production web applications.",
+    title: "Zavier Kamath | AI Engineer",
+    description: "AI engineer building useful AI tools, web apps, and research software.",
     images: ["/og-image.jpg"],
   },
   robots: {

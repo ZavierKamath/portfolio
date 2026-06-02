@@ -1,6 +1,7 @@
 "use client";
 
 import { ProjectGrid } from "@/components/projects/ProjectGrid";
+import { ProjectPageShell } from "@/components/projects/ProjectPageShell";
 import { useProjectData } from "@/hooks/useProjectData";
 import { ErrorBoundary } from "@/components/shared/ErrorBoundary";
 
@@ -9,19 +10,18 @@ export default function Coursework() {
 
   return (
     <ErrorBoundary>
-      <main className="container mx-auto min-h-screen py-12 fade-in">
-        <div className="text-center mb-12 fade-in-delay-1">
-          <h1 className="text-gradient mb-4">Coursework Projects</h1>
-          <p className="text-moonlight-gray/70 max-w-2xl mx-auto">
-            Academic projects that support my AI engineering work through machine learning, data
-            analysis, numerical methods, and rigorous technical writing.
-          </p>
-        </div>
-
-        <div className="fade-in-delay-2">
-          <ProjectGrid projects={projects} loading={loading} error={error} />
-        </div>
-      </main>
+      <ProjectPageShell
+        kind="coursework"
+        title="Coursework Projects"
+        description="Class projects in machine learning, physics, and data analysis."
+      >
+        <ProjectGrid
+          projects={projects}
+          loading={loading}
+          error={error}
+          categoryLabel="coursework"
+        />
+      </ProjectPageShell>
     </ErrorBoundary>
   );
 }

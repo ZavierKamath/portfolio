@@ -2,15 +2,15 @@
   "projects": [
     {
       "id": "reusable-enterprise-rag-platform",
-      "title": "Reusable Enterprise RAG Platform",
-      "subtitle": "Config-Driven Knowledge Systems for Huntington National Bank",
+      "title": "Shared RAG Platform",
+      "subtitle": "Reusable knowledge tools for Huntington",
       "date": "2025 - Present",
-      "description": "Saved an estimated $300K+ per year by leading development of a reusable enterprise RAG agent framework that now supports 5 internal AI projects.",
-      "extendedDescription": "Built reusable AWS infrastructure for retrieval, indexing, agent configuration, session memory, reranked search, logging, and LangFuse observability so teams can launch new knowledge agents without rebuilding the stack. The framework now supports policy search, onboarding support, HR knowledge access, vendor capability search, and call center assistance.",
+      "description": "Saved an estimated $300K+ per year by building a standard RAG framework currently used by 5+ internal AI tools.",
+      "extendedDescription": "Lead the development of reusable AWS infrastructure for retrieval, indexing, agent configuration, memory, reranked search, logging, and LangFuse monitoring. The system supports policy search, onboarding, HR knowledge, vendor search, and call center help.",
       "media": {
         "type": "image",
         "src": "/projects/huntington/rag-framework.png",
-        "alt": "Enterprise RAG platform illustration",
+        "alt": "Shared RAG system illustration",
         "poster": "/projects/huntington/rag-framework.png",
         "autoplay": false,
         "loop": true,
@@ -31,16 +31,16 @@
         { "name": "AI Guardrails", "category": "Concept" }
       ],
       "links": [],
-      "impact": "Powers tools used by tens of thousands of colleagues and standardizes chatbot delivery across 5 internal AI projects.",
+      "impact": "Supports tools used by tens of thousands of colleagues across 5 internal AI projects.",
       "featured": true
     },
     {
       "id": "customer-financial-insights-chatbot",
-      "title": "Customer Financial Insights + AI Chatbot",
-      "subtitle": "In Development: Customer-Facing AI for Mobile and Web",
+      "title": "Customer Insights Chatbot",
+      "subtitle": "In development for mobile and web",
       "date": "2026 - Present",
-      "description": "Lead development of customer-facing AI prototypes by designing data preparation workflows, LLM insight generation, and cross-cloud serving architecture.",
-      "extendedDescription": "Designed production-oriented AI architecture that aggregates customer data nightly, generates structured prompts at scale, and serves LLM-powered insights through AWS data systems and GCP inference services. Filed a patent-in-process concept for structured prompt pre-generation using SQL, Snowflake, Athena, S3, Glue, and Cloud Run.",
+      "description": "Lead development of prototypes that turn customer data into useful banking insights.",
+      "extendedDescription": "Designed a system that aggregates customer data nightly, generates structured prompts, and serves insights through AWS data systems and GCP inference. Filed a patent-in-process concept for prompt pre-generation using SQL, Snowflake, Athena, S3, Glue, and Cloud Run.",
       "media": {
         "type": "image",
         "src": "/projects/huntington/customer-facing-ai.png",
@@ -65,16 +65,16 @@
         { "name": "Retrieval-Augmented Generation", "category": "Concept" }
       ],
       "links": [],
-      "impact": "Lays groundwork for AI experiences that could eventually serve millions of banking customers across mobile and web channels.",
+      "impact": "Lays groundwork for AI features across mobile and web banking.",
       "featured": true
     },
     {
       "id": "ai-enablement-workflow-automation",
-      "title": "AI Enablement, Workflow Automation, and Technical Advocacy",
-      "subtitle": "Helping Teams Across Huntington Adopt AI Effectively",
+      "title": "AI Training and Automation",
+      "subtitle": "Helping teams use AI well",
       "date": "2025 - Present",
-      "description": "Drove responsible AI adoption by teaching developers, business partners, executives, and large internal audiences how to use modern AI tools effectively.",
-      "extendedDescription": "Introduced modern AI coding tools to the team and turned that early usage into enablement for others. Delivered presentations to hundreds of colleagues, wrote technical guidance for Copilot, Claude Code, OpenCode, Codex, and AI chatbots, and translated AI workflows for engineers, business partners, and executive audiences.",
+      "description": "Taught developers, business partners, executives, and large internal groups how to use AI tools responsibly.",
+      "extendedDescription": "Introduced modern AI coding tools to the data science team and helped others adopt them. Delivered presentations to hundreds of colleagues, wrote guidance for Copilot, Claude Code, OpenCode, Codex, and chatbots, and translated AI use for technical and non-technical audiences.",
       "skills": [
         { "name": "Microsoft Copilot", "category": "Tool" },
         { "name": "Claude Code", "category": "Tool" },
@@ -89,16 +89,16 @@
         { "name": "Azure DevOps", "category": "Cloud" }
       ],
       "links": [],
-      "impact": "Turns individual AI expertise into team capability through mentoring, documentation, workflow design, and presentations to hundreds of colleagues.",
+      "impact": "Turned individual AI know-how into team practice through mentoring, docs, and presentations.",
       "featured": true
     },
     {
       "id": "ai-agent-skills-repository",
-      "title": "AI Agent Skills Repository",
-      "subtitle": "Capturing Data Science Team Knowledge for Agentic Workflows",
+      "title": "Agent Skills Repo",
+      "subtitle": "Reusable team knowledge",
       "date": "2026 - Present",
-      "description": "Own the data science AI agent skills repository, capturing tribal knowledge so colleagues can reuse it through agentic workflows.",
-      "extendedDescription": "Built and maintain a repository that turns repeatable domain knowledge, workflow patterns, and implementation guidance into durable agent context. The repository helps data scientists move from one-off prompting to reusable instructions that improve consistency across projects.",
+      "description": "Own a repo that captures team knowledge so data scientists can reuse it with AI agents.",
+      "extendedDescription": "Built and maintain a repository for repeatable domain knowledge and implementation guidance. It helps data scientists move from one-off prompting to reusable instructions.",
       "skills": [
         { "name": "AI Agents", "category": "Concept" },
         { "name": "Knowledge Management", "category": "Concept" },
@@ -109,16 +109,16 @@
         { "name": "Git", "category": "Tool" }
       ],
       "links": [],
-      "impact": "Enables data scientists to reuse team knowledge through agent-ready context and repeatable workflow instructions.",
+      "impact": "Helps data scientists reuse team knowledge instead of rebuilding prompts from scratch.",
       "featured": true
     },
     {
       "id": "ai-document-processing-systems",
-      "title": "AI Document Processing Systems",
-      "subtitle": "Structured Extraction from Complex Financial Documents",
+      "title": "Document Processing",
+      "subtitle": "Structured data from messy PDFs",
       "date": "2025 - Present",
-      "description": "Built document processing workflows that convert inconsistent financial PDFs into structured outputs for faster business review.",
-      "extendedDescription": "Developed proof-of-concepts for loan document review and Federal Reserve report parsing by breaking large extraction tasks into staged LLM workflows. Extracted line items and key fields from inconsistent PDFs and produced outputs that business teams could review in spreadsheet and rule-based workflows.",
+      "description": "Built tools that turn inconsistent financial PDFs into structured outputs for review.",
+      "extendedDescription": "Developed proof-of-concepts for loan document review and Federal Reserve report parsing. Extracted line items and key fields from inconsistent PDFs and produced outputs business teams could review in spreadsheets and rule checks.",
       "skills": [
         { "name": "LangChain", "category": "Framework" },
         { "name": "Strands", "category": "Framework" },

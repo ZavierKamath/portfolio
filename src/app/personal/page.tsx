@@ -1,6 +1,7 @@
 "use client";
 
 import { ProjectGrid } from "@/components/projects/ProjectGrid";
+import { ProjectPageShell } from "@/components/projects/ProjectPageShell";
 import { useProjectData } from "@/hooks/useProjectData";
 import { ErrorBoundary } from "@/components/shared/ErrorBoundary";
 
@@ -9,19 +10,18 @@ export default function Personal() {
 
   return (
     <ErrorBoundary>
-      <main className="container mx-auto min-h-screen py-12 fade-in">
-        <div className="text-center mb-12 fade-in-delay-1">
-          <h1 className="text-gradient mb-4">Personal Projects</h1>
-          <p className="text-moonlight-gray/70 max-w-2xl mx-auto">
-            Full-stack AI products and experiments that show practical agentic workflows, product
-            taste, and fast end-to-end implementation.
-          </p>
-        </div>
-
-        <div className="fade-in-delay-2">
-          <ProjectGrid projects={projects} loading={loading} error={error} />
-        </div>
-      </main>
+      <ProjectPageShell
+        kind="personal"
+        title="Personal Projects"
+        description="Small AI products, voice demos, and apps built end to end."
+      >
+        <ProjectGrid
+          projects={projects}
+          loading={loading}
+          error={error}
+          categoryLabel="personal work"
+        />
+      </ProjectPageShell>
     </ErrorBoundary>
   );
 }

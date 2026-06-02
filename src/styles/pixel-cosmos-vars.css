@@ -3,17 +3,25 @@
 :root {
   /* Primary Cosmic Palette */
   --void-black: #000000;
-  --nebula-purple: #5B21B6;
-  --stellar-cyan: #0FBCDC;
-  --cosmic-indigo: #1A1A2E;
+  --nebula-purple: #5b21b6;
+  --stellar-cyan: #0fbcdc;
+  --cosmic-indigo: #1a1a2e;
 
   /* Simplified 6-Color Pixel Art Palette */
-  --star-white: #FFFFFF;
-  --stellar-cyan: #0FBCDC;
-  --asteroid-grey: #8B8680;
+  --star-white: #ffffff;
+  --stellar-cyan: #0fbcdc;
+  --asteroid-grey: #8b8680;
   --void-black: #000000;
-  --cosmic-indigo: #1A1A2E;
-  --quasar-yellow: #FFD23F;
+  --cosmic-indigo: #1a1a2e;
+  --quasar-yellow: #ffd23f;
+  --plasma-pink: #ff006e;
+  --comet-orange: #ff6b35;
+  --supernova-orange: #ff6b35;
+  --galaxy-green: #3ee751;
+  --cosmic-navy: #16213e;
+  --shadow-purple: #2b0548;
+  --mars-red: #d62828;
+  --moonlight-gray: #c0c0c0;
 
   /* Semantic Color Assignments */
   --color-primary: var(--stellar-cyan);
@@ -59,19 +67,23 @@
   --space-l: calc(var(--pixel-unit) * 6); /* 48px */
   --space-xl: calc(var(--pixel-unit) * 8); /* 64px */
   --space-xxl: calc(var(--pixel-unit) * 12); /* 96px */
+  --spacing-2: var(--space-xxs);
+  --spacing-4: var(--space-xs);
+  --spacing-6: var(--space-s);
+  --spacing-12: var(--space-l);
 
   /* Font Families */
-  --font-display: 'Press Start 2P', monospace;
-  --font-ui: 'Pixelify Sans', sans-serif;
-  --font-body: 'IBM Plex Mono', monospace;
-  --font-code: 'JetBrains Mono', monospace;
+  --font-display: "Press Start 2P", monospace;
+  --font-ui: "Pixelify Sans", sans-serif;
+  --font-body: "IBM Plex Mono", monospace;
+  --font-code: "JetBrains Mono", monospace;
 
   /* Font Sizes (Pixel Perfect) */
-  --text-xs: 8px;   /* 0.5rem - Pixel UI */
-  --text-sm: 12px;  /* 0.75rem - Small */
+  --text-xs: 8px; /* 0.5rem - Pixel UI */
+  --text-sm: 12px; /* 0.75rem - Small */
   --text-base: 14px; /* 0.875rem - Regular */
-  --text-lg: 16px;  /* 1rem - Large */
-  --text-xl: 24px;  /* 1.5rem - H2 */
+  --text-lg: 16px; /* 1rem - Large */
+  --text-xl: 24px; /* 1.5rem - H2 */
   --text-2xl: 32px; /* 2rem - H1 */
 
   /* Font Weights */

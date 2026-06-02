@@ -1,6 +1,7 @@
 "use client";
 
 import { ProjectGrid } from "@/components/projects/ProjectGrid";
+import { ProjectPageShell } from "@/components/projects/ProjectPageShell";
 import { useProjectData } from "@/hooks/useProjectData";
 import { ErrorBoundary } from "@/components/shared/ErrorBoundary";
 
@@ -9,19 +10,18 @@ export default function Research() {
 
   return (
     <ErrorBoundary>
-      <main className="container mx-auto min-h-screen py-12 fade-in">
-        <div className="text-center mb-12 fade-in-delay-1">
-          <h1 className="text-gradient mb-4">Research Projects</h1>
-          <p className="text-moonlight-gray/70 max-w-2xl mx-auto">
-            Scientific research background that trained my statistical rigor, computational
-            thinking, and comfort with complex technical systems.
-          </p>
-        </div>
-
-        <div className="fade-in-delay-2">
-          <ProjectGrid projects={projects} loading={loading} error={error} />
-        </div>
-      </main>
+      <ProjectPageShell
+        kind="research"
+        title="Research Projects"
+        description="Astrophysics research, statistical modeling, and scientific code."
+      >
+        <ProjectGrid
+          projects={projects}
+          loading={loading}
+          error={error}
+          categoryLabel="research"
+        />
+      </ProjectPageShell>
     </ErrorBoundary>
   );
 }

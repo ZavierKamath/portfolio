@@ -2,11 +2,11 @@
   "projects": [
     {
       "id": "warm-dark-matter-constraints",
-      "title": "Dark Matter Model Statistical Analysis",
-      "subtitle": "Bayesian Analysis of Milky Way Satellite Data",
+      "title": "Dark Matter Constraints",
+      "subtitle": "Milky Way satellite analysis",
       "date": "Summer 2023 - Summer 2024",
-      "description": "Advanced Warm Dark Matter particle mass constraints to >4 keV/c? through Bayesian analysis of Milky Way satellite galaxy data.",
-      "extendedDescription": "Advanced Warm Dark Matter particle mass constraints by comparing model predictions against Milky Way satellite observations. Cut runtime by 100x by optimizing computational bottlenecks, authored a methods summary for an upcoming publication, presented findings at the 2023 OSU Physics Summer Research Program poster session, and published the code and writeup on GitHub.",
+      "description": "Constrained Warm Dark Matter particle mass using Milky Way satellite galaxy data.",
+      "extendedDescription": "Compared model predictions against Milky Way satellite observations. Cut runtime by 100x, wrote a methods summary for an upcoming publication, presented findings at the 2023 OSU Physics Summer Research Program poster session, and published the code and writeup on GitHub.",
       "media": {
         "type": "image",
         "src": "/projects/wdm/poster.png",
@@ -34,7 +34,7 @@
           "label": "Research Repository"
         }
       ],
-      "impact": "Advanced particle mass constraints to >4 keV/c? and made the analysis practical to run by delivering a 100x runtime improvement.",
+      "impact": "Improved dark matter constraints and cut runtime by 100x.",
       "featured": true
     }
   ]

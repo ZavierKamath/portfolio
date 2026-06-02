@@ -23,21 +23,21 @@ const timelineData: TimelineItem[] = [
     description: [
       "Maintain a 4.0 GPA on the AI track while working full-time as an AI Engineer",
       "Completed Human-Computer Interaction and Quantum Computing; currently enrolled in Knowledge-Based AI",
-      "Strengthening formal CS foundations while continuing to build production systems and personal AI products",
+      "Strengthening CS fundamentals while building AI tools and small products",
     ],
     type: "education",
     icon: "◉",
   },
   {
     id: "huntington-ai-engineer",
-    title: "AI Engineer / Full-Stack Developer",
+    title: "AI Engineer",
     organization: "Huntington National Bank",
     location: "Columbus, OH",
     period: "Sep 2025 - Present",
     description: [
-      "Led development of a reusable enterprise RAG agent framework supporting 5 internal AI projects",
+      "Built a shared RAG base supporting 5 internal AI projects",
       "Saved an estimated $300K+ per year by standardizing how internal teams launch AI knowledge agents",
-      "Lead customer-facing AI prototypes by designing data preparation workflows and production-oriented architecture",
+      "Lead customer-facing prototypes that turn banking data into useful insights",
       "Built brand-compliant React frontends that let business partners interact directly with internal AI systems",
     ],
     type: "experience",
@@ -45,30 +45,30 @@ const timelineData: TimelineItem[] = [
   },
   {
     id: "huntington-ai-enablement",
-    title: "AI Enablement and Education",
+    title: "AI Training",
     organization: "Huntington National Bank",
     location: "Columbus, OH",
     period: "2025 - Present",
     description: [
-      "Drove responsible AI adoption by teaching developers, business partners, executives, and large internal audiences",
-      "Mentor colleagues on Copilot, Claude Code, OpenCode, Codex, and practical chatbot workflows",
-      "Created technical guidance, workflow designs, internal documentation, and presentations for hundreds of colleagues",
-      "Own the data science AI agent skills repository, turning team knowledge into reusable agent instructions",
+      "Taught developers, business partners, executives, and large internal groups",
+      "Mentor colleagues on Copilot, Claude Code, OpenCode, Codex, and chatbots",
+      "Created guidance, internal docs, and presentations for hundreds of colleagues",
+      "Own the data science agent skills repo for reusable team knowledge",
     ],
     type: "experience",
     icon: "◆",
   },
   {
     id: "independent-ai-project-builder",
-    title: "Independent AI Product Builder",
+    title: "Independent Builder",
     organization: "Personal Projects",
     location: "Remote",
     period: "Jul 2024 - Present",
     description: [
       "Started building AI projects independently in July 2024 and kept shipping outside work and school",
-      "Built RepQuest, Physics Grad Match, AI Voice Agent, Nero, and Memvia as full-stack AI products",
+      "Built RepQuest, Physics Grad Match, Pizza Phone Agent, Nero, and Memvia",
       "Used React, TypeScript, Python, FastAPI, voice AI APIs, vector search, Stripe, Supabase, and SQLite",
-      "Focused on practical products with demos, real workflows, and end-to-end implementation rather than toy examples",
+      "Focused on practical demos instead of toy examples",
     ],
     type: "experience",
     icon: "◇",
@@ -80,9 +80,9 @@ const timelineData: TimelineItem[] = [
     location: "Columbus, OH",
     period: "May 2025 - Aug 2025",
     description: [
-      "Built early proof-of-concepts in agentic AI, retrieval, and document handling for banking workflows",
-      "Developed loan automation and workflow prototypes using AWS and LangChain",
-      "Contributed to AI Center of Excellence research and development initiatives",
+      "Built early prototypes for retrieval and document handling in banking",
+      "Developed loan automation prototypes using AWS and LangChain",
+      "Contributed to AI Center of Excellence research and development",
     ],
     type: "experience",
     icon: "□",
@@ -172,6 +172,7 @@ const timelineData: TimelineItem[] = [
 
 export default function Timeline() {
   const [filter, setFilter] = useState<"all" | "education" | "experience" | "award">("all");
+  const [showArchive, setShowArchive] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -192,6 +193,8 @@ export default function Timeline() {
   }, []);
 
   const filteredData = timelineData.filter((item) => filter === "all" || item.type === filter);
+  const visibleData = filter === "all" && !showArchive ? filteredData.slice(0, 5) : filteredData;
+  const hiddenArchiveCount = filteredData.length - visibleData.length;
 
   const getTypeColor = (type: string) => {
     switch (type) {
@@ -223,14 +226,35 @@ export default function Timeline() {
     <section className="max-w-4xl mx-auto">
       {/* Simplified Header */}
       <div className="mb-8">
-        <h2 className="font-display text-2xl text-star-white mb-6">Timeline</h2>
+        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="mb-2 text-[10px] uppercase tracking-[0.24em] text-stellar-cyan">
+              Career Log
+            </p>
+            <h2 className="font-ui text-3xl font-bold text-star-white">Timeline</h2>
+          </div>
+          {filter === "all" && (
+            <button
+              type="button"
+              onClick={() => setShowArchive(!showArchive)}
+              className="border border-quasar-yellow px-4 py-2 text-sm text-quasar-yellow transition-colors hover:bg-quasar-yellow hover:text-void-black"
+            >
+              {showArchive ? "Collapse archive" : `Show full archive (${hiddenArchiveCount} more)`}
+            </button>
+          )}
+        </div>
 
         {/* Simple Filter Buttons */}
         <div className="flex flex-wrap gap-3">
           {(["all", "education", "experience", "award"] as const).map((type) => (
             <button
               key={type}
-              onClick={() => setFilter(type)}
+              onClick={() => {
+                setFilter(type);
+                if (type !== "all") {
+                  setShowArchive(true);
+                }
+              }}
               className={`px-4 py-2 text-sm border-2 transition-colors ${
                 filter === type
                   ? "bg-stellar-cyan text-void-black border-stellar-cyan"
@@ -257,7 +281,7 @@ export default function Timeline() {
         />
 
         <div className="space-y-8">
-          {filteredData.map((item, index) => (
+          {visibleData.map((item, index) => (
             <div
               key={item.id}
               id={item.id}
@@ -268,7 +292,7 @@ export default function Timeline() {
             >
               {/* Simple Icon */}
               <div
-                className="flex-shrink-0 w-16 h-16 border-2 flex items-center justify-center text-2xl z-10 font-display"
+                className="flex-shrink-0 w-16 h-16 border-2 flex items-center justify-center text-2xl z-10 font-ui font-bold"
                 style={{
                   borderColor: getTypeColor(item.type),
                   backgroundColor: getTypeBackground(item.type),
@@ -293,7 +317,7 @@ export default function Timeline() {
                 >
                   {/* Simple Header */}
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
-                    <h3 className="font-display text-lg text-star-white mb-1">{item.title}</h3>
+                    <h3 className="font-ui text-xl font-bold text-star-white mb-1">{item.title}</h3>
                     <span className="text-sm" style={{ color: getTypeColor(item.type) }}>
                       {item.period}
                     </span>
@@ -319,10 +343,21 @@ export default function Timeline() {
           ))}
         </div>
 
-        {/* Simple Footer */}
-        <div className="mt-8 text-center">
-          <span className="text-asteroid-grey text-sm">End of Timeline</span>
-        </div>
+        {filter === "all" && hiddenArchiveCount > 0 ? (
+          <div className="mt-8 text-center">
+            <button
+              type="button"
+              onClick={() => setShowArchive(true)}
+              className="border-2 border-stellar-cyan px-5 py-3 text-sm text-stellar-cyan transition-colors hover:bg-stellar-cyan hover:text-void-black"
+            >
+              Open full timeline archive
+            </button>
+          </div>
+        ) : (
+          <div className="mt-8 text-center">
+            <span className="text-asteroid-grey text-sm">End of Timeline</span>
+          </div>
+        )}
       </div>
     </section>
   );

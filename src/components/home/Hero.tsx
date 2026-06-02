@@ -23,8 +23,7 @@ export function Hero() {
               </h1>
 
               <p className="text-lg sm:text-xl text-moonlight-gray/80 mb-8 leading-relaxed">
-                AI Engineer / Full-Stack Developer building useful AI tools and web applications
-                for real business workflows.
+                AI engineer building useful AI tools to save time and money.
               </p>
 
               <CTAButtons />
