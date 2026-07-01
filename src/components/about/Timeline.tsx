@@ -36,8 +36,8 @@ const timelineData: TimelineItem[] = [
     period: "Sep 2025 - Present",
     description: [
       "Built a shared RAG base supporting 5 internal AI projects",
-      "Saved an estimated $300K+ per year by standardizing how internal teams launch AI knowledge agents",
-      "Lead customer-facing prototypes that turn banking data into useful insights",
+      "Saved an estimated $1.5M+ per year by standardizing how internal teams launch AI knowledge agents",
+      "Lead customer-facing AI solutions that turn banking data into useful insights",
       "Built brand-compliant React frontends that let business partners interact directly with internal AI systems",
     ],
     type: "experience",
@@ -80,8 +80,8 @@ const timelineData: TimelineItem[] = [
     location: "Columbus, OH",
     period: "May 2025 - Aug 2025",
     description: [
-      "Built early prototypes for retrieval and document handling in banking",
-      "Developed loan automation prototypes using AWS and LangChain",
+      "Built early AI projects for retrieval and document handling in banking",
+      "Developed loan automation AI solutions using AWS and LangChain",
       "Contributed to AI Center of Excellence research and development",
     ],
     type: "experience",

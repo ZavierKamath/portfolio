@@ -12,8 +12,8 @@ export type ProjectFilter =
 export type ProjectViewMode = "quick" | "deep";
 
 const outcomeByProjectId: Record<string, string> = {
-  "reusable-enterprise-rag-platform": "$300K+/year saved",
-  "customer-financial-insights-chatbot": "Customer insight prototype",
+  "reusable-enterprise-rag-platform": "$1.5M+/year saved",
+  "customer-financial-insights-chatbot": "Customer insight AI solution",
   "ai-enablement-workflow-automation": "Hundreds of colleagues enabled",
   "ai-agent-skills-repository": "Shared team knowledge",
   "ai-document-processing-systems": "Faster document review",

@@ -1,17 +1,17 @@
 const proofPoints = [
   {
     value: "Lead Developer",
-    label: "of RAG framework used to save 300K+ / year",
+    label: "of RAG framework used to save 1.5M+ / year",
     href: "/industry",
   },
   {
     value: "Mentor",
-    label: "teaching hundreds of developers to use AI tools",
+    label: "teaching 200+ developers and executives to use AI tools",
     href: "/industry#featured-work",
   },
   {
-    value: "Owner",
-    label: "of customer-facing AI prototypes",
+    value: "Builder",
+    label: "of customer-facing AI solutions",
     href: "/industry",
   },
   {

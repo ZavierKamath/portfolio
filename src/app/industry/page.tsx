@@ -13,7 +13,7 @@ export default function Industry() {
       <ProjectPageShell
         kind="industry"
         title="Industry Projects"
-        description="AI tools, banking prototypes, and internal training at Huntington."
+        description="AI tools, banking AI solutions, and internal training at Huntington."
       >
         <ProjectGrid
           projects={projects}

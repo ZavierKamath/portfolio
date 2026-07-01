@@ -83,7 +83,7 @@ export default function About() {
             <div className="card">
               <h3 className="mb-4 text-star-white">Current Focus</h3>
               <p className="text-asteroid-grey mb-4">
-                At Huntington, I build shared AI tools, customer-facing prototypes, document
+                At Huntington, I build shared AI tools, customer-facing AI solutions, document
                 processing flows, and React interfaces. Outside work, I build products like Memvia,
                 Nero, and Physics Grad Match.
               </p>
@@ -94,7 +94,7 @@ export default function About() {
                   </h4>
                   <ul className="space-y-1 text-asteroid-grey">
                     <li>• Shared RAG systems</li>
-                    <li>• Customer AI prototypes</li>
+                    <li>• Customer AI solutions</li>
                     <li>• Agents and tool calls</li>
                     <li>• Document processing</li>
                   </ul>

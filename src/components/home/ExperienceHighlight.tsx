@@ -22,7 +22,7 @@ export function ExperienceHighlight({ items }: ExperienceHighlightProps) {
         <div className="text-center mb-12">
           <h2 className="font-display text-2xl text-star-white mb-4">Featured Work</h2>
           <p className="text-moonlight-gray/75 max-w-3xl mx-auto leading-relaxed">
-            AI tools, prototypes, and training from my current role at Huntington National Bank.
+            AI tools, AI solutions, and training from my current role at Huntington National Bank.
           </p>
         </div>
 

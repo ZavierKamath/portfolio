@@ -49,7 +49,7 @@ export default function Home() {
             title: "Shared RAG Platform",
             subtitle: "Reusable knowledge tools for Huntington",
             description:
-              "Saved an estimated $300K+ per year by building a shared RAG base for 5 internal AI tools.",
+              "Saved an estimated $1.5M+ per year by building a shared RAG base for 5 internal AI tools.",
             impact:
               "Supports tools used by tens of thousands of colleagues across 5 internal AI projects.",
             status: "Active",
@@ -61,7 +61,7 @@ export default function Home() {
             title: "Customer Insights Chatbot",
             subtitle: "In development for mobile and web",
             description:
-              "Lead development of prototypes that turn customer data into useful banking insights.",
+              "Lead development of AI solutions that turn customer data into useful banking insights.",
             impact: "Lays groundwork for AI features across mobile and web banking.",
             status: "In Development",
             techStack: ["AWS Glue", "Athena", "Snowflake", "Cloud Run", "Vertex AI", "SQL"],
